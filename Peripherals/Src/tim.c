@@ -53,6 +53,7 @@ void tim_TIM1_InputCaptureConfig(void)
 {
 	//Enable TIM 1 Timer CLOCK
 	RCC->APB1ENR1 |= (0x1UL << (1U));
+
 	//Prescaler to 1kHz TCLOCK
 	// CK_CNT=fCK_PSC / (PSC[15:0] + 1)
 	TIM2->PSC = 80000-1;//Ya que 80MHz/80k es 1kHz
