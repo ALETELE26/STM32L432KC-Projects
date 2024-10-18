@@ -1,0 +1,6 @@
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1679:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1809:22:__NVIC_SetPriority	16	static
+../Peripherals/Src/tim.c:12:6:tim_TIM2_delayConfig	4	static
+../Peripherals/Src/tim.c:25:6:tim_TIM2_usDelay	16	static
+../Peripherals/Src/tim.c:41:6:tim_TIM2_msDelay	24	static
+../Peripherals/Src/tim.c:52:6:tim_TIM1_InputCaptureConfig	8	static
