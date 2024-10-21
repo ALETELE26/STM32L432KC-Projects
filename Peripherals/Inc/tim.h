@@ -25,6 +25,23 @@ void tim_TIM2_usDelay(uint32_t us);
  * @Brief Input Capture Timer Configuration - TIM1
  */
 void tim_TIM1_InputCaptureConfig(void);
+/*
+ * @Brief PWM Channel GPIO Configuration - TIM15
+ */
+void tim_TIM15_PWM_GPIO_config(void);
+/*
+ * @Brief Timer PWM Mode Configuration - TIM15
+ */
+void tim_TIM15_PWM_config(void);
+/**
+ * @Brief PWM Duty Cycle  - Brightness(0-4096)
+ */
+void tim_PWM_setBrightness(uint16_t bright);
+
+
+
+
+
 
 
 

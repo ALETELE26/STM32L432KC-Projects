@@ -18,5 +18,9 @@ void gpio_LED_config(void);
  */
 void gpio_LED_writeGreen(bool state);
 void gpio_LED_toggleGreen(void);
+/*
+ * @Brief PA8(D9) as TIM1_CH1 input alternate function
+ */
+void gpio_TIM1_CH1_input_config(void);
 
 #endif /* INC_GPIO_H_ */

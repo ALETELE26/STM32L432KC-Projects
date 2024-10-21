@@ -1,0 +1,3 @@
+../Peripherals/Src/adc.c:12:6:adc_GPIO_config	4	static
+../Peripherals/Src/adc.c:23:6:adc_ADCVREG_STUP_delay	16	static
+../Peripherals/Src/adc.c:32:6:adc_single_channel_auto_delayed_continuous_conv_config	8	static

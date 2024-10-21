@@ -45,4 +45,16 @@ void gpio_LED_toggleGreen(void)
     GPIOB->ODR ^= (GPIO_ODR_OD3);
 }
 
-
+/*
+ * @Brief PA8(D9) as TIM1_CH1 input alternate function
+ */
+void gpio_TIM1_CH1_input_config(void)
+{
+	//Enable GPIO port A clock
+	RCC->AHB2ENR |= (RCC_AHB2ENR_GPIOAEN);
+	//Pin mode to alternate function mode
+	GPIOA->MODER &= ~(GPIO_MODER_MODER8);
+	GPIOA->MODER |= (GPIO_MODER_MODER8_1);
+	GPIOA->AFR[1] &= ~(GPIO_AFRH_AFSEL8_Msk);
+	GPIOA->AFR[1] |= (GPIO_AFRH_AFSEL8_0);
+}
