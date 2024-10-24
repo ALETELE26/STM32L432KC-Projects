@@ -11,6 +11,7 @@
 #include <gpio.h>
 #include <tim.h>
 volatile uint16_t adc_samples[3];
+uint8_t RGB_index[3];
 volatile bool ADC_EOC_flag=0;
 uint32_t sample_period = 100;//Time in ms
 
@@ -35,6 +36,7 @@ int main (void)
 	//TIM6 as ADC Trigger configuration
 	tim_TIM6_TRGO_config(sample_period);
 	//TIM1 GPIO PWM channels configuration
+	//PA8(D9)->TIM1_CH1  PA9(D1)->TIM1_CH2 PA10(D0)->TIM1_CH3
 	tim_TIM1_RGB_PWM_GPIO_config();
 	//TIM1 PWM RGB configuration
 	tim_TIM1_RGB_PWM_config();
@@ -47,7 +49,8 @@ int main (void)
 			for(uint8_t i=0;i<3;i++)
 			{
 				//Each ADC sample module a PWM signal
-				tim_TIM1_RGB_PWM_setColor(adc_samples[i], i+1)
+				tim_TIM1_RGB_PWM_setColor(adc_samples[i], i+1);
+				RGB_index[i]=(uint8_t)((adc_samples[i]+0.0f)*(255.0f/4096.0f));
 			}
 		}
 	}
@@ -65,16 +68,9 @@ void DMA1_Channel1_IRQHandler(void)
 		////Ready for the application
 		//Blink Led to indicate transfer completed
 		gpio_LED_toggleGreen();
-		ADC_EOC_flag=1;
-
+		ADC_EOC_flag =1;
 	}
-
-
-
-
-
 }
-
 
 
 
