@@ -1,4 +1,4 @@
-/*
+  /*
  * adc.h
  *
  *  Created on: 17 oct. 2024
@@ -32,7 +32,7 @@ void adc_multiChannel_config(void);
 /*
  * @Brief ADC DMA Configuration
  */
-void adc_multiChannel_DMA_config(uint16_t *pointer_ADC_buffer);
+void adc_multiChannel_DMA_config(volatile uint16_t * pointer_ADC_buffer);
 
 
 

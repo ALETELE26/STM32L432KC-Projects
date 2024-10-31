@@ -9,10 +9,10 @@
 //#include <gpio.h>
 //#include <tim.h>
 //
-//volatile unsigned long time_initial=0;
-//volatile unsigned long time_actual=0;
-//volatile unsigned long period;
-//int frequency;
+//volatile uint16_t time_initial=0;
+//volatile uint16_t time_actual=0;
+//volatile uint16_t period;
+//uint16_t frequency;
 //
 //int main (void)
 //{
@@ -34,7 +34,7 @@
 //		if (TIM1->SR & (TIM_SR_CC1IF))
 //		{
 //			//Convert period to second and calculate frequency
-//			frequency = 1/(1000000*period);
+//			frequency = (uint16_t)(1.0f/(1000000.0f*period));
 //			TIM1->SR &= ~(TIM_SR_CC1IF);
 //		}
 //

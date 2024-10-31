@@ -12,7 +12,7 @@ int _write(int file,char *ptr, int len);
 int __io_putchar(int ch) {
  uint8_t c[1];
  c[0] = ch & 0x00FF;
- uart_UART1_TX(&c[0], 1, 100);
+ uart_UART2_TX(&c[0], 1, 100);
  return ch;
 }
 

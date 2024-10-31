@@ -1,9 +1,10 @@
 core_cm4.h:1770:22:__NVIC_ClearPendingIRQ	2
 core_cm4.h:1809:22:__NVIC_SetPriority	2
 rcc.c:16:6:rcc_MSI_config	5
-rcc.c:93:6:rcc_USART1_for_BR_config	5
-rcc.c:171:6:rcc_SysTick_config	1
-rcc.c:190:6:rcc_msIncTicks	1
-rcc.c:197:10:rcc_msGetTicks	1
-rcc.c:204:6:rcc_msDelay	2
-rcc.c:214:6:SysTick_Handler	1
+rcc.c:91:6:rcc_USART2_for_BR_config	5
+rcc.c:169:6:rcc_SysTick_config	1
+rcc.c:188:6:rcc_msIncTicks	1
+rcc.c:195:10:rcc_msGetTicks	1
+rcc.c:202:6:rcc_msDelay	2
+rcc.c:212:6:rcc_HSI_UART_config	3
+rcc.c:226:6:SysTick_Handler	1

@@ -10,14 +10,19 @@
 
 #include <main.h>
 /*
- * Brief MSI Clock Config
+ * Brief MSI Clock Configuration
  */
 void rcc_MSI_config(void);
 
 /*
- * @Brief MSI Clock Configuration for UART1 baud rate(72MHz)
+ * @Brief HSI for UART (16MHz) Clock Configuration
  */
-void rcc_USART1_for_BR_config(void);
+void rcc_HSI_UART_config(void);
+
+///*
+// * @Brief MSI Clock Configuration for UART2 baud rate(72MHz)
+// */
+void rcc_USART2_for_BR_config(void);
 
 /*
  * Brief SysTick Configuration

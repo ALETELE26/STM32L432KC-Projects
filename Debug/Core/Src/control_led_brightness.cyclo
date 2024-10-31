@@ -1,3 +1,0 @@
-core_cm4.h:1770:22:__NVIC_ClearPendingIRQ	2
-control_led_brightness.c:16:5:main	1
-control_led_brightness.c:46:6:TIM2_IRQHandler	1

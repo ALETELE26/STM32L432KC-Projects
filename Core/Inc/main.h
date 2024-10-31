@@ -11,6 +11,8 @@
 #include <stm32l4xx.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdint.h>
+#include <string.h>
 #include <rcc.h>
 
 #endif /* INC_MAIN_H_ */
