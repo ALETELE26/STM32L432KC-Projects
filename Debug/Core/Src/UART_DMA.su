@@ -1,0 +1,4 @@
+C:/Users/Cuba/Documents/Escuela/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1770:22:__NVIC_ClearPendingIRQ	16	static
+../Core/Src/UART_DMA.c:12:5:main	32	dynamic
+../Core/Src/UART_DMA.c:52:6:DMA1_Channel6_IRQHandler	8	static
+../Core/Src/UART_DMA.c:73:6:DMA1_Channel7_IRQHandler	8	static

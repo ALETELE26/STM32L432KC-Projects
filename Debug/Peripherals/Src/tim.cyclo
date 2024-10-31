@@ -7,3 +7,7 @@ tim.c:58:6:tim_TIM1_InputCaptureConfig	1
 tim.c:102:6:tim_TIM15_PWM_GPIO_config	1
 tim.c:119:6:tim_TIM15_PWM_config	1
 tim.c:160:6:tim_PWM_setBrightness	1
+tim.c:168:6:tim_TIM6_TRGO_config	1
+tim.c:196:6:tim_TIM1_RGB_PWM_GPIO_config	1
+tim.c:225:6:tim_TIM1_RGB_PWM_config	1
+tim.c:282:6:tim_TIM1_RGB_PWM_setColor	1

@@ -1,0 +1,4 @@
+core_cm4.h:1770:22:__NVIC_ClearPendingIRQ	2
+UART_DMA.c:12:5:main	3
+UART_DMA.c:52:6:DMA1_Channel6_IRQHandler	3
+UART_DMA.c:73:6:DMA1_Channel7_IRQHandler	3
