@@ -1,0 +1,5 @@
+../Application/SDCard/user_diskio.c:81:9:USER_initialize	16	static
+../Application/SDCard/user_diskio.c:95:9:USER_status	16	static
+../Application/SDCard/user_diskio.c:116:9:USER_read	24	static
+../Application/SDCard/user_diskio.c:141:9:USER_write	24	static
+../Application/SDCard/user_diskio.c:167:9:USER_ioctl	32	static

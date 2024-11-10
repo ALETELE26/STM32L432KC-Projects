@@ -1,0 +1,5 @@
+fatfs_sd.c:24:9:SD_disk_initialize	1
+fatfs_sd.c:29:9:SD_disk_status	2
+fatfs_sd.c:38:9:SD_disk_read	2
+fatfs_sd.c:48:9:SD_disk_write	2
+fatfs_sd.c:58:9:SD_disk_ioctl	19

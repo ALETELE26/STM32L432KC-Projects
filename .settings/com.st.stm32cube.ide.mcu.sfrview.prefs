@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-sfrviewstate={"fFavorites"\:{"fLists"\:{}},"fProperties"\:{"fNodeProperties"\:{"STM32L4x2/GPIOB/ODR"\:{"fNodeProperties"\:{"autoupdate"\:"true"}},"STM32L4x2/USART1/TDR"\:{"fNodeProperties"\:{"autoupdate"\:"true"}},"STM32L4x2/USART1/ISR"\:{"fNodeProperties"\:{"autoupdate"\:"true"}}}}}
+sfrviewstate={"fFavorites"\:{"fLists"\:{"SD_CARD_GROUP"\:["STM32L4x2/GPIOA/MODER","STM32L4x2/GPIOA/AFRL","STM32L4x2/GPIOA/ODR","STM32L4x2/SPI1/DR","STM32L4x2/SPI1/SR","STM32L4x2/SPI1/CR1","STM32L4x2/SPI1/CR2"]}},"fProperties"\:{"fNodeProperties"\:{"STM32L4x2/GPIOB/ODR"\:{"fNodeProperties"\:{"autoupdate"\:"true"}},"STM32L4x2/USART1/TDR"\:{"fNodeProperties"\:{"autoupdate"\:"true"}},"STM32L4x2/USART1/ISR"\:{"fNodeProperties"\:{"autoupdate"\:"true"}}}}}

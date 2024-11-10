@@ -1,5 +1,5 @@
-C:/Users/Cuba/Documents/Escuela/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1770:22:__NVIC_ClearPendingIRQ	16	static
-C:/Users/Cuba/Documents/Escuela/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1809:22:__NVIC_SetPriority	16	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1770:22:__NVIC_ClearPendingIRQ	16	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1809:22:__NVIC_SetPriority	16	static
 ../Peripherals/Src/rcc.c:16:6:rcc_MSI_config	4	static
 ../Peripherals/Src/rcc.c:91:6:rcc_USART2_for_BR_config	4	static
 ../Peripherals/Src/rcc.c:169:6:rcc_SysTick_config	16	static

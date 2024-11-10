@@ -1,0 +1,7 @@
+spi.c:14:6:spi_GPIO_config	1
+spi.c:49:6:spi_config	2
+spi.c:93:6:spi_transmit	6
+spi.c:128:6:spi_receive	8
+spi.c:172:6:spi_transmitReceive	8
+spi.c:218:6:spi_SD_CS_config	1
+spi.c:239:6:spi_cs_sd_write	2

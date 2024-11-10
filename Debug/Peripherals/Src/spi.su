@@ -1,0 +1,7 @@
+../Peripherals/Src/spi.c:14:6:spi_GPIO_config	4	static
+../Peripherals/Src/spi.c:49:6:spi_config	16	static
+../Peripherals/Src/spi.c:93:6:spi_transmit	40	static
+../Peripherals/Src/spi.c:128:6:spi_receive	40	static
+../Peripherals/Src/spi.c:172:6:spi_transmitReceive	40	static
+../Peripherals/Src/spi.c:218:6:spi_SD_CS_config	4	static
+../Peripherals/Src/spi.c:239:6:spi_cs_sd_write	16	static
