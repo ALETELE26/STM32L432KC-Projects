@@ -24,9 +24,9 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Application/SDCard \
+Application/Wavelet_Analysis/Src \
 Core/Src \
 Middleware/FatFs \
-Middleware/FatFs/option \
 Peripherals/Src \
 Startup \
 

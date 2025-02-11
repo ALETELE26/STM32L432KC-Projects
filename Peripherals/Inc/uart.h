@@ -29,7 +29,7 @@ void uart_UART2_GPIO_config();
 /*
  * @Brief UART2 Peripheral Config
  */
-void uart_UART2_config(uint32_t SYSTEM_CLK);
+void uart_UART2_config(uint32_t systemClock, uint32_t baudRate);
 /*
  * @Brief UART2 Transmit
  */

@@ -12,7 +12,12 @@
 /*
  * Brief MSI Clock Configuration
  */
-void rcc_MSI_config(void);
+void rcc_MSI_PLL_config(uint32_t systemClock);
+
+/*
+ * Brief Max Speed Clock Configuration(80MHz)
+ */
+void rcc_Max_Speed_CLK_Config(void);
 
 /*
  * @Brief HSI for UART (16MHz) Clock Configuration
@@ -41,6 +46,9 @@ uint32_t rcc_msGetTicks(void);
  */
 void rcc_msDelay(uint32_t msDelayTime);
 
-
+/**
+ * Additional Timers for SD Applications
+ */
+void SDTimer_Handler(void);
 
 #endif /* INC_RCC_H_ */

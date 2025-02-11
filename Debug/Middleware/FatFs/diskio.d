@@ -1,7 +1,9 @@
 Middleware/FatFs/diskio.o: ../Middleware/FatFs/diskio.c \
- ../Middleware/FatFs/diskio.h ../Middleware/FatFs/integer.h \
- ../Middleware/FatFs/ff_gen_drv.h ../Middleware/FatFs/ff.h \
- C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/ffconf.h \
+ C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.h \
+ C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/diskio.h \
+ C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/ff.h \
+ C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/ffconf.h \
+ ../Middleware/FatFs/ff.h ../Middleware/FatFs/diskio.h \
  C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h \
  C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/stm32l4xx.h \
  C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/stm32l432xx.h \
@@ -12,11 +14,12 @@ Middleware/FatFs/diskio.o: ../Middleware/FatFs/diskio.c \
  C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/mpu_armv7.h \
  C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/system_stm32l4xx.h \
  C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc/rcc.h
-../Middleware/FatFs/diskio.h:
-../Middleware/FatFs/integer.h:
-../Middleware/FatFs/ff_gen_drv.h:
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.h:
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/diskio.h:
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/ff.h:
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/ffconf.h:
 ../Middleware/FatFs/ff.h:
-C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/ffconf.h:
+../Middleware/FatFs/diskio.h:
 C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h:
 C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/stm32l4xx.h:
 C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/stm32l432xx.h:

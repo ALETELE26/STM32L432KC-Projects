@@ -19,7 +19,7 @@
 ../Application/SDCard/sd_driver.c:323:6:sd_driver_ll_getCID	24	static
 ../Application/SDCard/sd_driver.c:338:6:sd_driver_ll_getOCR	40	static
 ../Application/SDCard/sd_driver.c:360:14:sd_driver_init	32	static
-../Application/SDCard/sd_driver.c:451:12:sd_driver_getState	4	static
-../Application/SDCard/sd_driver.c:459:6:sd_driver_getSizeInfo	16	static
-../Application/SDCard/sd_driver.c:468:6:sd_driver_readBlocks	24	static
-../Application/SDCard/sd_driver.c:506:6:sd_driver_writeBlocks	24	static
+../Application/SDCard/sd_driver.c:455:12:sd_driver_getState	4	static
+../Application/SDCard/sd_driver.c:463:6:sd_driver_getSizeInfo	16	static
+../Application/SDCard/sd_driver.c:472:6:sd_driver_readBlocks	24	static
+../Application/SDCard/sd_driver.c:510:6:sd_driver_writeBlocks	24	static

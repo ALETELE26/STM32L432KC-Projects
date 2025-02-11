@@ -1,6 +1,5 @@
-../Middleware/FatFs/diskio.c:75:9:disk_status	24	static
-../Middleware/FatFs/diskio.c:90:9:disk_initialize	24	static
-../Middleware/FatFs/diskio.c:112:9:disk_read	40	static
-../Middleware/FatFs/diskio.c:134:9:disk_write	40	static
-../Middleware/FatFs/diskio.c:156:9:disk_ioctl	24	static
-../Middleware/FatFs/diskio.c:174:14:get_fattime	4	static
+../Middleware/FatFs/diskio.c:25:9:disk_status	16	static
+../Middleware/FatFs/diskio.c:38:9:disk_initialize	16	static
+../Middleware/FatFs/diskio.c:51:9:disk_read	32	static
+../Middleware/FatFs/diskio.c:72:9:disk_write	32	static
+../Middleware/FatFs/diskio.c:91:9:disk_ioctl	16	static

@@ -1,0 +1,8 @@
+../drivers/Src/stm32l432xx_gpio_driver.c:10:6:gpioPeriphClockControl	16	static
+../drivers/Src/stm32l432xx_gpio_driver.c:39:6:gpio_Init	24	static
+../drivers/Src/stm32l432xx_gpio_driver.c:87:6:gpio_PortReset	16	static
+../drivers/Src/stm32l432xx_gpio_driver.c:101:6:gpio_ReadFromInputPin	16	static
+../drivers/Src/stm32l432xx_gpio_driver.c:106:10:gpio_ReadFromInputPort	24	static
+../drivers/Src/stm32l432xx_gpio_driver.c:113:6:gpio_WriteToOutputPin	16	static
+../drivers/Src/stm32l432xx_gpio_driver.c:124:6:gpio_WriteToOutputPort	16	static
+../drivers/Src/stm32l432xx_gpio_driver.c:129:6:gpio_ToggleOutputPin	16	static

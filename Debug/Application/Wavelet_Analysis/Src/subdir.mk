@@ -1,0 +1,27 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../Application/Wavelet_Analysis/Src/signals.c 
+
+OBJS += \
+./Application/Wavelet_Analysis/Src/signals.o 
+
+C_DEPS += \
+./Application/Wavelet_Analysis/Src/signals.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+Application/Wavelet_Analysis/Src/%.o Application/Wavelet_Analysis/Src/%.su Application/Wavelet_Analysis/Src/%.cyclo: ../Application/Wavelet_Analysis/Src/%.c Application/Wavelet_Analysis/Src/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L432xx '-D__weak=__attribute__((weak))' -DARM_MATH_CM4 -c -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc" -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include" -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc" -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs" -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard" -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/drivers/Inc" -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include" -I"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Inc" -O0 -ffunction-sections -fdata-sections -Wall -save-temps -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+
+clean: clean-Application-2f-Wavelet_Analysis-2f-Src
+
+clean-Application-2f-Wavelet_Analysis-2f-Src:
+	-$(RM) ./Application/Wavelet_Analysis/Src/signals.cyclo ./Application/Wavelet_Analysis/Src/signals.d ./Application/Wavelet_Analysis/Src/signals.o ./Application/Wavelet_Analysis/Src/signals.su
+
+.PHONY: clean-Application-2f-Wavelet_Analysis-2f-Src
+

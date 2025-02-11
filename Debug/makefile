@@ -11,9 +11,9 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Peripherals/Src/subdir.mk
--include Middleware/FatFs/option/subdir.mk
 -include Middleware/FatFs/subdir.mk
 -include Core/Src/subdir.mk
+-include Application/Wavelet_Analysis/Src/subdir.mk
 -include Application/SDCard/subdir.mk
 -include objects.mk
 
@@ -67,7 +67,7 @@ main-build: STM32L432KC.elf secondary-outputs
 
 # Tool invocations
 STM32L432KC.elf STM32L432KC.map: $(OBJS) $(USER_OBJS) C:\Users\Cuba\Documents\uni\STM32\STM32L432KC\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32L432KC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Cuba\Documents\uni\STM32\STM32L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "STM32L432KC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Cuba\Documents\uni\STM32\STM32L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L432KC.map" -Wl,--gc-sections -static -L"C:\Users\Cuba\Documents\uni\STM32\STM32L432KC/CMSIS/Lib/GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -108,7 +108,7 @@ void uart_UART2_GPIO_config(void)
 /*
  * @Brief UART2 Peripheral Config
  */
-void uart_UART2_config(uint32_t SYSTEM_CLK)
+void uart_UART2_config(uint32_t systemClock, uint32_t baudRate)
 {
   //// Enable floating-point unit.
   //SCB->CPACR    |=  ( 0xFUL << (20U) );
@@ -116,8 +116,8 @@ void uart_UART2_config(uint32_t SYSTEM_CLK)
   RCC->APB1ENR1 |= ( RCC_APB1ENR1_USART2EN );
   // Set word length to 8-bits
   USART2->CR1  &= ~(USART_CR1_M1);
-  // Set baud rate to 9600 Hz
-  USART2->BRR = SYSTEM_CLK/9600;
+  // Set baud rate
+  USART2->BRR = systemClock/baudRate;
   // Parity control disabled
   USART2->CR1  &= ~(USART_CR1_PCE);
   // Stop bits to 1

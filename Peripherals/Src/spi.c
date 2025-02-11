@@ -6,85 +6,406 @@
  */
 #include <spi.h>
 
+/**
+ * @Brief GPIO Peripheral CLK control
+ * STM32L432KC have only SPI1 and SPI3
+ */
+void spi_PeripheralClockControl(SPI_TypeDef *pSPIx , uint8_t EnorDi)
+{
+
+	if (EnorDi == ENABLE) {
+
+		if (pSPIx == SPI1) {
+
+			SPI1_CLOCK_ENABLE();
+
+		}else if (pSPIx == SPI3) {
+
+			SPI3_CLOCK_ENABLE();
+
+		}
+
+	}else{
+
+		if (pSPIx == SPI1) {
+
+			SPI1_CLOCK_DISABLE();
+
+		}else if (pSPIx == SPI3) {
+
+			SPI3_CLOCK_DISABLE();
+
+		}
+	}
+}
+
+/**
+ * @brief SPI Initialization API
+ */
+void spi_Init(SPI_Handle_t *pSPIHandle)
+{
+	// Enable the clock
+	spi_PeripheralClockControl(pSPIHandle->pSPIx, ENABLE ) ;
+	//// Configure the SPIx_CR1 register
+	// Configure the the SPI device mode
+	pSPIHandle->pSPIx->CR1 &=~ (0x1UL << SPI_CR1_MSTR_Pos);
+	pSPIHandle->pSPIx->CR1 |=  (pSPIHandle->SPIConfig.spi_DeviceMode << SPI_CR1_MSTR_Pos);
+
+	//Bus configuration
+	if (pSPIHandle->SPIConfig.spi_BusConfig == SPI_BUS_CONFIG_FULL_DUPLEX) {
+
+		// BIDIMODE should be cleared
+		pSPIHandle->pSPIx->CR1 &=~ (0x1 << SPI_CR1_BIDIMODE_Pos);
+
+	}else if (pSPIHandle->SPIConfig.spi_BusConfig == SPI_BUS_CONFIG_HALF_DUPLEX) {
+
+		// BIDIMODE should be set
+		pSPIHandle->pSPIx->CR1 |= (0x1 << SPI_CR1_BIDIMODE_Pos);
+		// Also we must set BIDIOE for TX only
+		pSPIHandle->pSPIx->CR1 |= (0x1 << SPI_CR1_BIDIOE_Pos);
+
+	}else if (pSPIHandle->SPIConfig.spi_BusConfig == SPI_BUS_CONFIG_SIMPLEX_RXONLY) {
+
+		// BIDIMODE should be cleared ;
+		pSPIHandle->pSPIx->CR1 &=~ (0x1 << SPI_CR1_BIDIMODE_Pos);
+
+		// RXOONLY bit should be set
+		pSPIHandle->pSPIx->CR1 |= (0x1 << SPI_CR1_RXONLY_Pos);
+
+	}
+	// Configure SPI clock speed
+	pSPIHandle->pSPIx->CR1 &=~ (0x7 << SPI_CR1_BR_Pos);
+	pSPIHandle->pSPIx->CR1 |=  (pSPIHandle->SPIConfig.spi_SclkSpeed << SPI_CR1_BR_Pos);
+
+	// Configure MSB/LSBFirst
+	pSPIHandle->pSPIx->CR1 &=~ (0x1 <<  SPI_CR1_LSBFIRST_Pos);
+	pSPIHandle->pSPIx->CR1 |=  (pSPIHandle->SPIConfig.spi_LSBFIRST << SPI_CR1_LSBFIRST_Pos);
+
+	//Configure SPI CPOL/CPHA mode
+	pSPIHandle->pSPIx->CR1 &=~ (0x1 <<  SPI_CR1_CPOL_Pos);
+	pSPIHandle->pSPIx->CR1 &=~ (0x1 <<  SPI_CR1_CPHA_Pos);
+	pSPIHandle->pSPIx->CR1 |=  (pSPIHandle->SPIConfig.spi_CPOL << SPI_CR1_CPOL_Pos);
+	pSPIHandle->pSPIx->CR1 |=  (pSPIHandle->SPIConfig.spi_CPHA << SPI_CR1_CPHA_Pos);
+
+	//Configure Software Slave Management(SSM)
+	pSPIHandle->pSPIx->CR1 &=~ (0x1 <<  SPI_CR1_SSM_Pos);
+	pSPIHandle->pSPIx->CR1 |=  (pSPIHandle->SPIConfig.spi_SSM <<  SPI_CR1_SSM_Pos);
+	//// Configure the SPIx_CR2 register
+
+	//Configure SPI data size
+	pSPIHandle->pSPIx->CR2 &=~ (0xF << SPI_CR2_DS_Pos);
+	pSPIHandle->pSPIx->CR2 |= (pSPIHandle->SPIConfig.spi_DataSize << SPI_CR2_DS_Pos);
+
+	//Enable error interrupt
+	if(pSPIHandle->SPIConfig.spi_ErrorInterrupt)
+	{
+		pSPIHandle->pSPIx->CR2 |= (SPI_CR2_ERRIE);
+	}
+
+	//Finally Enable Peripheral
+	pSPIHandle->pSPIx->CR1 |= (0x1 <<  SPI_CR1_SPE_Pos);
+}
+
+/**
+ * @Brief SPI Reset Peripheral Registers
+ */
+void spi_DeInit(SPI_TypeDef *pSPIx)
+{
+	if (pSPIx == SPI1) {
+		SPI1_REG_RESET() ;
+	}else if (pSPIx == SPI3) {
+		SPI3_REG_RESET() ;
+	}
+}
+
+/**
+ * @Brief SPI (NVIC)Interrupt Configuration
+ */
+void spi_IRQInterruptConfig(SPI_TypeDef *pSPIx,uint8_t ENorDIS,uint8_t interrupt_Priority)
+{
+	if (pSPIx == SPI1) {
+		if (ENorDIS) {
+			NVIC_SetPriority(SPI1_IRQn,interrupt_Priority);
+			NVIC_EnableIRQ(SPI1_IRQn);
+		} else {
+			NVIC_DisableIRQ(SPI1_IRQn);
+		}
+
+	} else {
+		if (ENorDIS) {
+			NVIC_SetPriority(SPI3_IRQn,interrupt_Priority);
+			NVIC_EnableIRQ(SPI3_IRQn);
+		} else {
+			NVIC_DisableIRQ(SPI3_IRQn);
+		}
+
+	}
+}
+
+/**
+ * @Brief SPI Get Flag Status
+ * @Parameter FlagName attempts for:
+ * SPI:RXNE,TXE,CRCERR,BSY,MODF,OVR flags
+ */
+uint8_t spi_GetFlagStatus(SPI_TypeDef *pSPIx, uint32_t FlagName )
+{
+	if ((pSPIx->SR &  (FlagName))) {
+
+		return FLAG_SET ;
+	}
+
+	return FLAG_RESET ;
+}
+
+/**
+ * @Brief SPI Interrupt-Based Transmit
+ */
+uint8_t spi_SendIT(SPI_Handle_t *pSPIHandle , uint8_t *pTxBuffer , uint32_t length)
+{
+	uint8_t state = pSPIHandle->TxState ;
+
+	if (state != SPI_BUSY_IN_TX) {
+
+		// save the buffer address and length in some global variable
+		pSPIHandle->pTxBuffer = pTxBuffer ;	// saving the buffer address
+		pSPIHandle->TxLen = length        ;	// saving the buffer length
+
+		// Set the SPI state is busy in transmission
+		pSPIHandle->TxState = SPI_BUSY_IN_TX ;
+
+		// enable the TXEI bit to get an interrupt when the TXE flag is set in SR register
+		pSPIHandle->pSPIx->CR2 |= (SPI_CR2_TXEIE) ;
+		// data transmission will happen in ISR handler
+	}
+	return state ;
+}
+/**
+ * @Brief SPI Interrupt-Based Transmit
+ */
+uint8_t spi_ReadIT(SPI_Handle_t *pSPIHandle , uint8_t *pRxBuffer , uint32_t length)
+{
+	uint8_t state = pSPIHandle->RxState ;
+
+	if (state != SPI_BUSY_IN_RX) {
+
+		// save the buffer address and length in some global variable
+		pSPIHandle->pRxBuffer = pRxBuffer ;	// saving the buffer address
+		pSPIHandle->RxLen     = length    ;	// saving the buffer length
+
+		// Set the SPI state is busy in transmission
+		pSPIHandle->RxState = SPI_BUSY_IN_RX ;
+
+		// enable the TXEIE bit to get an interrupt when the TXE flag is set in  register
+		pSPIHandle->pSPIx->CR2 |= (SPI_CR2_RXNEIE);
+		// data transmission will happen in ISR handler
+	}
+
+	return state ;
+
+}
+
+
+/**
+ * @Brief SPI Interrupt End of TX, stop TX and reset TX parameters
+ */
+void spi_CloseTransmissionIT(SPI_Handle_t *pSPIHandle )
+{
+
+	// Disable TXE interrupt
+	//(Avoid to reenter in ISR Routine after TX complete)
+	pSPIHandle->pSPIx->CR2 &= ~(SPI_CR2_TXEIE) ;
+
+	//  Reset the TX buffer
+	pSPIHandle->pTxBuffer = NULL ;
+
+	// Reset the TX length to zero
+	pSPIHandle->TxLen = 0 ;
+
+	// Reset the TX state to spi_ready
+	pSPIHandle->TxState = SPI_READY ;
+
+}
+
+/**
+ * @Brief SPI Interrupt End of RX, stop RX and reset RX parameters
+ * !Have to be call when length==0 in SPI ISR routine!
+ */
+void spi_CloseReceptionIT(SPI_Handle_t *pSPIHandle )
+{
+	// Disable the RXNE interrupt
+	pSPIHandle->pSPIx->CR2 &= ~(SPI_CR2_RXNEIE) ;
+
+	//  Reset the RX buffer
+	pSPIHandle->pRxBuffer= NULL ;
+
+	// Reset the RX length to zero
+	pSPIHandle->RxLen = 0 ;
+
+	// Reset the RX state to spi_ready
+	pSPIHandle->RxState = SPI_READY ;
+
+}
+
+/**
+ * @Brief SPI TXE Interrupt Handler
+ * !Must be call in SPIx_IRQn routine when TXE==1 and TXEIE==1!
+ */
+void spi_TXE_Interrupt_Handler(SPI_Handle_t *pSPIHandle)
+{
+	//Recharges Data Register(DR)for send one or two bytes
+	if ((pSPIHandle->pSPIx->CR2 & (SPI_CR2_DS))==(SPI_CR2_DS)) {
+		//Data frame is 16bits
+		pSPIHandle->pSPIx->DR = *((uint16_t*)(pSPIHandle->pTxBuffer));
+		pSPIHandle->TxLen -- ;
+		pSPIHandle->TxLen -- ;
+		((uint16_t*)(pSPIHandle->pTxBuffer)++) ;
+	}  else if((pSPIHandle->pSPIx->CR2 & (SPI_CR2_DS))==(SPI_CR2_DS_2|SPI_CR2_DS_1|SPI_CR2_DS_0)) {
+		//Data frame is 8bits
+		pSPIHandle->pSPIx->DR = *(pSPIHandle->pTxBuffer) ;
+		pSPIHandle->TxLen --;
+		(pSPIHandle->pTxBuffer)++ ;
+	}
+	//Validate if it's the end of TX to reset parameters
+	if (pSPIHandle->TxLen == 0) {
+		spi_CloseTransmissionIT(pSPIHandle);
+		// Inform the application about the data transfer event completion
+		spi_ApplicationEventCallBack(SPI_EVENT_TX_CMPLT) ;
+	}}
+
+/**
+ * @Brief SPI RXNE Interrupt Handler
+ * !Must be call in SPIx_IRQn routine when RXNE==1 and RXNEIE==1!
+ */
+void spi_RXNE_Interrupt_Handler(SPI_Handle_t *pSPIHandle)
+{
+	if ((pSPIHandle->pSPIx->CR2 & (SPI_CR2_DS))==(SPI_CR2_DS)) {
+		//Data frame is 16bits
+		// read 16 bit of  data from DR
+		*((uint16_t*)(pSPIHandle->pRxBuffer)) = pSPIHandle->pSPIx->DR;
+		pSPIHandle->RxLen -- ;
+		pSPIHandle->RxLen -- ;
+		((uint16_t*)(pSPIHandle->pRxBuffer)++) ;
+
+	}  else if((pSPIHandle->pSPIx->CR2 & (SPI_CR2_DS))==(SPI_CR2_DS_2|SPI_CR2_DS_1|SPI_CR2_DS_0)){
+		//Data frame is 8bits
+		// Read 8 bit data from DR
+		*(pSPIHandle->pRxBuffer) = pSPIHandle->pSPIx->DR ;
+		pSPIHandle->RxLen --;
+		(pSPIHandle->pRxBuffer)++ ;
+	}
+	//Validate if it's the end of RX to reset parameters
+	if (pSPIHandle->RxLen == 0) {
+		spi_CloseReceptionIT(pSPIHandle);
+		// Inform the application about the data transfer event completion
+		spi_ApplicationEventCallBack(SPI_EVENT_RX_CMPLT) ;
+	}
+}
+
+/**
+ * @Brief SPI Error Interrupt Handler
+ */
+void spi_Error_Interrupt_Handler(SPI_Handle_t *pSPIHandle)
+{
+	uint8_t temp ;
+	// clear the over flag
+
+	/* directly reading the DR register causes the OVR flag to reset but the value in the DR may be required
+	 * by the application thats why we read the DR to clear the OVR flag only when SPI is not transmitting because
+	 *  we receive data only when there is clock and clock only happens when master is transmitting */
+	if (pSPIHandle->TxState != SPI_BUSY_IN_TX) {
+
+		// read operation to dr register
+		temp = pSPIHandle->pSPIx->DR ;
+
+		// read operation to sr register
+		temp = pSPIHandle->pSPIx->SR;
+
+	}
+	(void)temp ;
+
+	// inform the application about the error
+	spi_ApplicationEventCallBack(SPI_EVENT_OVR_ERR) ;
+}
+
+/**
+ * @Brief SPIx Multi-Cause IRQ Handling
+ */
+void spi_IRQHandling (SPI_Handle_t *pSPIHandle)
+{
+	//Check for a RXNE interrupt request
+	if ((pSPIHandle->pSPIx->SR & (SPI_SR_RXNE)) && (pSPIHandle->pSPIx->CR2 & (SPI_CR2_RXNEIE)))
+	{
+		// Handling RXNE interrupt
+		spi_RXNE_Interrupt_Handler(pSPIHandle);
+	}
+	//Check for a TXE interrupt request
+	if ((pSPIHandle->pSPIx->SR & (SPI_SR_TXE)) && (pSPIHandle->pSPIx->CR2 & (SPI_CR2_TXEIE)))
+	{
+		// Handling TXE interrupt
+		spi_TXE_Interrupt_Handler(pSPIHandle);
+	}
+	//Check for an error interrupt request(OVR in this case)
+	if ((pSPIHandle->pSPIx->SR & (SPI_SR_OVR)) && (pSPIHandle->pSPIx->CR2 & (SPI_CR2_ERRIE)))
+	{
+		// Handling error interrupt
+		spi_Error_Interrupt_Handler(pSPIHandle);
+	}
+}
 
 /**
  * @Brief SPI1 GPIO pins configuration
  * (PA5(A4)->SP1_SCK,PA6(A5)->SP1_MISO,PA7(A6)->SP1_MOSI)
+ * (PA4(A3)->CS)
  */
 void spi_GPIO_config(void)
 {
-	//Enable GPIO port A clock
-	RCC->AHB2ENR |= (RCC_AHB2ENR_GPIOAEN);
-	//Alternate function mode
-	GPIOA->MODER &=~ (GPIO_MODER_MODE5);
-	GPIOA->MODER &=~ (GPIO_MODER_MODE6);
-	GPIOA->MODER &=~ (GPIO_MODER_MODE7);
-	GPIOA->MODER |= (GPIO_MODER_MODE5_1);
-	GPIOA->MODER |= (GPIO_MODER_MODE6_1);
-	GPIOA->MODER |= (GPIO_MODER_MODE7_1);
-	//SPI1 is AF5
-	GPIOA->AFR[0] &=~ (GPIO_AFRL_AFSEL5);
-	GPIOA->AFR[0] &=~ (GPIO_AFRL_AFSEL6);
-	GPIOA->AFR[0] &=~ (GPIO_AFRL_AFSEL7);
-	GPIOA->AFR[0] |= (0x5UL << GPIO_AFRL_AFSEL5_Pos);
-	GPIOA->AFR[0] |= (0x5UL << GPIO_AFRL_AFSEL6_Pos);
-	GPIOA->AFR[0] |= (0x5UL << GPIO_AFRL_AFSEL7_Pos);
-	//High speed Mode
-	GPIOA->OSPEEDR &=~ (GPIO_OSPEEDER_OSPEEDR5);
-	GPIOA->OSPEEDR &=~ (GPIO_OSPEEDER_OSPEEDR6);
-	GPIOA->OSPEEDR &=~ (GPIO_OSPEEDER_OSPEEDR7);
-	GPIOA->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR5_1);
-	GPIOA->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR6_1);
-	GPIOA->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR7_1);
-	/*Pull up resistance for all pins except SCLK*/
-	GPIOA->PUPDR &=~ (GPIO_PUPDR_PUPD6);
-	GPIOA->PUPDR &=~ (GPIO_PUPDR_PUPD7);
-	GPIOA->PUPDR |= (GPIO_PUPDR_PUPD6_0);
-	GPIOA->PUPDR |= (GPIO_PUPDR_PUPD7_0);
+	//SPI AF GPIO pins configuration
+	GPIO_Handle_t spiPins;
+	spiPins.pGPIOx=GPIOA;
+	spiPins.pinMode=PIN_MODE_ALTFN;
+	spiPins.pinOutputType=PIN_OP_TYPE_PP;
+	spiPins.pinPUPDControl=PIN_PULL_UP;
+	spiPins.pinSpeed=PIN_SPEED_HIGH;
+	spiPins.pinAltFunMode=AF5;
+	spiPins.pinNumber=PIN_NO_6;//MISO
+	gpio_Init(&spiPins);
+	spiPins.pinPUPDControl=PIN_NO_PUPD;
+	spiPins.pinNumber=PIN_NO_7;//MOSI
+	gpio_Init(&spiPins);
+	spiPins.pinNumber=PIN_NO_5;//SCLK
+	gpio_Init(&spiPins);
+	spiPins.pinNumber=PIN_NO_4;//CS
+	spiPins.pinMode=PIN_MODE_OUTPUT;
+	gpio_Init(&spiPins);
+	//Default value of CS is HIGH
+	GPIOA->BSRR |= (GPIO_BSRR_BS4);
 }
 
 /**
  * @Brief SPI1 peripheral configuration
+ *--------------------
+ * SPI_MODE CPOL  CPHA
+ * 0        0     0
+ * 1        0     1
+ * 2        1     0
+ * 3        1     1
+ * -------------------
+ *
  */
-void spi_config(uint32_t SYSTEM_CLK)
+void spi_config(uint32_t system_Clock,SPI_Handle_t *pSPIHandle)
 {
-	//Enable SPI1 clock
-	RCC->APB2ENR |= (RCC_APB2ENR_SPI1EN);
-	//Baud Rate Generation
-	SPI1->CR1 &=~ (SPI_CR1_BR);
-	if (SYSTEM_CLK==16000000)//To generate a 1MHz baud rate
-	{
-		SPI1->CR1 |= (0x3UL << SPI_CR1_BR_Pos);
-	}
-	else//To generate a 625kHz baud rate(with fPCLK=80MHz)
-	{
-		SPI1->CR1 |= (0x6UL << SPI_CR1_BR_Pos);
-	}
-	//Clock phase
-	SPI1->CR1 &=~ (SPI_CR1_CPHA);
-	//Clock polarity
-	SPI1->CR1 &=~ (SPI_CR1_CPOL);
-	//Full-Duplex Mode
-	SPI1->CR1 &=~ (SPI_CR1_RXONLY);
-	SPI1->CR1 &=~ (SPI_CR1_BIDIMODE);
-	//MSB First
-	SPI1->CR1 &=~ (SPI_CR1_LSBFIRST);
-	//Internal Slave enable
-	SPI1->CR1 |= (SPI_CR1_SSM | SPI_CR1_SSI);
-	//Mode Master
-	SPI1->CR1 |= (SPI_CR1_MSTR);
-	//Data word (8/16 bits)
-	SPI1->CR2 &=~ (SPI_CR2_DS);
-	SPI1->CR2 |= (SPI_CR2_DS_0 |SPI_CR2_DS_1|SPI_CR2_DS_2);
-	//Set RX FIFO buffer threshold
-	SPI1->CR2 |= (SPI_CR2_FRXTH);
-	//Enabling SPI
-	SPI1->CR1 |= (SPI_CR1_SPE);
-	//	//Clear all error flags
-	//	volatile uint32_t tempRead = SPI1->SR;
 
-
-
+	pSPIHandle->pSPIx=SPI1;
+	pSPIHandle->SPIConfig.spi_BusConfig=SPI_BUS_CONFIG_FULL_DUPLEX;
+	pSPIHandle->SPIConfig.spi_CPHA=SPI_CPHA_LOW;
+	pSPIHandle->SPIConfig.spi_CPOL=SPI_CPOL_LOW;
+	pSPIHandle->SPIConfig.spi_DataSize=SPI_DS_8BITS;
+	pSPIHandle->SPIConfig.spi_DeviceMode=SPI_DEVICE_MODE_MASTER;
+	pSPIHandle->SPIConfig.spi_ErrorInterrupt=DISABLE;
+	pSPIHandle->SPIConfig.spi_LSBFIRST=SPI_MSBFIRST;
+	pSPIHandle->SPIConfig.spi_SSM=SPI_SSM_EN;
+	pSPIHandle->SPIConfig.spi_SclkSpeed=SPI_SCLK_SPEED_DIV4;
+	spi_Init(pSPIHandle);
 }
 
 /**
@@ -118,8 +439,88 @@ bool spi_transmit(uint8_t *pointer_data,uint8_t len,uint32_t timeout)
 	//Clear overrun conditions
 	volatile uint32_t tempRead = SPI1->DR;
 	tempRead = SPI1->SR;
+	(void)tempRead ;
 	return true;
 
+}
+/**
+ * @brief DMA1 for SPI1_TX configuration
+ */
+void spi_DMA_config(void)
+{
+	//Activar el reloj del DMA
+	RCC->AHB1ENR |= (RCC_AHB1ENR_DMA1EN);
+	//Clear DMA1-CH3 status flags
+	DMA1->IFCR |=(DMA_IFCR_CGIF3);
+	//Seleccionando SPI1-TX como canal del DMA
+	DMA1_CSELR->CSELR &= ~(DMA_CSELR_C3S);
+	DMA1_CSELR->CSELR |= (0x1UL << DMA_CSELR_C3S_Pos);
+	//Peripheral address (Destination is SPI1->DR)
+	DMA1_Channel3->CPAR =(uint32_t)(&(SPI1->DR));
+	//Deshabilitando todas las interrupciones
+	DMA1_Channel3->CCR &= ~ (DMA_CCR_TEIE | DMA_CCR_TCIE | DMA_CCR_HTIE);
+	//Enable memory increment and disable peripheral increment
+	DMA1_Channel3->CCR |= (DMA_CCR_MINC);
+	DMA1_Channel3->CCR &= ~(DMA_CCR_PINC);
+	//Direction is Memory to Peripheral
+	DMA1_Channel3->CCR |= (DMA_CCR_DIR);
+	//Estableciendo Prioridad alta
+	DMA1_Channel3->CCR &= ~ (DMA_CCR_PL);
+	DMA1_Channel3->CCR |= (DMA_CCR_PL_1);
+
+}
+
+/**
+ * @Brief SPI1 transmit with DMA
+ */
+bool spi_DMA_transmit(uint8_t *pointer_data,uint8_t len,uint32_t timeout)
+{
+	//-------------Restarting and Setting DMA--------------------------------//
+	//Disable SPI1(if not)
+	SPI1->CR1 &= ~(SPI_CR1_SPE);
+	//Desactivar transmisiones DMA
+	DMA1_Channel3->CCR &= ~(DMA_CCR_EN);
+	uint32_t startTick = rcc_msGetTicks();//Initial Time
+	//Clear DMA1-CH3 status flags
+	DMA1->IFCR |=(DMA_IFCR_CGIF3);
+	//Memory address (Source is pointer_data)
+	DMA1_Channel3->CMAR =(uint32_t)(pointer_data);
+	//Set No. of transfers to length
+	DMA1_Channel3->CNDTR=len;
+	//-------------Empezando las comunicaciones DMA--------------------------------//
+	//Enable DMA TX Channel
+	DMA1_Channel3->CCR |= (DMA_CCR_EN);
+	//Enable DMA-SPI TX Buffer
+	SPI1->CR2 |= (SPI_CR2_TXDMAEN);
+	//Enable SPI1
+	SPI1->CR1 |= (SPI_CR1_SPE);
+	//Wait for DMA transfers complete
+	while(!(DMA1->ISR & (DMA_ISR_TCIF3)))
+	{
+		if((rcc_msGetTicks() - startTick)>= timeout) return false;
+	}
+	//-------------Desactivando las comunicaciones DMA--------------------------------//
+	//Disable DMA Channel
+	DMA1_Channel3->CCR &=~ (DMA_CCR_EN);
+	//Wait for FIFO empty
+	while((SPI1->SR & SPI_SR_FTLVL))
+	{
+		if((rcc_msGetTicks() - startTick)>= timeout) return false;
+	}
+	//Wait for busy flag
+	while((SPI1->SR & SPI_SR_BSY))
+	{
+		if((rcc_msGetTicks() - startTick)>= timeout) return false;
+	}
+	//Disable SPI1
+	SPI1->CR1 &= ~(SPI_CR1_SPE);
+	//Disable DMA-SPI TX Buffer
+	SPI1->CR2 &= ~(SPI_CR2_TXDMAEN);
+	//Clear overrun conditions
+	volatile uint32_t tempRead = SPI1->DR;
+	tempRead = SPI1->SR;
+	(void)tempRead ;
+	return true;
 }
 
 /**
@@ -162,6 +563,7 @@ bool spi_receive(uint8_t *pointer_data,uint8_t len,uint32_t timeout)
 	//Clear overrun conditions
 	volatile uint32_t tempRead = SPI1->DR;
 	tempRead = SPI1->SR;
+	(void)tempRead ;
 	return true;
 
 }
@@ -176,6 +578,7 @@ bool spi_transmitReceive(uint8_t *RX_buffer,uint8_t *TX_buffer,uint8_t len,uint3
 	//Timeout initial ticks
 	uint8_t dataIdx = 0;
 	uint32_t startTick = rcc_msGetTicks();
+	uint32_t actualTick;
 	bool isTransmit=1;
 	//While loop: TX first, then RX, managing timeout
 	while(dataIdx<len)
@@ -196,7 +599,8 @@ bool spi_transmitReceive(uint8_t *RX_buffer,uint8_t *TX_buffer,uint8_t len,uint3
 		}
 		else //Manage timeout
 		{
-			if((rcc_msGetTicks() - startTick)>= timeout) return false;
+			actualTick=rcc_msGetTicks();
+			if((actualTick - startTick)>= timeout) return false;
 		}
 	}
 	//Wait for busy flag
@@ -207,31 +611,11 @@ bool spi_transmitReceive(uint8_t *RX_buffer,uint8_t *TX_buffer,uint8_t len,uint3
 	//Clear overrun conditions
 	volatile uint32_t tempRead = SPI1->DR;
 	tempRead = SPI1->SR;
+	(void)tempRead ;
 	return true;
 
 }
 
-/**
- * @Brief SD Chip Select pin configuration
- * PA4(A3)
- */
-void spi_SD_CS_config(void)
-{
-	//Enable GPIO port A clock
-	RCC->AHB2ENR |= (RCC_AHB2ENR_GPIOAEN);
-	//Output mode
-	GPIOA->MODER &=~ (GPIO_MODER_MODE4);
-	GPIOA->MODER |= (GPIO_MODER_MODE4_0);
-	//High speed Mode
-	GPIOA->OSPEEDR &=~ (GPIO_OSPEEDER_OSPEEDR4);
-	GPIOA->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR4_1);
-	/*Pull up resistance enable*/
-	GPIOA->PUPDR &=~ (GPIO_PUPDR_PUPD4);
-	GPIOA->PUPDR |= (GPIO_PUPDR_PUPD4_0);
-	//Default value is HIGH
-	GPIOA->BSRR |= (GPIO_BSRR_BS4);
-
-}
 
 /**
  * @Brief SD Chip Select Set/Reset
@@ -248,7 +632,19 @@ void spi_cs_sd_write(bool state)
 	}
 }
 
+void spi_ApplicationEventCallBack(uint8_t eventcode)
+{
+	if (eventcode == SPI_EVENT_TX_CMPLT) {
+		printf("Transmission completed \n") ;
+	} else if(eventcode == SPI_EVENT_RX_CMPLT){
+		printf("Reception completed \n") ;
+	}else if (eventcode == SPI_EVENT_OVR_ERR) {
+		printf("OVR error has occurred clearing now \n") ;
+	}else if (eventcode == SPI_EVENT_CRC_ERR) {
+		printf("CRC Error has occurred \n ") ;
+	}
 
+}
 
 
 
