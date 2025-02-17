@@ -479,6 +479,7 @@
 #define STM32L432xx 1
 #define __weak __attribute__((weak))
 #define ARM_MATH_CM4 1
+#define ARM_MATH_DSP 1
 # 1 "../Peripherals/Src/rcc.c"
 
 
@@ -21279,8 +21280,25 @@ char *strsignal (int __signo);
 
 
 # 17 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
-# 1 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc/rcc.h" 1
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 1 3
+# 11 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 3
+#undef assert
+
+
+
+
+#define assert(__e) ((__e) ? (void)0 : __assert_func (__FILE__, __LINE__, __ASSERT_FUNC, #__e))
+# 39 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 3
+void __assert (const char *, int, const char *)
+     __attribute__ ((__noreturn__));
+void __assert_func (const char *, int, const char *, const char *)
+     __attribute__ ((__noreturn__));
+
+
+#define static_assert _Static_assert
 # 18 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc/rcc.h" 1
+# 19 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
 
 
 
@@ -21350,8 +21368,6 @@ void SDTimer_Handler(void);
 
 static volatile uint32_t msTicks=0;
 
-volatile uint8_t FatFsCnt = 0;
-volatile uint16_t Timer1, Timer2;
 
 
 
@@ -21432,7 +21448,7 @@ void rcc_MSI_PLL_config(uint32_t systemClock)
 
 void rcc_USART2_for_BR_config(void)
 {
-# 114 "../Peripherals/Src/rcc.c"
+# 112 "../Peripherals/Src/rcc.c"
  ((RCC_TypeDef *) (((0x40000000UL) + 0x00020000UL) + 0x1000UL))->APB1ENR1 |=((0x1UL << (28U)));
  ((PWR_TypeDef *) ((0x40000000UL) + 0x7000UL))->CR1 |=((0x1UL << (8U)));
 
@@ -21527,8 +21543,6 @@ void rcc_msDelay(uint32_t msDelayTime)
 {
  uint32_t startTicks= rcc_msGetTicks();
  while((rcc_msGetTicks() - startTicks )< msDelayTime);
-
-
 }
 
 
@@ -21599,22 +21613,9 @@ void rcc_Max_Speed_CLK_Config(void)
 
 
 
-void SDTimer_Handler(void)
-{
- if(Timer1 > 0)
-  Timer1--;
-
- if(Timer2 > 0)
-  Timer2--;
-}
-
-
-
-
 
 void SysTick_Handler(void)
 {
  __NVIC_ClearPendingIRQ(SysTick_IRQn);
-# 305 "../Peripherals/Src/rcc.c"
  rcc_msIncTicks();
 }

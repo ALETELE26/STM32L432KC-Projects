@@ -479,6 +479,7 @@
 #define STM32L432xx 1
 #define __weak __attribute__((weak))
 #define ARM_MATH_CM4 1
+#define ARM_MATH_DSP 1
 # 1 "../Peripherals/Src/exti.c"
 
 
@@ -21279,6 +21280,23 @@ char *strsignal (int __signo);
 
 
 # 17 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 1 3
+# 11 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 3
+#undef assert
+
+
+
+
+#define assert(__e) ((__e) ? (void)0 : __assert_func (__FILE__, __LINE__, __ASSERT_FUNC, #__e))
+# 39 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 3
+void __assert (const char *, int, const char *)
+     __attribute__ ((__noreturn__));
+void __assert_func (const char *, int, const char *, const char *)
+     __attribute__ ((__noreturn__));
+
+
+#define static_assert _Static_assert
+# 18 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
 # 1 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc/rcc.h" 1
 # 9 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc/rcc.h"
 #define INC_RCC_H_ 
@@ -21328,7 +21346,7 @@ void rcc_msDelay(uint32_t msDelayTime);
 
 
 void SDTimer_Handler(void);
-# 18 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
+# 19 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
 
 
 

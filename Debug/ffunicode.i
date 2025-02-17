@@ -479,6 +479,7 @@
 #define STM32L432xx 1
 #define __weak __attribute__((weak))
 #define ARM_MATH_CM4 1
+#define ARM_MATH_DSP 1
 # 1 "../Middleware/FatFs/ffunicode.c"
 # 26 "../Middleware/FatFs/ffunicode.c"
 # 1 "../Middleware/FatFs/ff.h" 1

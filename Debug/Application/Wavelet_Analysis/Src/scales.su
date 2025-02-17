@@ -1,0 +1,4 @@
+../Application/Wavelet_Analysis/Src/scales.c:21:6:scales_Init	32	static
+../Application/Wavelet_Analysis/Src/scales.c:57:6:calculate_logscale_array	88	static
+../Application/Wavelet_Analysis/Src/scales.c:111:6:calculate_linscale_array	64	static
+../Application/Wavelet_Analysis/Src/scales.c:149:6:calculate_linfreq_array	64	static

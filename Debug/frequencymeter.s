@@ -24,10 +24,10 @@
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.uleb128 0x1
-	.4byte	.LASF447
-	.byte	0xc
 	.4byte	.LASF448
+	.byte	0xc
 	.4byte	.LASF449
+	.4byte	.LASF450
 	.4byte	.Ldebug_line0
 	.4byte	.Ldebug_macro0
 	.section	.debug_abbrev,"",%progbits
@@ -1410,6 +1410,9 @@
 	.byte	0x5
 	.uleb128 0x5
 	.4byte	.LASF446
+	.byte	0x5
+	.uleb128 0x6
+	.4byte	.LASF447
 	.byte	0x4
 	.byte	0
 	.section	.debug_line,"",%progbits
@@ -1638,7 +1641,7 @@
 	.ascii	"__PTRDIFF_MAX__ 0x7fffffff\000"
 .LASF206:
 	.ascii	"__FLT32_HAS_QUIET_NAN__ 1\000"
-.LASF447:
+.LASF448:
 	.ascii	"GNU C11 10.3.1 20210824 (release) -mcpu=cortex-m4 -"
 	.ascii	"mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -march=ar"
 	.ascii	"mv7e-m+fp -g3 -O0 -std=gnu11 -ffunction-sections -f"
@@ -1828,7 +1831,7 @@
 	.ascii	"__GCC_ATOMIC_WCHAR_T_LOCK_FREE 2\000"
 .LASF304:
 	.ascii	"__ULACCUM_IBIT__ 32\000"
-.LASF448:
+.LASF449:
 	.ascii	"../Core/Src/frequencymeter.c\000"
 .LASF268:
 	.ascii	"__LLFRACT_FBIT__ 63\000"
@@ -1844,7 +1847,7 @@
 	.ascii	"DEBUG 1\000"
 .LASF293:
 	.ascii	"__UACCUM_FBIT__ 16\000"
-.LASF449:
+.LASF450:
 	.ascii	"C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Debug"
 	.ascii	"\000"
 .LASF1:
@@ -1855,6 +1858,8 @@
 	.ascii	"__ARM_FEATURE_CDE\000"
 .LASF258:
 	.ascii	"__LFRACT_FBIT__ 31\000"
+.LASF447:
+	.ascii	"ARM_MATH_DSP 1\000"
 .LASF50:
 	.ascii	"__INT_LEAST16_TYPE__ short int\000"
 .LASF222:

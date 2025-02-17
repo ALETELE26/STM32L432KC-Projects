@@ -479,6 +479,7 @@
 #define STM32L432xx 1
 #define __weak __attribute__((weak))
 #define ARM_MATH_CM4 1
+#define ARM_MATH_DSP 1
 # 1 "../Application/Wavelet_Analysis/Src/signals.c"
 
 
@@ -21278,6 +21279,23 @@ char *strsignal (int __signo);
 
 
 # 17 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 1 3
+# 11 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 3
+#undef assert
+
+
+
+
+#define assert(__e) ((__e) ? (void)0 : __assert_func (__FILE__, __LINE__, __ASSERT_FUNC, #__e))
+# 39 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\assert.h" 3
+void __assert (const char *, int, const char *)
+     __attribute__ ((__noreturn__));
+void __assert_func (const char *, int, const char *, const char *)
+     __attribute__ ((__noreturn__));
+
+
+#define static_assert _Static_assert
+# 18 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
 # 1 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc/rcc.h" 1
 # 9 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Inc/rcc.h"
 #define INC_RCC_H_ 
@@ -21327,7 +21345,7 @@ void rcc_msDelay(uint32_t msDelayTime);
 
 
 void SDTimer_Handler(void);
-# 18 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
+# 19 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/main.h" 2
 
 
 
@@ -21349,24 +21367,40 @@ void SDTimer_Handler(void);
 #define FLAG_RESET RESET
 #define FLAG_SET SET
 # 12 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Inc/signals.h" 2
-# 1 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h" 1
-# 280 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-#define _ARM_MATH_H 
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h"
+#define ARM_MATH_H 
+
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
+#define ARM_MATH_TYPES_H_ 
 
 
 
 
 
 
+#define ARM_DSP_ATTRIBUTE 
 
+
+
+#define ARM_DSP_TABLE_ATTRIBUTE 
+# 62 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wsign-conversion"
 #pragma GCC diagnostic ignored "-Wconversion"
 #pragma GCC diagnostic ignored "-Wunused-parameter"
-# 310 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+
+#define ARM_DSP_BUILT_WITH_GCC 
+# 104 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
 # 1 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/cmsis_compiler.h" 1
-# 311 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h" 2
-# 322 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 105 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h" 2
+
+
+
+
+
 # 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\math.h" 1 3
 
 
@@ -21794,7 +21828,7 @@ extern int *__signgam (void);
 
 
 
-# 323 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h" 2
+# 111 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h" 2
 # 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include\\float.h" 1 3 4
 # 29 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include\\float.h" 3 4
 #define _FLOAT_H___ 
@@ -21927,59 +21961,181 @@ extern int *__signgam (void);
 #define FLT_TRUE_MIN __FLT_DENORM_MIN__
 #define DBL_TRUE_MIN __DBL_DENORM_MIN__
 #define LDBL_TRUE_MIN __LDBL_DENORM_MIN__
-# 324 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h" 2
+# 112 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h" 2
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 1 3 4
+# 30 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 3 4
+#define _GCC_LIMITS_H_ 
 
 
 
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\syslimits.h" 1 3 4
+
+
+
+
+
+#define _GCC_NEXT_LIMITS_H 
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 1 3 4
+# 195 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 3 4
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\limits.h" 1 3 4
+
+#define _LIBC_LIMITS_H_ 1
+
+
+
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\sys\\syslimits.h" 1 3 4
+# 34 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\sys\\syslimits.h" 3 4
+#define _SYS_SYSLIMITS_H_ 
+
+#define ARG_MAX 65536
+
+#define CHILD_MAX 40
+
+#define LINK_MAX 32767
+#define MAX_CANON 255
+#define MAX_INPUT 255
+#define NAME_MAX 255
+#define NGROUPS_MAX 16
+
+#define OPEN_MAX 64
+
+#define PATH_MAX 1024
+#define PIPE_BUF 512
+#define IOV_MAX 1024
+
+#define BC_BASE_MAX 99
+#define BC_DIM_MAX 2048
+#define BC_SCALE_MAX 99
+#define BC_STRING_MAX 1000
+#define COLL_WEIGHTS_MAX 0
+#define EXPR_NEST_MAX 32
+#define LINE_MAX 2048
+#define RE_DUP_MAX 255
+# 7 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\limits.h" 2 3 4
+
+
+#define MB_LEN_MAX _MB_LEN_MAX
+
+
+
+
+
+
+#define NL_ARGMAX 32
+# 138 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\arm-none-eabi\\include\\limits.h" 3 4
+#define _POSIX2_RE_DUP_MAX 255
+# 196 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 2 3 4
+# 8 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\syslimits.h" 2 3 4
+#undef _GCC_NEXT_LIMITS_H
+# 35 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 2 3 4
+# 60 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 3 4
+#define _LIMITS_H___ 
+
+
+#undef CHAR_BIT
+#define CHAR_BIT __CHAR_BIT__
+
+
+
+
+
+
+
+#undef SCHAR_MIN
+#define SCHAR_MIN (-SCHAR_MAX - 1)
+#undef SCHAR_MAX
+#define SCHAR_MAX __SCHAR_MAX__
+
+
+#undef UCHAR_MAX
+
+
+
+#define UCHAR_MAX (SCHAR_MAX * 2 + 1)
+
+
+
+
+#undef CHAR_MIN
+
+
+
+#define CHAR_MIN 0
+
+#undef CHAR_MAX
+#define CHAR_MAX UCHAR_MAX
+# 103 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 3 4
+#undef SHRT_MIN
+#define SHRT_MIN (-SHRT_MAX - 1)
+#undef SHRT_MAX
+#define SHRT_MAX __SHRT_MAX__
+
+
+#undef USHRT_MAX
+
+
+
+#define USHRT_MAX (SHRT_MAX * 2 + 1)
+
+
+
+#undef INT_MIN
+#define INT_MIN (-INT_MAX - 1)
+#undef INT_MAX
+#define INT_MAX __INT_MAX__
+
+
+#undef UINT_MAX
+#define UINT_MAX (INT_MAX * 2U + 1U)
+
+
+
+#undef LONG_MIN
+#define LONG_MIN (-LONG_MAX - 1L)
+#undef LONG_MAX
+#define LONG_MAX __LONG_MAX__
+
+
+#undef ULONG_MAX
+#define ULONG_MAX (LONG_MAX * 2UL + 1UL)
+
+
+
+#undef LLONG_MIN
+#define LLONG_MIN (-LLONG_MAX - 1LL)
+#undef LLONG_MAX
+#define LLONG_MAX __LONG_LONG_MAX__
+
+
+#undef ULLONG_MAX
+#define ULLONG_MAX (LLONG_MAX * 2ULL + 1ULL)
+
+
+
+
+#undef LONG_LONG_MIN
+#define LONG_LONG_MIN (-LONG_LONG_MAX - 1LL)
+#undef LONG_LONG_MAX
+#define LONG_LONG_MAX __LONG_LONG_MAX__
+
+
+#undef ULONG_LONG_MAX
+#define ULONG_LONG_MAX (LONG_LONG_MAX * 2ULL + 1ULL)
+# 113 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h" 2
+# 126 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
 #define ARM_MATH_DSP 1
-# 345 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-#define DELTA_Q31 (0x100)
-#define DELTA_Q15 0x5
-#define INDEX_MASK 0x0000003F
+# 219 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
+#define LOW_OPTIMIZATION_ENTER __attribute__(( optimize("-O1") ))
 
-#define PI 3.14159265358979f
-
-
-
-
-
-
-#define FAST_MATH_TABLE_SIZE 512
-#define FAST_MATH_Q31_SHIFT (32 - 10)
-#define FAST_MATH_Q15_SHIFT (16 - 10)
-#define CONTROLLER_Q31_SHIFT (32 - 9)
-#define TABLE_SPACING_Q31 0x400000
-#define TABLE_SPACING_Q15 0x80
-
-
-
-
-
-
-#define INPUT_SPACING 0xB60B61
-
-
-
-
-
-
+#define LOW_OPTIMIZATION_EXIT 
+#define IAR_ONLY_LOW_OPTIMIZATION_ENTER 
+#define IAR_ONLY_LOW_OPTIMIZATION_EXIT 
+# 283 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
+#pragma GCC diagnostic pop
+# 324 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
   
-# 375 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
- typedef enum
-  {
-    ARM_MATH_SUCCESS = 0,
-    ARM_MATH_ARGUMENT_ERROR = -1,
-    ARM_MATH_LENGTH_ERROR = -2,
-    ARM_MATH_SIZE_MISMATCH = -3,
-    ARM_MATH_NANINF = -4,
-    ARM_MATH_SINGULAR = -5,
-    ARM_MATH_TEST_FAILURE = -6
-  } arm_status;
-
-
-
-
-  typedef int8_t q7_t;
+# 324 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
+ typedef int8_t q7_t;
 
 
 
@@ -21999,42 +22155,89 @@ extern int *__signgam (void);
 
 
 
+
   typedef float float32_t;
 
 
 
 
+
   typedef double float64_t;
-# 426 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 599 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h"
+  typedef enum
+  {
+    ARM_MATH_SUCCESS = 0,
+    ARM_MATH_ARGUMENT_ERROR = -1,
+    ARM_MATH_LENGTH_ERROR = -2,
+    ARM_MATH_SIZE_MISMATCH = -3,
+    ARM_MATH_NANINF = -4,
+    ARM_MATH_SINGULAR = -5,
+    ARM_MATH_TEST_FAILURE = -6,
+    ARM_MATH_DECOMPOSITION_FAILURE = -7
+  } arm_status;
+
+
+
+
+
+
+#define F64_MAX ((float64_t)DBL_MAX)
+#define F32_MAX ((float32_t)FLT_MAX)
+
+
+
+#define F64_MIN (-DBL_MAX)
+#define F32_MIN (-FLT_MAX)
+
+
+
+#define F64_ABSMAX ((float64_t)DBL_MAX)
+#define F32_ABSMAX ((float32_t)FLT_MAX)
+
+
+
+#define F64_ABSMIN ((float64_t)0.0)
+#define F32_ABSMIN ((float32_t)0.0)
+
+
+#define Q31_MAX ((q31_t)(0x7FFFFFFFL))
+#define Q15_MAX ((q15_t)(0x7FFF))
+#define Q7_MAX ((q7_t)(0x7F))
+#define Q31_MIN ((q31_t)(0x80000000L))
+#define Q15_MIN ((q15_t)(0x8000))
+#define Q7_MIN ((q7_t)(0x80))
+
+#define Q31_ABSMAX ((q31_t)(0x7FFFFFFFL))
+#define Q15_ABSMAX ((q15_t)(0x7FFF))
+#define Q7_ABSMAX ((q7_t)(0x7F))
+#define Q31_ABSMIN ((q31_t)0)
+#define Q15_ABSMIN ((q15_t)0)
+#define Q7_ABSMIN ((q7_t)0)
+
+
+#define CMPLX_DIM 2
+# 32 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_memory.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_memory.h"
+#define ARM_MATH_MEMORY_H_ 
+# 47 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_memory.h"
 #define __SIMD32_TYPE int32_t
-# 441 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 62 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_memory.h"
 #define __SIMD32(addr) (*(__SIMD32_TYPE **) & (addr))
 #define __SIMD32_CONST(addr) ( (__SIMD32_TYPE * ) (addr))
 #define _SIMD32_OFFSET(addr) (*(__SIMD32_TYPE * ) (addr))
 #define __SIMD64(addr) (*( int64_t **) & (addr))
-# 454 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 76 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_memory.h"
 __attribute__((always_inline)) static inline q31_t read_q15x2 (
-  q15_t * pQ15)
+  q15_t const * pQ15)
 {
   q31_t val;
+
 
   memcpy (&val, pQ15, 4);
 
-  return (val);
-}
 
 
-
-
-
-
-__attribute__((always_inline)) static inline q31_t read_q15x2_ia (
-  q15_t ** pQ15)
-{
-  q31_t val;
-
-  memcpy (&val, *pQ15, 4);
-  *pQ15 += 2;
 
   return (val);
 }
@@ -22044,17 +22247,14 @@ __attribute__((always_inline)) static inline q31_t read_q15x2_ia (
 
 
 
-__attribute__((always_inline)) static inline q31_t read_q15x2_da (
-  q15_t ** pQ15)
-{
-  q31_t val;
+#define read_q15x2_ia(pQ15) read_q15x2((*(pQ15) += 2) - 2)
 
-  memcpy (&val, *pQ15, 4);
-  *pQ15 -= 2;
 
-  return (val);
-}
 
+
+
+
+#define read_q15x2_da(pQ15) read_q15x2((*(pQ15) -= 2) + 2)
 
 
 
@@ -22068,9 +22268,13 @@ __attribute__((always_inline)) static inline void write_q15x2_ia (
   q31_t val = value;
 
   memcpy (*pQ15, &val, 4);
-  *pQ15 += 2;
-}
 
+
+
+
+
+ *pQ15 += 2;
+}
 
 
 
@@ -22083,7 +22287,12 @@ __attribute__((always_inline)) static inline void write_q15x2 (
 {
   q31_t val = value;
 
+
   memcpy (pQ15, &val, 4);
+
+
+
+
 }
 
 
@@ -22092,13 +22301,15 @@ __attribute__((always_inline)) static inline void write_q15x2 (
 
 
 
-__attribute__((always_inline)) static inline q31_t read_q7x4_ia (
-  q7_t ** pQ7)
+__attribute__((always_inline)) static inline q31_t read_q7x4 (
+  q7_t const * pQ7)
 {
   q31_t val;
 
-  memcpy (&val, *pQ7, 4);
-  *pQ7 += 4;
+
+  memcpy (&val, pQ7, 4);
+
+
 
   return (val);
 }
@@ -22108,17 +22319,14 @@ __attribute__((always_inline)) static inline q31_t read_q7x4_ia (
 
 
 
-__attribute__((always_inline)) static inline q31_t read_q7x4_da (
-  q7_t ** pQ7)
-{
-  q31_t val;
+#define read_q7x4_ia(pQ7) read_q7x4((*(pQ7) += 4) - 4)
 
-  memcpy (&val, *pQ7, 4);
-  *pQ7 -= 4;
 
-  return (val);
-}
 
+
+
+
+#define read_q7x4_da(pQ7) read_q7x4((*(pQ7) -= 4) + 4)
 
 
 
@@ -22132,11 +22340,24 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
   q31_t val = value;
 
   memcpy (*pQ7, &val, 4);
+
+
+
+
+
+
+
   *pQ7 += 4;
 }
-# 655 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-#define __PACKq7(v0,v1,v2,v3) ( (((int32_t)(v0) << 0) & (int32_t)0x000000FF) | (((int32_t)(v1) << 8) & (int32_t)0x0000FF00) | (((int32_t)(v2) << 16) & (int32_t)0x00FF0000) | (((int32_t)(v3) << 24) & (int32_t)0xFF000000) )
-# 670 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 33 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/none.h" 1
+# 38 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/none.h"
+#define NONE_H_ 
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_types.h" 1
+# 41 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/none.h" 2
+# 136 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/none.h"
   __attribute__((always_inline)) static inline q31_t clip_q63_to_q31(
   q63_t x)
   {
@@ -22186,6 +22407,59 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
   }
 
 
+#define multAcc_32x32_keep32_R(a,x,y) a = (q31_t) (((((q63_t) a) << 32) + ((q63_t) x * y) + 0x80000000LL ) >> 32)
+
+
+
+#define multSub_32x32_keep32_R(a,x,y) a = (q31_t) (((((q63_t) a) << 32) - ((q63_t) x * y) + 0x80000000LL ) >> 32)
+
+
+
+#define mult_32x32_keep32_R(a,x,y) a = (q31_t) (((q63_t) x * y + 0x80000000LL ) >> 32)
+
+
+
+#define multAcc_32x32_keep32(a,x,y) a += (q31_t) (((q63_t) x * y) >> 32)
+
+
+
+#define multSub_32x32_keep32(a,x,y) a -= (q31_t) (((q63_t) x * y) >> 32)
+
+
+
+#define mult_32x32_keep32(a,x,y) a = (q31_t) (((q63_t) x * y ) >> 32)
+# 222 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/none.h"
+#define __PACKq7(v0,v1,v2,v3) ( (((int32_t)(v0) << 0) & (int32_t)0x000000FF) | (((int32_t)(v1) << 8) & (int32_t)0x0000FF00) | (((int32_t)(v2) << 16) & (int32_t)0x00FF0000) | (((int32_t)(v3) << 24) & (int32_t)0xFF000000) )
+# 35 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h" 1
+# 27 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h"
+#define ARM_MATH_UTILS_H_ 
+
+
+# 1 "c:\\st\\stm32cubeide_1.12.0\\stm32cubeide\\plugins\\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\\tools\\lib\\gcc\\arm-none-eabi\\10.3.1\\include-fixed\\limits.h" 1 3 4
+# 31 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h" 2
+# 41 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h"
+#define INDEX_MASK 0x0000003F
+
+
+#define MIN(x,y) ((x) < (y) ? (x) : (y))
+
+
+
+#define MAX(x,y) ((x) > (y) ? (x) : (y))
+
+
+
+#define ARM_SQ(x) ((x) * (x))
+
+
+
+#define ARM_ROUND_UP(N,S) ((((N) + (S) - 1) / (S)) * (S))
+
+
+
+
+
 
 
   __attribute__((always_inline)) static inline uint32_t arm_recip_q31(
@@ -22200,11 +22474,11 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
 
     if (in > 0)
     {
-      signBits = ((uint32_t) (__CLZ( in) - 1));
+      signBits = ((uint32_t) (__CLZ( (uint32_t)in) - 1));
     }
     else
     {
-      signBits = ((uint32_t) (__CLZ(-in) - 1));
+      signBits = ((uint32_t) (__CLZ((uint32_t)(-in)) - 1));
     }
 
 
@@ -22239,27 +22513,28 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
 
 
 
+
   __attribute__((always_inline)) static inline uint32_t arm_recip_q15(
         q15_t in,
         q15_t * dst,
   const q15_t * pRecipTable)
   {
     q15_t out = 0;
-    uint32_t tempVal = 0;
+    int32_t tempVal = 0;
     uint32_t index = 0, i = 0;
     uint32_t signBits = 0;
 
     if (in > 0)
     {
-      signBits = ((uint32_t)(__CLZ( in) - 17));
+      signBits = ((uint32_t)(__CLZ( (uint32_t)in) - 17));
     }
     else
     {
-      signBits = ((uint32_t)(__CLZ(-in) - 17));
+      signBits = ((uint32_t)(__CLZ((uint32_t)(-in)) - 17));
     }
 
 
-    in = (in << signBits);
+    in = (q15_t)(in << signBits);
 
 
     index = (uint32_t)(in >> 8);
@@ -22272,8 +22547,8 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
 
     for (i = 0U; i < 2U; i++)
     {
-      tempVal = (uint32_t) (((q31_t) in * out) >> 15);
-      tempVal = 0x7FFFu - tempVal;
+      tempVal = (((q31_t) in * out) >> 15);
+      tempVal = 0x7FFF - tempVal;
 
       out = (q15_t) (((q31_t) out * tempVal) >> 14);
 
@@ -22285,189 +22560,1296 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
 
     return (signBits + 1);
   }
-# 1197 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  typedef struct
-  {
-          uint16_t numTaps;
-          q7_t *pState;
-    const q7_t *pCoeffs;
-  } arm_fir_instance_q7;
+# 170 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h"
+static inline void arm_norm_64_to_32u(uint64_t in, int32_t * normalized, int32_t *norm)
+{
+    int32_t n1;
+    int32_t hi = (int32_t) (in >> 32);
+    int32_t lo = (int32_t) ((in << 32) >> 32);
+
+    n1 = __CLZ((uint32_t)hi) - 32;
+    if (!n1)
+    {
+
+
+
+        n1 = __CLZ((uint32_t)lo);
+        if (!n1)
+        {
+
+
+
+            *norm = -1;
+            *normalized = (((uint32_t) lo) >> 1);
+        } else
+        {
+            if (n1 == 32)
+            {
+
+
+
+                *norm = 0;
+                *normalized = 0;
+            } else
+            {
+
+
+
+                *norm = n1 - 1;
+                *normalized = lo << *norm;
+            }
+        }
+    } else
+    {
+
+
+
+        n1 = 1 - n1;
+        *norm = -n1;
+
+
+
+        *normalized = (int32_t)(((uint32_t)lo) >> n1) | (hi << (32 - n1));
+    }
+}
+
+static inline int32_t arm_div_int64_to_int32(int64_t num, int32_t den)
+{
+    int32_t result;
+    uint64_t absNum;
+    int32_t normalized;
+    int32_t norm;
 
 
 
 
-  typedef struct
-  {
-          uint16_t numTaps;
-          q15_t *pState;
-    const q15_t *pCoeffs;
-  } arm_fir_instance_q15;
+
+    if (num == (int64_t)
+# 233 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h" 3 4
+                       (-0x7fffffffL - 1L)
+# 233 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h"
+                               )
+    {
+        absNum = 0x7fffffffL;
+    }
+    else
+    {
+       absNum = (uint64_t) (num > 0 ? num : -num);
+    }
+    arm_norm_64_to_32u(absNum, &normalized, &norm);
+    if (norm > 0)
 
 
 
-
-  typedef struct
-  {
-          uint16_t numTaps;
-          q31_t *pState;
-    const q31_t *pCoeffs;
-  } arm_fir_instance_q31;
+        result = (int32_t) num / den;
+    else
 
 
 
+        result = (int32_t) (num / den);
 
-  typedef struct
-  {
-          uint16_t numTaps;
-          float32_t *pState;
-    const float32_t *pCoeffs;
-  } arm_fir_instance_f32;
-# 1241 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_q7(
-  const arm_fir_instance_q7 * S,
+    return result;
+}
+
+#undef INDEX_MASK
+# 36 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+#define BASIC_MATH_FUNCTIONS_H_ 
+
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math_memory.h" 1
+# 32 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h" 2
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/none.h" 1
+# 34 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/utils.h" 1
+# 35 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h" 2
+# 53 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_mult_q7(
+  const q7_t * pSrcA,
+  const q7_t * pSrcB,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 67 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_mult_q15(
+  const q15_t * pSrcA,
+  const q15_t * pSrcB,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 81 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_mult_q31(
+  const q31_t * pSrcA,
+  const q31_t * pSrcB,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 95 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_mult_f32(
+  const float32_t * pSrcA,
+  const float32_t * pSrcB,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 110 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_mult_f64(
+const float64_t * pSrcA,
+const float64_t * pSrcB,
+   float64_t * pDst,
+   uint32_t blockSize);
+# 125 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_add_f32(
+  const float32_t * pSrcA,
+  const float32_t * pSrcB,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 140 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+ void arm_add_f64(
+ const float64_t * pSrcA,
+ const float64_t * pSrcB,
+    float64_t * pDst,
+    uint32_t blockSize);
+# 155 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_add_q7(
+  const q7_t * pSrcA,
+  const q7_t * pSrcB,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 169 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_add_q15(
+  const q15_t * pSrcA,
+  const q15_t * pSrcB,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 183 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_add_q31(
+  const q31_t * pSrcA,
+  const q31_t * pSrcB,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 197 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_sub_f32(
+  const float32_t * pSrcA,
+  const float32_t * pSrcB,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 212 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_sub_f64(
+  const float64_t * pSrcA,
+  const float64_t * pSrcB,
+        float64_t * pDst,
+        uint32_t blockSize);
+# 227 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_sub_q7(
+  const q7_t * pSrcA,
+  const q7_t * pSrcB,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 241 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_sub_q15(
+  const q15_t * pSrcA,
+  const q15_t * pSrcB,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 255 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_sub_q31(
+  const q31_t * pSrcA,
+  const q31_t * pSrcB,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 269 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_scale_f32(
+  const float32_t * pSrc,
+        float32_t scale,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 284 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_scale_f64(
+  const float64_t * pSrc,
+        float64_t scale,
+        float64_t * pDst,
+        uint32_t blockSize);
+# 300 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_scale_q7(
+  const q7_t * pSrc,
+        q7_t scaleFract,
+        int8_t shift,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 316 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_scale_q15(
+  const q15_t * pSrc,
+        q15_t scaleFract,
+        int8_t shift,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 332 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_scale_q31(
+  const q31_t * pSrc,
+        q31_t scaleFract,
+        int8_t shift,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 346 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_abs_q7(
   const q7_t * pSrc,
         q7_t * pDst,
         uint32_t blockSize);
-# 1255 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_init_q7(
-        arm_fir_instance_q7 * S,
-        uint16_t numTaps,
-  const q7_t * pCoeffs,
-        q7_t * pState,
-        uint32_t blockSize);
-# 1269 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_q15(
-  const arm_fir_instance_q15 * S,
-  const q15_t * pSrc,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 1282 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_fast_q15(
-  const arm_fir_instance_q15 * S,
-  const q15_t * pSrc,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 1299 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  arm_status arm_fir_init_q15(
-        arm_fir_instance_q15 * S,
-        uint16_t numTaps,
-  const q15_t * pCoeffs,
-        q15_t * pState,
-        uint32_t blockSize);
-# 1313 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_q31(
-  const arm_fir_instance_q31 * S,
-  const q31_t * pSrc,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 1326 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_fast_q31(
-  const arm_fir_instance_q31 * S,
-  const q31_t * pSrc,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 1340 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_init_q31(
-        arm_fir_instance_q31 * S,
-        uint16_t numTaps,
-  const q31_t * pCoeffs,
-        q31_t * pState,
-        uint32_t blockSize);
-# 1354 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_f32(
-  const arm_fir_instance_f32 * S,
+# 358 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_abs_f32(
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 1368 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fir_init_f32(
-        arm_fir_instance_f32 * S,
-        uint16_t numTaps,
-  const float32_t * pCoeffs,
-        float32_t * pState,
-        uint32_t blockSize);
-
-
-
-
-  typedef struct
-  {
-          int8_t numStages;
-          q15_t *pState;
-    const q15_t *pCoeffs;
-          int8_t postShift;
-  } arm_biquad_casd_df1_inst_q15;
-
-
-
-
-  typedef struct
-  {
-          uint32_t numStages;
-          q31_t *pState;
-    const q31_t *pCoeffs;
-          uint8_t postShift;
-  } arm_biquad_casd_df1_inst_q31;
-
-
-
-
-  typedef struct
-  {
-          uint32_t numStages;
-          float32_t *pState;
-    const float32_t *pCoeffs;
-  } arm_biquad_casd_df1_inst_f32;
-# 1414 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_q15(
-  const arm_biquad_casd_df1_inst_q15 * S,
+# 371 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_abs_f64(
+const float64_t * pSrc,
+   float64_t * pDst,
+   uint32_t blockSize);
+# 384 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_abs_q15(
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 1428 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_init_q15(
-        arm_biquad_casd_df1_inst_q15 * S,
-        uint8_t numStages,
-  const q15_t * pCoeffs,
-        q15_t * pState,
-        int8_t postShift);
-# 1442 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_fast_q15(
-  const arm_biquad_casd_df1_inst_q15 * S,
+# 396 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_abs_q31(
+  const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 409 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_dot_prod_f32(
+  const float32_t * pSrcA,
+  const float32_t * pSrcB,
+        uint32_t blockSize,
+        float32_t * result);
+# 424 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_dot_prod_f64(
+const float64_t * pSrcA,
+const float64_t * pSrcB,
+   uint32_t blockSize,
+   float64_t * result);
+# 439 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_dot_prod_q7(
+  const q7_t * pSrcA,
+  const q7_t * pSrcB,
+        uint32_t blockSize,
+        q31_t * result);
+# 453 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_dot_prod_q15(
+  const q15_t * pSrcA,
+  const q15_t * pSrcB,
+        uint32_t blockSize,
+        q63_t * result);
+# 467 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_dot_prod_q31(
+  const q31_t * pSrcA,
+  const q31_t * pSrcB,
+        uint32_t blockSize,
+        q63_t * result);
+# 481 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_shift_q7(
+  const q7_t * pSrc,
+        int8_t shiftBits,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 495 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_shift_q15(
   const q15_t * pSrc,
+        int8_t shiftBits,
         q15_t * pDst,
         uint32_t blockSize);
-# 1455 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_q31(
-  const arm_biquad_casd_df1_inst_q31 * S,
+# 509 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_shift_q31(
   const q31_t * pSrc,
+        int8_t shiftBits,
         q31_t * pDst,
         uint32_t blockSize);
-# 1468 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_fast_q31(
-  const arm_biquad_casd_df1_inst_q31 * S,
+# 523 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_offset_f64(
+const float64_t * pSrc,
+   float64_t offset,
+   float64_t * pDst,
+   uint32_t blockSize);
+# 538 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_offset_f32(
+  const float32_t * pSrc,
+        float32_t offset,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 553 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_offset_q7(
+  const q7_t * pSrc,
+        q7_t offset,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 567 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_offset_q15(
+  const q15_t * pSrc,
+        q15_t offset,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 581 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_offset_q31(
   const q31_t * pSrc,
+        q31_t offset,
         q31_t * pDst,
         uint32_t blockSize);
-# 1482 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_init_q31(
-        arm_biquad_casd_df1_inst_q31 * S,
-        uint8_t numStages,
-  const q31_t * pCoeffs,
-        q31_t * pState,
-        int8_t postShift);
-# 1496 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_f32(
-  const arm_biquad_casd_df1_inst_f32 * S,
+# 594 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_negate_f32(
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 1509 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_biquad_cascade_df1_init_f32(
-        arm_biquad_casd_df1_inst_f32 * S,
-        uint8_t numStages,
-  const float32_t * pCoeffs,
-        float32_t * pState);
+# 607 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_negate_f64(
+const float64_t * pSrc,
+   float64_t * pDst,
+   uint32_t blockSize);
+# 620 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_negate_q7(
+  const q7_t * pSrc,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 632 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_negate_q15(
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 644 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_negate_q31(
+  const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 656 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_and_u16(
+    const uint16_t * pSrcA,
+    const uint16_t * pSrcB,
+          uint16_t * pDst,
+          uint32_t blockSize);
+# 669 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_and_u32(
+    const uint32_t * pSrcA,
+    const uint32_t * pSrcB,
+          uint32_t * pDst,
+          uint32_t blockSize);
+# 682 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_and_u8(
+    const uint8_t * pSrcA,
+    const uint8_t * pSrcB,
+          uint8_t * pDst,
+          uint32_t blockSize);
+# 695 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_or_u16(
+    const uint16_t * pSrcA,
+    const uint16_t * pSrcB,
+          uint16_t * pDst,
+          uint32_t blockSize);
+# 708 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_or_u32(
+    const uint32_t * pSrcA,
+    const uint32_t * pSrcB,
+          uint32_t * pDst,
+          uint32_t blockSize);
+# 721 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_or_u8(
+    const uint8_t * pSrcA,
+    const uint8_t * pSrcB,
+          uint8_t * pDst,
+          uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_not_u16(
+    const uint16_t * pSrc,
+          uint16_t * pDst,
+          uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_not_u32(
+    const uint32_t * pSrc,
+          uint32_t * pDst,
+          uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_not_u8(
+    const uint8_t * pSrc,
+          uint8_t * pDst,
+          uint32_t blockSize);
+# 767 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_xor_u16(
+    const uint16_t * pSrcA,
+    const uint16_t * pSrcB,
+          uint16_t * pDst,
+          uint32_t blockSize);
+# 780 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_xor_u32(
+    const uint32_t * pSrcA,
+    const uint32_t * pSrcB,
+          uint32_t * pDst,
+          uint32_t blockSize);
+# 793 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+  void arm_xor_u8(
+    const uint8_t * pSrcA,
+    const uint8_t * pSrcB,
+          uint8_t * pDst,
+    uint32_t blockSize);
+# 808 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_clip_f32(const float32_t * pSrc,
+  float32_t * pDst,
+  float32_t low,
+  float32_t high,
+  uint32_t numSamples);
+# 823 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_clip_q31(const q31_t * pSrc,
+  q31_t * pDst,
+  q31_t low,
+  q31_t high,
+  uint32_t numSamples);
+# 838 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_clip_q15(const q15_t * pSrc,
+  q15_t * pDst,
+  q15_t low,
+  q15_t high,
+  uint32_t numSamples);
+# 853 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h"
+void arm_clip_q7(const q7_t * pSrc,
+  q7_t * pDst,
+  q7_t low,
+  q7_t high,
+  uint32_t numSamples);
+# 38 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+#define INTERPOLATION_FUNCTIONS_H_ 
+# 53 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  typedef struct
+  {
+          uint32_t nValues;
+          float32_t x1;
+          float32_t xSpacing;
+          const float32_t *pYData;
+  } arm_linear_interp_instance_f32;
+
+
+
+
+  typedef struct
+  {
+          uint16_t numRows;
+          uint16_t numCols;
+          const float32_t *pData;
+  } arm_bilinear_interp_instance_f32;
+
+
+
+
+  typedef struct
+  {
+          uint16_t numRows;
+          uint16_t numCols;
+          const q31_t *pData;
+  } arm_bilinear_interp_instance_q31;
+
+
+
+
+  typedef struct
+  {
+          uint16_t numRows;
+          uint16_t numCols;
+          const q15_t *pData;
+  } arm_bilinear_interp_instance_q15;
+
+
+
+
+  typedef struct
+  {
+          uint16_t numRows;
+          uint16_t numCols;
+          const q7_t *pData;
+  } arm_bilinear_interp_instance_q7;
+
+
+
+
+
+  typedef enum
+  {
+    ARM_SPLINE_NATURAL = 0,
+    ARM_SPLINE_PARABOLIC_RUNOUT = 1
+  } arm_spline_type;
+
+
+
+
+  typedef struct
+  {
+    arm_spline_type type;
+    const float32_t * x;
+    const float32_t * y;
+    uint32_t n_x;
+    float32_t * coeffs;
+  } arm_spline_instance_f32;
+# 131 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  void arm_spline_f32(
+        arm_spline_instance_f32 * S,
+  const float32_t * xq,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 147 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  void arm_spline_init_f32(
+          arm_spline_instance_f32 * S,
+          arm_spline_type type,
+    const float32_t * x,
+    const float32_t * y,
+          uint32_t n,
+          float32_t * coeffs,
+          float32_t * tempBuffer);
+# 164 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  float32_t arm_linear_interp_f32(
+  const arm_linear_interp_instance_f32 * S,
+  float32_t x);
+# 181 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  q31_t arm_linear_interp_q31(
+  const q31_t * pYData,
+  q31_t x,
+  uint32_t nValues);
+# 199 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  q15_t arm_linear_interp_q15(
+  const q15_t * pYData,
+  q31_t x,
+  uint32_t nValues);
+# 216 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+q7_t arm_linear_interp_q7(
+  const q7_t * pYData,
+  q31_t x,
+  uint32_t nValues);
+# 228 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  float32_t arm_bilinear_interp_f32(
+  const arm_bilinear_interp_instance_f32 * S,
+  float32_t X,
+  float32_t Y);
+# 240 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  q31_t arm_bilinear_interp_q31(
+  arm_bilinear_interp_instance_q31 * S,
+  q31_t X,
+  q31_t Y);
+# 253 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  q15_t arm_bilinear_interp_q15(
+  arm_bilinear_interp_instance_q15 * S,
+  q31_t X,
+  q31_t Y);
+# 265 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/interpolation_functions.h"
+  q7_t arm_bilinear_interp_q7(
+  arm_bilinear_interp_instance_q7 * S,
+  q31_t X,
+  q31_t Y);
+# 39 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/bayes_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/bayes_functions.h"
+#define BAYES_FUNCTIONS_H_ 
+
+
+
+
+
+
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+#define STATISTICS_FUNCTIONS_H_ 
+
+
+
+
+
+
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/basic_math_functions.h" 1
+# 37 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+#define FAST_MATH_FUNCTIONS_H_ 
+# 49 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+#define FAST_MATH_TABLE_SIZE 512
+#define FAST_MATH_Q31_SHIFT (32 - 10)
+#define FAST_MATH_Q15_SHIFT (16 - 10)
+
+
+#define PI 3.14159265358979f
+
+
+
+#define PI_F64 3.14159265358979323846
+# 78 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  float32_t arm_sin_f32(
+  float32_t x);
+
+
+
+
+
+
+
+  q31_t arm_sin_q31(
+  q31_t x);
+
+
+
+
+
+
+  q15_t arm_sin_q15(
+  q15_t x);
+
+
+
+
+
+
+
+  float32_t arm_cos_f32(
+  float32_t x);
+
+
+
+
+
+
+
+  q31_t arm_cos_q31(
+  q31_t x);
+
+
+
+
+
+
+
+  q15_t arm_cos_q15(
+  q15_t x);
+# 132 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  void arm_vlog_f32(
+  const float32_t * pSrc,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 145 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  void arm_vlog_f64(
+  const float64_t * pSrc,
+        float64_t * pDst,
+        uint32_t blockSize);
+# 158 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  void arm_vlog_q31(const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_vlog_q15(const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 180 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  void arm_vexp_f32(
+  const float32_t * pSrc,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 193 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  void arm_vexp_f64(
+  const float64_t * pSrc,
+  float64_t * pDst,
+  uint32_t blockSize);
+# 234 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+__attribute__((always_inline)) static inline arm_status arm_sqrt_f32(
+  const float32_t in,
+  float32_t * pOut)
+  {
+    if (in >= 0.0f)
+    {
+# 260 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+      __asm("VSQRT.F32 %0,%1" : "=t"(*pOut) : "t"(in));
+
+
+
+
+
+
+
+      return (ARM_MATH_SUCCESS);
+    }
+    else
+    {
+      *pOut = 0.0f;
+      return (ARM_MATH_ARGUMENT_ERROR);
+    }
+  }
+# 286 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+arm_status arm_sqrt_q31(
+  q31_t in,
+  q31_t * pOut);
+# 299 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+arm_status arm_sqrt_q15(
+  q15_t in,
+  q15_t * pOut);
+# 321 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+arm_status arm_divide_q15(q15_t numerator,
+  q15_t denominator,
+  q15_t *quotient,
+  int16_t *shift);
+# 338 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+arm_status arm_divide_q31(q31_t numerator,
+  q31_t denominator,
+  q31_t *quotient,
+  int16_t *shift);
+# 352 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  arm_status arm_atan2_f32(float32_t y,float32_t x,float32_t *result);
+# 362 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  arm_status arm_atan2_q31(q31_t y,q31_t x,q31_t *result);
+# 371 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h"
+  arm_status arm_atan2_q15(q15_t y,q15_t x,q15_t *result);
+# 38 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h" 2
+# 74 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+float32_t arm_logsumexp_f32(const float32_t *in, uint32_t blockSize);
+# 90 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+float32_t arm_logsumexp_dot_prod_f32(const float32_t * pSrcA,
+  const float32_t * pSrcB,
+  uint32_t blockSize,
+  float32_t *pTmpBuffer);
+# 105 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+float32_t arm_entropy_f32(const float32_t * pSrcA,uint32_t blockSize);
+# 118 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+float64_t arm_entropy_f64(const float64_t * pSrcA, uint32_t blockSize);
+# 130 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+float32_t arm_kullback_leibler_f32(const float32_t * pSrcA
+  ,const float32_t * pSrcB
+  ,uint32_t blockSize);
+# 144 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+float64_t arm_kullback_leibler_f64(const float64_t * pSrcA,
+                const float64_t * pSrcB,
+                uint32_t blockSize);
+# 155 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_power_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q63_t * pResult);
+# 167 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_power_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 179 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_power_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult);
+# 191 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_power_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q63_t * pResult);
+# 203 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_power_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 215 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_mean_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q7_t * pResult);
+# 227 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_mean_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult);
+# 239 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_mean_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 251 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_mean_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 263 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_mean_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult);
+# 275 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_var_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 287 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_var_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult);
+# 299 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_var_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 311 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_var_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult);
+# 323 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_rms_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 335 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_rms_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 347 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_rms_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult);
+# 359 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_std_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 371 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_std_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult);
+# 383 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_std_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 395 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_std_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult);
+# 409 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_min_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q7_t * pResult,
+        uint32_t * pIndex);
+# 422 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmin_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q7_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmin_no_idx_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q7_t * pResult);
+# 447 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_min_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult,
+        uint32_t * pIndex);
+# 460 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmin_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmin_no_idx_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult);
+# 485 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_min_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult,
+        uint32_t * pIndex);
+# 498 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmin_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmin_no_idx_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 523 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_min_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult,
+        uint32_t * pIndex);
+# 536 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmin_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmin_no_idx_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 561 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_min_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult,
+        uint32_t * pIndex);
+# 574 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmin_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmin_no_idx_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult);
+# 599 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_max_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q7_t * pResult,
+        uint32_t * pIndex);
+# 612 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmax_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q7_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmax_no_idx_q7(
+  const q7_t * pSrc,
+        uint32_t blockSize,
+        q7_t * pResult);
+# 637 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_max_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult,
+        uint32_t * pIndex);
+# 650 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmax_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmax_no_idx_q15(
+  const q15_t * pSrc,
+        uint32_t blockSize,
+        q15_t * pResult);
+# 674 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_max_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult,
+        uint32_t * pIndex);
+# 687 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmax_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmax_no_idx_q31(
+  const q31_t * pSrc,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 711 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_max_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult,
+        uint32_t * pIndex);
+# 724 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmax_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmax_no_idx_f32(
+  const float32_t * pSrc,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 748 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_max_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult,
+        uint32_t * pIndex);
+# 761 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+  void arm_absmax_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult,
+        uint32_t * pIndex);
+
+
+
+
+
+
+
+  void arm_absmax_no_idx_f64(
+  const float64_t * pSrc,
+        uint32_t blockSize,
+        float64_t * pResult);
+
+
+
+
+
+
+
+  void arm_max_no_idx_f32(
+      const float32_t *pSrc,
+      uint32_t blockSize,
+      float32_t *pResult);
+
+
+
+
+
+
+
+  void arm_min_no_idx_f32(
+      const float32_t *pSrc,
+      uint32_t blockSize,
+      float32_t *pResult);
+
+
+
+
+
+
+
+  void arm_max_no_idx_f64(
+      const float64_t *pSrc,
+      uint32_t blockSize,
+      float64_t *pResult);
+
+
+
+
+
+
+
+  void arm_max_no_idx_q31(
+      const q31_t *pSrc,
+      uint32_t blockSize,
+      q31_t *pResult);
+
+
+
+
+
+
+
+  void arm_max_no_idx_q15(
+      const q15_t *pSrc,
+      uint32_t blockSize,
+      q15_t *pResult);
+
+
+
+
+
+
+
+  void arm_max_no_idx_q7(
+      const q7_t *pSrc,
+      uint32_t blockSize,
+      q7_t *pResult);
+
+
+
+
+
+
+
+  void arm_min_no_idx_f64(
+      const float64_t *pSrc,
+      uint32_t blockSize,
+      float64_t *pResult);
+
+
+
+
+
+
+
+  void arm_min_no_idx_q31(
+      const q31_t *pSrc,
+      uint32_t blockSize,
+      q31_t *pResult);
+
+
+
+
+
+
+
+  void arm_min_no_idx_q15(
+      const q15_t *pSrc,
+      uint32_t blockSize,
+      q15_t *pResult);
+
+
+
+
+
+
+
+void arm_min_no_idx_q7(
+     const q7_t *pSrc,
+      uint32_t blockSize,
+      q7_t *pResult);
+# 896 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+void arm_mse_q7(
+  const q7_t * pSrcA,
+  const q7_t * pSrcB,
+        uint32_t blockSize,
+        q7_t * pResult);
+# 910 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+void arm_mse_q15(
+  const q15_t * pSrcA,
+  const q15_t * pSrcB,
+        uint32_t blockSize,
+        q15_t * pResult);
+# 924 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+void arm_mse_q31(
+  const q31_t * pSrcA,
+  const q31_t * pSrcB,
+        uint32_t blockSize,
+        q31_t * pResult);
+# 938 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+void arm_mse_f32(
+  const float32_t * pSrcA,
+  const float32_t * pSrcB,
+        uint32_t blockSize,
+        float32_t * pResult);
+# 952 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+void arm_mse_f64(
+  const float64_t * pSrcA,
+  const float64_t * pSrcB,
+        uint32_t blockSize,
+        float64_t * pResult);
+# 966 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+void arm_accumulate_f32(
+const float32_t * pSrc,
+      uint32_t blockSize,
+      float32_t * pResult);
+# 978 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h"
+void arm_accumulate_f64(
+const float64_t * pSrc,
+      uint32_t blockSize,
+      float64_t * pResult);
+# 37 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/bayes_functions.h" 2
+# 57 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/bayes_functions.h"
+typedef struct
+{
+  uint32_t vectorDimension;
+  uint32_t numberOfClasses;
+  const float32_t *theta;
+  const float32_t *sigma;
+  const float32_t *classPriors;
+  float32_t epsilon;
+} arm_gaussian_naive_bayes_instance_f32;
+# 76 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/bayes_functions.h"
+uint32_t arm_gaussian_naive_bayes_predict_f32(const arm_gaussian_naive_bayes_instance_f32 *S,
+   const float32_t * in,
+   float32_t *pOutputProbabilities,
+   float32_t *pBufferB);
+# 40 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+#define MATRIX_FUNCTIONS_H_ 
+# 112 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+#define DEFAULT_HOUSEHOLDER_THRESHOLD_F64 (1.0e-16)
+#define DEFAULT_HOUSEHOLDER_THRESHOLD_F32 (1.0e-12f)
 
 
 
@@ -22482,13 +23864,22 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
 
 
 
-
   typedef struct
   {
     uint16_t numRows;
     uint16_t numCols;
     float64_t *pData;
   } arm_matrix_instance_f64;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    q7_t *pData;
+  } arm_matrix_instance_q7;
 
 
 
@@ -22509,131 +23900,467 @@ __attribute__((always_inline)) static inline void write_q7x4_ia (
     uint16_t numCols;
     q31_t *pData;
   } arm_matrix_instance_q31;
-# 1564 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 173 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_add_f32(
   const arm_matrix_instance_f32 * pSrcA,
   const arm_matrix_instance_f32 * pSrcB,
         arm_matrix_instance_f32 * pDst);
-# 1577 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 186 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_add_q15(
   const arm_matrix_instance_q15 * pSrcA,
   const arm_matrix_instance_q15 * pSrcB,
         arm_matrix_instance_q15 * pDst);
-# 1590 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 199 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_add_q31(
   const arm_matrix_instance_q31 * pSrcA,
   const arm_matrix_instance_q31 * pSrcB,
         arm_matrix_instance_q31 * pDst);
-# 1603 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 212 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_cmplx_mult_f32(
   const arm_matrix_instance_f32 * pSrcA,
   const arm_matrix_instance_f32 * pSrcB,
         arm_matrix_instance_f32 * pDst);
-# 1616 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 225 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_cmplx_mult_q15(
   const arm_matrix_instance_q15 * pSrcA,
   const arm_matrix_instance_q15 * pSrcB,
         arm_matrix_instance_q15 * pDst,
         q15_t * pScratch);
-# 1630 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 239 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_cmplx_mult_q31(
   const arm_matrix_instance_q31 * pSrcA,
   const arm_matrix_instance_q31 * pSrcB,
         arm_matrix_instance_q31 * pDst);
-# 1642 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 251 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_trans_f32(
   const arm_matrix_instance_f32 * pSrc,
         arm_matrix_instance_f32 * pDst);
-# 1653 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 262 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_trans_f64(
+  const arm_matrix_instance_f64 * pSrc,
+        arm_matrix_instance_f64 * pDst);
+# 273 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_cmplx_trans_f32(
+  const arm_matrix_instance_f32 * pSrc,
+  arm_matrix_instance_f32 * pDst);
+# 285 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_trans_q15(
   const arm_matrix_instance_q15 * pSrc,
         arm_matrix_instance_q15 * pDst);
-# 1664 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 296 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_cmplx_trans_q15(
+  const arm_matrix_instance_q15 * pSrc,
+  arm_matrix_instance_q15 * pDst);
+# 307 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_trans_q7(
+  const arm_matrix_instance_q7 * pSrc,
+        arm_matrix_instance_q7 * pDst);
+# 318 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_trans_q31(
   const arm_matrix_instance_q31 * pSrc,
         arm_matrix_instance_q31 * pDst);
-# 1676 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 329 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_cmplx_trans_q31(
+  const arm_matrix_instance_q31 * pSrc,
+  arm_matrix_instance_q31 * pDst);
+# 341 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_mult_f32(
   const arm_matrix_instance_f32 * pSrcA,
   const arm_matrix_instance_f32 * pSrcB,
         arm_matrix_instance_f32 * pDst);
-# 1690 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 354 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_mult_f64(
+  const arm_matrix_instance_f64 * pSrcA,
+  const arm_matrix_instance_f64 * pSrcB,
+        arm_matrix_instance_f64 * pDst);
+
+
+
+
+
+
+
+void arm_mat_vec_mult_f32(
+  const arm_matrix_instance_f32 *pSrcMat,
+  const float32_t *pVec,
+  float32_t *pDst);
+# 379 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_mult_q7(
+  const arm_matrix_instance_q7 * pSrcA,
+  const arm_matrix_instance_q7 * pSrcB,
+        arm_matrix_instance_q7 * pDst,
+        q7_t * pState);
+
+
+
+
+
+
+
+void arm_mat_vec_mult_q7(
+  const arm_matrix_instance_q7 *pSrcMat,
+  const q7_t *pVec,
+  q7_t *pDst);
+# 405 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_mult_q15(
   const arm_matrix_instance_q15 * pSrcA,
   const arm_matrix_instance_q15 * pSrcB,
         arm_matrix_instance_q15 * pDst,
         q15_t * pState);
-# 1705 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+
+
+
+
+
+
+
+void arm_mat_vec_mult_q15(
+  const arm_matrix_instance_q15 *pSrcMat,
+  const q15_t *pVec,
+  q15_t *pDst);
+# 431 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_mult_fast_q15(
   const arm_matrix_instance_q15 * pSrcA,
   const arm_matrix_instance_q15 * pSrcB,
         arm_matrix_instance_q15 * pDst,
         q15_t * pState);
-# 1719 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 445 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_mult_q31(
   const arm_matrix_instance_q31 * pSrcA,
   const arm_matrix_instance_q31 * pSrcB,
         arm_matrix_instance_q31 * pDst);
-# 1732 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 459 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_mult_opt_q31(
+  const arm_matrix_instance_q31 * pSrcA,
+  const arm_matrix_instance_q31 * pSrcB,
+        arm_matrix_instance_q31 * pDst,
+        q31_t *pState);
+
+
+
+
+
+
+
+void arm_mat_vec_mult_q31(
+  const arm_matrix_instance_q31 *pSrcMat,
+  const q31_t *pVec,
+  q31_t *pDst);
+# 484 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_mult_fast_q31(
   const arm_matrix_instance_q31 * pSrcA,
   const arm_matrix_instance_q31 * pSrcB,
         arm_matrix_instance_q31 * pDst);
-# 1745 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 497 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_sub_f32(
   const arm_matrix_instance_f32 * pSrcA,
   const arm_matrix_instance_f32 * pSrcB,
         arm_matrix_instance_f32 * pDst);
-# 1758 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 510 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_sub_f64(
+  const arm_matrix_instance_f64 * pSrcA,
+  const arm_matrix_instance_f64 * pSrcB,
+        arm_matrix_instance_f64 * pDst);
+# 523 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_sub_q15(
   const arm_matrix_instance_q15 * pSrcA,
   const arm_matrix_instance_q15 * pSrcB,
         arm_matrix_instance_q15 * pDst);
-# 1771 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 536 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_sub_q31(
   const arm_matrix_instance_q31 * pSrcA,
   const arm_matrix_instance_q31 * pSrcB,
         arm_matrix_instance_q31 * pDst);
-# 1784 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 549 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_scale_f32(
   const arm_matrix_instance_f32 * pSrc,
         float32_t scale,
         arm_matrix_instance_f32 * pDst);
-# 1798 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 563 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_scale_q15(
   const arm_matrix_instance_q15 * pSrc,
         q15_t scaleFract,
         int32_t shift,
         arm_matrix_instance_q15 * pDst);
-# 1813 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 578 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 arm_status arm_mat_scale_q31(
   const arm_matrix_instance_q31 * pSrc,
         q31_t scaleFract,
         int32_t shift,
         arm_matrix_instance_q31 * pDst);
-# 1826 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 591 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 void arm_mat_init_q31(
         arm_matrix_instance_q31 * S,
         uint16_t nRows,
         uint16_t nColumns,
         q31_t * pData);
-# 1839 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 604 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 void arm_mat_init_q15(
         arm_matrix_instance_q15 * S,
         uint16_t nRows,
         uint16_t nColumns,
         q15_t * pData);
-# 1852 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 617 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+void arm_mat_init_q7(
+        arm_matrix_instance_q7 * S,
+        uint16_t nRows,
+        uint16_t nColumns,
+        q7_t * pData);
+# 630 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
 void arm_mat_init_f32(
         arm_matrix_instance_f32 * S,
         uint16_t nRows,
         uint16_t nColumns,
         float32_t * pData);
+# 643 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+void arm_mat_init_f64(
+      arm_matrix_instance_f64 * S,
+      uint16_t nRows,
+      uint16_t nColumns,
+      float64_t * pData);
+# 659 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_inverse_f32(
+  const arm_matrix_instance_f32 * src,
+  arm_matrix_instance_f32 * dst);
+# 671 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_inverse_f64(
+  const arm_matrix_instance_f64 * src,
+  arm_matrix_instance_f64 * dst);
+# 684 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_cholesky_f64(
+  const arm_matrix_instance_f64 * src,
+  arm_matrix_instance_f64 * dst);
+# 697 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_cholesky_f32(
+  const arm_matrix_instance_f32 * src,
+  arm_matrix_instance_f32 * dst);
+# 708 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_solve_upper_triangular_f32(
+  const arm_matrix_instance_f32 * ut,
+  const arm_matrix_instance_f32 * a,
+  arm_matrix_instance_f32 * dst);
+# 720 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_solve_lower_triangular_f32(
+  const arm_matrix_instance_f32 * lt,
+  const arm_matrix_instance_f32 * a,
+  arm_matrix_instance_f32 * dst);
+# 733 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_solve_upper_triangular_f64(
+  const arm_matrix_instance_f64 * ut,
+  const arm_matrix_instance_f64 * a,
+  arm_matrix_instance_f64 * dst);
+# 745 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_solve_lower_triangular_f64(
+  const arm_matrix_instance_f64 * lt,
+  const arm_matrix_instance_f64 * a,
+  arm_matrix_instance_f64 * dst);
+# 761 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_ldlt_f32(
+  const arm_matrix_instance_f32 * src,
+  arm_matrix_instance_f32 * l,
+  arm_matrix_instance_f32 * d,
+  uint16_t * pp);
+# 777 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+  arm_status arm_mat_ldlt_f64(
+  const arm_matrix_instance_f64 * src,
+  arm_matrix_instance_f64 * l,
+  arm_matrix_instance_f64 * d,
+  uint16_t * pp);
+# 798 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_qr_f32(
+    const arm_matrix_instance_f32 * pSrc,
+    const float32_t threshold,
+    arm_matrix_instance_f32 * pOutR,
+    arm_matrix_instance_f32 * pOutQ,
+    float32_t * pOutTau,
+    float32_t *pTmpA,
+    float32_t *pTmpB
+    );
+# 823 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+arm_status arm_mat_qr_f64(
+    const arm_matrix_instance_f64 * pSrc,
+    const float64_t threshold,
+    arm_matrix_instance_f64 * pOutR,
+    arm_matrix_instance_f64 * pOutQ,
+    float64_t * pOutTau,
+    float64_t *pTmpA,
+    float64_t *pTmpB
+    );
+# 842 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+float32_t arm_householder_f32(
+    const float32_t * pSrc,
+    const float32_t threshold,
+    uint32_t blockSize,
+    float32_t * pOut
+    );
+# 858 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h"
+float64_t arm_householder_f64(
+    const float64_t * pSrc,
+    const float64_t threshold,
+    uint32_t blockSize,
+    float64_t * pOut
+    );
+# 41 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+#define COMPLEX_MATH_FUNCTIONS_H_ 
+# 58 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_conj_f32(
+  const float32_t * pSrc,
+        float32_t * pDst,
+        uint32_t numSamples);
 
 
 
 
 
+
+
+  void arm_cmplx_conj_q31(
+  const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t numSamples);
+# 81 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_conj_q15(
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t numSamples);
+# 93 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_squared_f32(
+  const float32_t * pSrc,
+        float32_t * pDst,
+        uint32_t numSamples);
+# 105 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_squared_f64(
+  const float64_t * pSrc,
+        float64_t * pDst,
+        uint32_t numSamples);
+# 117 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_squared_q31(
+  const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t numSamples);
+# 129 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_squared_q15(
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t numSamples);
+# 141 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_f32(
+  const float32_t * pSrc,
+        float32_t * pDst,
+        uint32_t numSamples);
+# 153 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_f64(
+  const float64_t * pSrc,
+        float64_t * pDst,
+        uint32_t numSamples);
+# 165 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_q31(
+  const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t numSamples);
+# 177 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mag_q15(
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t numSamples);
+
+
+
+
+
+
+
+  void arm_cmplx_mag_fast_q15(
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t numSamples);
+# 202 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_dot_prod_q15(
+  const q15_t * pSrcA,
+  const q15_t * pSrcB,
+        uint32_t numSamples,
+        q31_t * realResult,
+        q31_t * imagResult);
+# 218 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_dot_prod_q31(
+  const q31_t * pSrcA,
+  const q31_t * pSrcB,
+        uint32_t numSamples,
+        q63_t * realResult,
+        q63_t * imagResult);
+# 234 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_dot_prod_f32(
+  const float32_t * pSrcA,
+  const float32_t * pSrcB,
+        uint32_t numSamples,
+        float32_t * realResult,
+        float32_t * imagResult);
+# 249 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mult_real_q15(
+  const q15_t * pSrcCmplx,
+  const q15_t * pSrcReal,
+        q15_t * pCmplxDst,
+        uint32_t numSamples);
+# 263 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mult_real_q31(
+  const q31_t * pSrcCmplx,
+  const q31_t * pSrcReal,
+        q31_t * pCmplxDst,
+        uint32_t numSamples);
+# 277 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mult_real_f32(
+  const float32_t * pSrcCmplx,
+  const float32_t * pSrcReal,
+        float32_t * pCmplxDst,
+        uint32_t numSamples);
+# 290 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mult_cmplx_q15(
+  const q15_t * pSrcA,
+  const q15_t * pSrcB,
+        q15_t * pDst,
+        uint32_t numSamples);
+# 304 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mult_cmplx_q31(
+  const q31_t * pSrcA,
+  const q31_t * pSrcB,
+        q31_t * pDst,
+        uint32_t numSamples);
+# 318 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+  void arm_cmplx_mult_cmplx_f32(
+  const float32_t * pSrcA,
+  const float32_t * pSrcB,
+        float32_t * pDst,
+        uint32_t numSamples);
+# 333 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h"
+void arm_cmplx_mult_cmplx_f64(
+const float64_t * pSrcA,
+const float64_t * pSrcB,
+   float64_t * pDst,
+   uint32_t numSamples);
+# 42 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/statistics_functions.h" 1
+# 43 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+#define CONTROLLER_FUNCTIONS_H_ 
+# 45 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+#define CONTROLLER_Q31_SHIFT (32 - 9)
+
+
+#define INPUT_SPACING 0xB60B61
+# 90 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+  void arm_sin_cos_f32(
+        float32_t theta,
+        float32_t * pSinVal,
+        float32_t * pCosVal);
+# 102 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+  void arm_sin_cos_q31(
+        q31_t theta,
+        q31_t * pSinVal,
+        q31_t * pCosVal);
+# 175 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
   typedef struct
   {
           q15_t A0;
@@ -22652,6 +24379,7 @@ void arm_mat_init_f32(
 
 
 
+
   typedef struct
   {
           q31_t A0;
@@ -22666,6 +24394,7 @@ void arm_mat_init_f32(
 
 
 
+
   typedef struct
   {
           float32_t A0;
@@ -22676,7 +24405,7 @@ void arm_mat_init_f32(
           float32_t Ki;
           float32_t Kd;
   } arm_pid_instance_f32;
-# 1912 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 227 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
   void arm_pid_init_f32(
         arm_pid_instance_f32 * S,
         int32_t resetStateFlag);
@@ -22725,80 +24454,254 @@ void arm_mat_init_f32(
 
   void arm_pid_reset_q15(
         arm_pid_instance_q15 * S);
-
-
-
-
-
-  typedef struct
+# 287 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+  __attribute__((always_inline)) static inline float32_t arm_pid_f32(
+  arm_pid_instance_f32 * S,
+  float32_t in)
   {
-          uint32_t nValues;
-          float32_t x1;
-          float32_t xSpacing;
-          float32_t *pYData;
-  } arm_linear_interp_instance_f32;
+    float32_t out;
 
 
+    out = (S->A0 * in) +
+      (S->A1 * S->state[0]) + (S->A2 * S->state[1]) + (S->state[2]);
 
 
-  typedef struct
+    S->state[1] = S->state[0];
+    S->state[0] = in;
+    S->state[2] = out;
+
+
+    return (out);
+
+  }
+# 321 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+__attribute__((always_inline)) static inline q31_t arm_pid_q31(
+  arm_pid_instance_q31 * S,
+  q31_t in)
   {
-          uint16_t numRows;
-          uint16_t numCols;
-          float32_t *pData;
-  } arm_bilinear_interp_instance_f32;
+    q63_t acc;
+    q31_t out;
 
 
+    acc = (q63_t) S->A0 * in;
 
 
-  typedef struct
+    acc += (q63_t) S->A1 * S->state[0];
+
+
+    acc += (q63_t) S->A2 * S->state[1];
+
+
+    out = (q31_t) (acc >> 31U);
+
+
+    out += S->state[2];
+
+
+    S->state[1] = S->state[0];
+    S->state[0] = in;
+    S->state[2] = out;
+
+
+    return (out);
+  }
+# 368 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+__attribute__((always_inline)) static inline q15_t arm_pid_q15(
+  arm_pid_instance_q15 * S,
+  q15_t in)
   {
-          uint16_t numRows;
-          uint16_t numCols;
-          q31_t *pData;
-  } arm_bilinear_interp_instance_q31;
+    q63_t acc;
+    q15_t out;
 
 
 
 
-  typedef struct
+
+    acc = (q31_t) __SMUAD((uint32_t)S->A0, (uint32_t)in);
+
+
+    acc = (q63_t)__SMLALD((uint32_t)S->A1, (uint32_t)read_q15x2 (S->state), (uint64_t)acc);
+# 393 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+    acc += (q31_t) S->state[2] << 15;
+
+
+    out = (q15_t) (__extension__ ({ int32_t __RES, __ARG1 = ((q31_t)(acc >> 15)); __asm ("ssat %0, %1, %2" : "=r" (__RES) : "I" (16), "r" (__ARG1) ); __RES; }));
+
+
+    S->state[1] = S->state[0];
+    S->state[0] = in;
+    S->state[2] = out;
+
+
+    return (out);
+  }
+# 452 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+  __attribute__((always_inline)) static inline void arm_park_f32(
+  float32_t Ialpha,
+  float32_t Ibeta,
+  float32_t * pId,
+  float32_t * pIq,
+  float32_t sinVal,
+  float32_t cosVal)
   {
-          uint16_t numRows;
-          uint16_t numCols;
-          q15_t *pData;
-  } arm_bilinear_interp_instance_q15;
+
+    *pId = Ialpha * cosVal + Ibeta * sinVal;
 
 
-
-
-  typedef struct
+    *pIq = -Ialpha * sinVal + Ibeta * cosVal;
+  }
+# 483 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+__attribute__((always_inline)) static inline void arm_park_q31(
+  q31_t Ialpha,
+  q31_t Ibeta,
+  q31_t * pId,
+  q31_t * pIq,
+  q31_t sinVal,
+  q31_t cosVal)
   {
-          uint16_t numRows;
-          uint16_t numCols;
-          q7_t *pData;
-  } arm_bilinear_interp_instance_q7;
-# 2021 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mult_q7(
-  const q7_t * pSrcA,
-  const q7_t * pSrcB,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2035 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mult_q15(
-  const q15_t * pSrcA,
-  const q15_t * pSrcB,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 2049 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mult_q31(
-  const q31_t * pSrcA,
-  const q31_t * pSrcB,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 2063 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mult_f32(
-  const float32_t * pSrcA,
-  const float32_t * pSrcB,
+    q31_t product1, product2;
+    q31_t product3, product4;
+
+
+    product1 = (q31_t) (((q63_t) (Ialpha) * (cosVal)) >> 31);
+
+
+    product2 = (q31_t) (((q63_t) (Ibeta) * (sinVal)) >> 31);
+
+
+
+    product3 = (q31_t) (((q63_t) (Ialpha) * (sinVal)) >> 31);
+
+
+    product4 = (q31_t) (((q63_t) (Ibeta) * (cosVal)) >> 31);
+
+
+    *pId = __QADD(product1, product2);
+
+
+    *pIq = __QSUB(product4, product3);
+  }
+# 549 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+  __attribute__((always_inline)) static inline void arm_inv_park_f32(
+  float32_t Id,
+  float32_t Iq,
+  float32_t * pIalpha,
+  float32_t * pIbeta,
+  float32_t sinVal,
+  float32_t cosVal)
+  {
+
+    *pIalpha = Id * cosVal - Iq * sinVal;
+
+
+    *pIbeta = Id * sinVal + Iq * cosVal;
+  }
+# 580 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+__attribute__((always_inline)) static inline void arm_inv_park_q31(
+  q31_t Id,
+  q31_t Iq,
+  q31_t * pIalpha,
+  q31_t * pIbeta,
+  q31_t sinVal,
+  q31_t cosVal)
+  {
+    q31_t product1, product2;
+    q31_t product3, product4;
+
+
+    product1 = (q31_t) (((q63_t) (Id) * (cosVal)) >> 31);
+
+
+    product2 = (q31_t) (((q63_t) (Iq) * (sinVal)) >> 31);
+
+
+
+    product3 = (q31_t) (((q63_t) (Id) * (sinVal)) >> 31);
+
+
+    product4 = (q31_t) (((q63_t) (Iq) * (cosVal)) >> 31);
+
+
+    *pIalpha = __QSUB(product1, product2);
+
+
+    *pIbeta = __QADD(product4, product3);
+  }
+# 648 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+  __attribute__((always_inline)) static inline void arm_clarke_f32(
+  float32_t Ia,
+  float32_t Ib,
+  float32_t * pIalpha,
+  float32_t * pIbeta)
+  {
+
+    *pIalpha = Ia;
+
+
+    *pIbeta = (0.57735026919f * Ia + 1.15470053838f * Ib);
+  }
+# 675 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+__attribute__((always_inline)) static inline void arm_clarke_q31(
+  q31_t Ia,
+  q31_t Ib,
+  q31_t * pIalpha,
+  q31_t * pIbeta)
+  {
+    q31_t product1, product2;
+
+
+    *pIalpha = Ia;
+
+
+    product1 = (q31_t) (((q63_t) Ia * 0x24F34E8B) >> 30);
+
+
+    product2 = (q31_t) (((q63_t) Ib * 0x49E69D16) >> 30);
+
+
+    *pIbeta = __QADD(product1, product2);
+  }
+# 728 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+  __attribute__((always_inline)) static inline void arm_inv_clarke_f32(
+  float32_t Ialpha,
+  float32_t Ibeta,
+  float32_t * pIa,
+  float32_t * pIb)
+  {
+
+    *pIa = Ialpha;
+
+
+    *pIb = -0.5f * Ialpha + 0.8660254039f * Ibeta;
+  }
+# 755 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/controller_functions.h"
+__attribute__((always_inline)) static inline void arm_inv_clarke_q31(
+  q31_t Ialpha,
+  q31_t Ibeta,
+  q31_t * pIa,
+  q31_t * pIb)
+  {
+    q31_t product1, product2;
+
+
+    *pIa = Ialpha;
+
+
+    product1 = (q31_t) (((q63_t) (Ialpha) * (0x40000000)) >> 31);
+
+
+    product2 = (q31_t) (((q63_t) (Ibeta) * (0x6ED9EBA1)) >> 31);
+
+
+    *pIb = __QSUB(product2, product1);
+  }
+# 44 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+#define SUPPORT_FUNCTIONS_H_ 
+# 52 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_f64_to_float(
+  const float64_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
 
@@ -22806,6 +24709,559 @@ void arm_mat_init_f32(
 
 
 
+
+
+  void arm_f64_to_q31(
+  const float64_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_f64_to_q15(
+  const float64_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_f64_to_q7(
+  const float64_t * pSrc,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 98 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_float_to_f64(
+  const float32_t * pSrc,
+        float64_t * pDst,
+        uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_float_to_q31(
+  const float32_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 121 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_float_to_q15(
+  const float32_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 133 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_float_to_q7(
+  const float32_t * pSrc,
+        q7_t * pDst,
+        uint32_t blockSize);
+
+
+
+
+
+
+
+void arm_q31_to_f64(
+const q31_t * pSrc,
+      float64_t * pDst,
+      uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_q31_to_float(
+  const q31_t * pSrc,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 167 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_q31_to_q15(
+  const q31_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 179 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_q31_to_q7(
+  const q31_t * pSrc,
+        q7_t * pDst,
+        uint32_t blockSize);
+
+
+
+
+
+
+
+void arm_q15_to_f64(
+const q15_t * pSrc,
+      float64_t * pDst,
+      uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_q15_to_float(
+  const q15_t * pSrc,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 213 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_q15_to_q31(
+  const q15_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 225 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_q15_to_q7(
+  const q15_t * pSrc,
+        q7_t * pDst,
+        uint32_t blockSize);
+
+
+
+
+
+
+
+void arm_q7_to_f64(
+const q7_t * pSrc,
+      float64_t * pDst,
+      uint32_t blockSize);
+
+
+
+
+
+
+
+  void arm_q7_to_float(
+  const q7_t * pSrc,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 259 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_q7_to_q31(
+  const q7_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 271 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_q7_to_q15(
+  const q7_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 283 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  typedef enum
+  {
+    ARM_SORT_BITONIC = 0,
+
+    ARM_SORT_BUBBLE = 1,
+
+    ARM_SORT_HEAP = 2,
+
+    ARM_SORT_INSERTION = 3,
+
+    ARM_SORT_QUICK = 4,
+
+    ARM_SORT_SELECTION = 5
+
+  } arm_sort_alg;
+
+
+
+
+  typedef enum
+  {
+    ARM_SORT_DESCENDING = 0,
+
+    ARM_SORT_ASCENDING = 1
+
+  } arm_sort_dir;
+
+
+
+
+  typedef struct
+  {
+    arm_sort_alg alg;
+    arm_sort_dir dir;
+  } arm_sort_instance_f32;
+
+
+
+
+
+
+
+  void arm_sort_f32(
+    const arm_sort_instance_f32 * S,
+          float32_t * pSrc,
+          float32_t * pDst,
+          uint32_t blockSize);
+
+
+
+
+
+
+  void arm_sort_init_f32(
+    arm_sort_instance_f32 * S,
+    arm_sort_alg alg,
+    arm_sort_dir dir);
+
+
+
+
+  typedef struct
+  {
+    arm_sort_dir dir;
+    float32_t * buffer;
+  } arm_merge_sort_instance_f32;
+
+
+
+
+
+
+
+  void arm_merge_sort_f32(
+    const arm_merge_sort_instance_f32 * S,
+          float32_t *pSrc,
+          float32_t *pDst,
+          uint32_t blockSize);
+
+
+
+
+
+
+  void arm_merge_sort_init_f32(
+    arm_merge_sort_instance_f32 * S,
+    arm_sort_dir dir,
+    float32_t * buffer);
+# 380 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_copy_f32(
+  const float32_t * pSrc,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 393 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_copy_f64(
+  const float64_t * pSrc,
+        float64_t * pDst,
+        uint32_t blockSize);
+# 406 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_copy_q7(
+  const q7_t * pSrc,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 418 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_copy_q15(
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 430 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_copy_q31(
+  const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 442 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_fill_f32(
+        float32_t value,
+        float32_t * pDst,
+        uint32_t blockSize);
+# 454 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_fill_f64(
+        float64_t value,
+        float64_t * pDst,
+        uint32_t blockSize);
+# 466 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_fill_q7(
+        q7_t value,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 478 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_fill_q15(
+        q15_t value,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 490 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+  void arm_fill_q31(
+        q31_t value,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 511 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+float32_t arm_weighted_average_f32(const float32_t *in
+  , const float32_t *weigths
+  , uint32_t blockSize);
+# 527 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h"
+void arm_barycenter_f32(const float32_t *in
+  , const float32_t *weights
+  , float32_t *out
+  , uint32_t nbVectors
+  , uint32_t vecDim);
+# 45 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+#define DISTANCE_FUNCTIONS_H_ 
+# 39 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/matrix_functions.h" 1
+# 40 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h" 2
+# 71 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_euclidean_distance_f32(const float32_t *pA,const float32_t *pB, uint32_t blockSize);
+# 82 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float64_t arm_euclidean_distance_f64(const float64_t *pA,const float64_t *pB, uint32_t blockSize);
+# 92 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_braycurtis_distance_f32(const float32_t *pA,const float32_t *pB, uint32_t blockSize);
+# 107 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_canberra_distance_f32(const float32_t *pA,const float32_t *pB, uint32_t blockSize);
+# 118 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_chebyshev_distance_f32(const float32_t *pA,const float32_t *pB, uint32_t blockSize);
+# 129 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float64_t arm_chebyshev_distance_f64(const float64_t *pA,const float64_t *pB, uint32_t blockSize);
+# 140 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_cityblock_distance_f32(const float32_t *pA,const float32_t *pB, uint32_t blockSize);
+# 150 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float64_t arm_cityblock_distance_f64(const float64_t *pA,const float64_t *pB, uint32_t blockSize);
+# 163 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_correlation_distance_f32(float32_t *pA,float32_t *pB, uint32_t blockSize);
+# 175 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_cosine_distance_f32(const float32_t *pA,const float32_t *pB, uint32_t blockSize);
+# 187 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float64_t arm_cosine_distance_f64(const float64_t *pA,const float64_t *pB, uint32_t blockSize);
+# 209 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_jensenshannon_distance_f32(const float32_t *pA,const float32_t *pB,uint32_t blockSize);
+# 224 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_minkowski_distance_f32(const float32_t *pA,const float32_t *pB, int32_t order, uint32_t blockSize);
+# 238 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_dice_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 250 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_hamming_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 262 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_jaccard_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 274 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_kulsinski_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 286 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_rogerstanimoto_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 298 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_russellrao_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 310 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_sokalmichener_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 322 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_sokalsneath_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+# 334 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+float32_t arm_yule_distance(const uint32_t *pA, const uint32_t *pB, uint32_t numberOfBools);
+
+typedef enum
+  {
+    ARM_DTW_SAKOE_CHIBA_WINDOW = 1,
+
+    ARM_DTW_SLANTED_BAND_WINDOW = 3
+  } arm_dtw_window;
+# 351 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+arm_status arm_dtw_init_window_q7(const arm_dtw_window windowType,
+                                  const int32_t windowSize,
+                                  arm_matrix_instance_q7 *pWindow);
+# 365 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+arm_status arm_dtw_distance_f32(const arm_matrix_instance_f32 *pDistance,
+                               const arm_matrix_instance_q7 *pWindow,
+                               arm_matrix_instance_f32 *pDTW,
+                               float32_t *distance);
+# 379 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/distance_functions.h"
+void arm_dtw_path_f32(const arm_matrix_instance_f32 *pDTW,
+                      int16_t *pPath,
+                      uint32_t *pathLength);
+# 46 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+#define SVM_FUNCTIONS_H_ 
+
+
+
+
+
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_defines.h" 1
+# 29 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_defines.h"
+#define SVM_DEFINES_H_ 
+
+
+
+
+typedef enum
+{
+    ARM_ML_KERNEL_LINEAR = 0,
+
+    ARM_ML_KERNEL_POLYNOMIAL = 1,
+
+    ARM_ML_KERNEL_RBF = 2,
+
+    ARM_ML_KERNEL_SIGMOID = 3
+
+} arm_ml_kernel_type;
+# 36 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h" 2
+
+
+
+
+
+
+#define STEP(x) (x) <= 0 ? 0 : 1
+# 64 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+static inline float32_t arm_exponent_f32(float32_t x, int32_t nb)
+{
+    float32_t r = x;
+    nb --;
+    while(nb > 0)
+    {
+        r = r * x;
+        nb--;
+    }
+    return(r);
+}
+
+
+
+
+
+typedef struct
+{
+  uint32_t nbOfSupportVectors;
+  uint32_t vectorDimension;
+  float32_t intercept;
+  const float32_t *dualCoefficients;
+  const float32_t *supportVectors;
+  const int32_t *classes;
+} arm_svm_linear_instance_f32;
+
+
+
+
+
+typedef struct
+{
+  uint32_t nbOfSupportVectors;
+  uint32_t vectorDimension;
+  float32_t intercept;
+  const float32_t *dualCoefficients;
+  const float32_t *supportVectors;
+  const int32_t *classes;
+  int32_t degree;
+  float32_t coef0;
+  float32_t gamma;
+} arm_svm_polynomial_instance_f32;
+
+
+
+
+
+typedef struct
+{
+  uint32_t nbOfSupportVectors;
+  uint32_t vectorDimension;
+  float32_t intercept;
+  const float32_t *dualCoefficients;
+  const float32_t *supportVectors;
+  const int32_t *classes;
+  float32_t gamma;
+} arm_svm_rbf_instance_f32;
+
+
+
+
+
+typedef struct
+{
+  uint32_t nbOfSupportVectors;
+  uint32_t vectorDimension;
+  float32_t intercept;
+  const float32_t *dualCoefficients;
+  const float32_t *supportVectors;
+  const int32_t *classes;
+  float32_t coef0;
+  float32_t gamma;
+} arm_svm_sigmoid_instance_f32;
+# 149 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_linear_init_f32(arm_svm_linear_instance_f32 *S,
+  uint32_t nbOfSupportVectors,
+  uint32_t vectorDimension,
+  float32_t intercept,
+  const float32_t *dualCoefficients,
+  const float32_t *supportVectors,
+  const int32_t *classes);
+# 164 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_linear_predict_f32(const arm_svm_linear_instance_f32 *S,
+   const float32_t * in,
+   int32_t * pResult);
+# 182 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_polynomial_init_f32(arm_svm_polynomial_instance_f32 *S,
+  uint32_t nbOfSupportVectors,
+  uint32_t vectorDimension,
+  float32_t intercept,
+  const float32_t *dualCoefficients,
+  const float32_t *supportVectors,
+  const int32_t *classes,
+  int32_t degree,
+  float32_t coef0,
+  float32_t gamma
+  );
+# 201 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_polynomial_predict_f32(const arm_svm_polynomial_instance_f32 *S,
+   const float32_t * in,
+   int32_t * pResult);
+# 217 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_rbf_init_f32(arm_svm_rbf_instance_f32 *S,
+  uint32_t nbOfSupportVectors,
+  uint32_t vectorDimension,
+  float32_t intercept,
+  const float32_t *dualCoefficients,
+  const float32_t *supportVectors,
+  const int32_t *classes,
+  float32_t gamma
+  );
+# 234 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_rbf_predict_f32(const arm_svm_rbf_instance_f32 *S,
+   const float32_t * in,
+   int32_t * pResult);
+# 251 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_sigmoid_init_f32(arm_svm_sigmoid_instance_f32 *S,
+  uint32_t nbOfSupportVectors,
+  uint32_t vectorDimension,
+  float32_t intercept,
+  const float32_t *dualCoefficients,
+  const float32_t *supportVectors,
+  const int32_t *classes,
+  float32_t coef0,
+  float32_t gamma
+  );
+# 269 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/svm_functions.h"
+void arm_svm_sigmoid_predict_f32(const arm_svm_sigmoid_instance_f32 *S,
+   const float32_t * in,
+   int32_t * pResult);
+# 47 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/fast_math_functions.h" 1
+# 48 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
+#define TRANSFORM_FUNCTIONS_H_ 
+# 37 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/complex_math_functions.h" 1
+# 38 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h" 2
+
+
+
+
+
+#define ARM_MIXED_RADIX_FFT 1
+# 99 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   typedef struct
   {
           uint16_t fftLen;
@@ -22924,6 +25380,7 @@ void arm_mat_init_f32(
   } arm_cfft_radix2_instance_f32;
 
 
+
   arm_status arm_cfft_radix2_init_f32(
         arm_cfft_radix2_instance_f32 * S,
         uint16_t fftLen,
@@ -22951,6 +25408,8 @@ void arm_mat_init_f32(
   } arm_cfft_radix4_instance_f32;
 
 
+
+
   arm_status arm_cfft_radix4_init_f32(
         arm_cfft_radix4_instance_f32 * S,
         uint16_t fftLen,
@@ -22961,52 +25420,92 @@ void arm_mat_init_f32(
   void arm_cfft_radix4_f32(
   const arm_cfft_radix4_instance_f32 * S,
         float32_t * pSrc);
-
-
-
-
+# 271 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   typedef struct
   {
           uint16_t fftLen;
     const q15_t *pTwiddle;
     const uint16_t *pBitRevTable;
           uint16_t bitRevLength;
+# 285 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   } arm_cfft_instance_q15;
 
+
+arm_status arm_cfft_init_4096_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_2048_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_1024_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_512_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_256_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_128_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_64_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_32_q15(arm_cfft_instance_q15 * S);
+arm_status arm_cfft_init_16_q15(arm_cfft_instance_q15 * S);
+
+arm_status arm_cfft_init_q15(
+  arm_cfft_instance_q15 * S,
+  uint16_t fftLen);
+# 316 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
 void arm_cfft_q15(
     const arm_cfft_instance_q15 * S,
           q15_t * p1,
           uint8_t ifftFlag,
           uint8_t bitReverseFlag);
-
-
-
-
+# 336 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   typedef struct
   {
           uint16_t fftLen;
     const q31_t *pTwiddle;
     const uint16_t *pBitRevTable;
           uint16_t bitRevLength;
+# 350 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   } arm_cfft_instance_q31;
 
+
+arm_status arm_cfft_init_4096_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_2048_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_1024_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_512_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_256_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_128_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_64_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_32_q31(arm_cfft_instance_q31 * S);
+arm_status arm_cfft_init_16_q31(arm_cfft_instance_q31 * S);
+
+arm_status arm_cfft_init_q31(
+  arm_cfft_instance_q31 * S,
+  uint16_t fftLen);
+# 379 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
 void arm_cfft_q31(
     const arm_cfft_instance_q31 * S,
           q31_t * p1,
           uint8_t ifftFlag,
           uint8_t bitReverseFlag);
-
-
-
-
+# 399 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   typedef struct
   {
           uint16_t fftLen;
     const float32_t *pTwiddle;
     const uint16_t *pBitRevTable;
           uint16_t bitRevLength;
+# 413 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   } arm_cfft_instance_f32;
 
+
+
+arm_status arm_cfft_init_4096_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_2048_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_1024_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_512_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_256_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_128_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_64_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_32_f32(arm_cfft_instance_f32 * S);
+arm_status arm_cfft_init_16_f32(arm_cfft_instance_f32 * S);
+
+  arm_status arm_cfft_init_f32(
+  arm_cfft_instance_f32 * S,
+  uint16_t fftLen);
+# 445 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   void arm_cfft_f32(
   const arm_cfft_instance_f32 * S,
         float32_t * p1,
@@ -23016,6 +25515,36 @@ void arm_cfft_q31(
 
 
 
+
+
+  typedef struct
+  {
+          uint16_t fftLen;
+    const float64_t *pTwiddle;
+    const uint16_t *pBitRevTable;
+          uint16_t bitRevLength;
+  } arm_cfft_instance_f64;
+
+arm_status arm_cfft_init_4096_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_2048_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_1024_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_512_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_256_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_128_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_64_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_32_f64(arm_cfft_instance_f64 * S);
+arm_status arm_cfft_init_16_f64(arm_cfft_instance_f64 * S);
+
+  arm_status arm_cfft_init_f64(
+  arm_cfft_instance_f64 * S,
+  uint16_t fftLen);
+
+  void arm_cfft_f64(
+  const arm_cfft_instance_f64 * S,
+        float64_t * p1,
+        uint8_t ifftFlag,
+        uint8_t bitReverseFlag);
+# 497 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   typedef struct
   {
           uint32_t fftLenReal;
@@ -23024,8 +25553,57 @@ void arm_cfft_q31(
           uint32_t twidCoefRModifier;
     const q15_t *pTwiddleAReal;
     const q15_t *pTwiddleBReal;
+
+
+
     const arm_cfft_instance_q15 *pCfft;
+
   } arm_rfft_instance_q15;
+# 555 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
+arm_status arm_rfft_init_32_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_64_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_128_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_256_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_512_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_1024_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_2048_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_4096_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+arm_status arm_rfft_init_8192_q15(
+        arm_rfft_instance_q15 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
 
   arm_status arm_rfft_init_q15(
         arm_rfft_instance_q15 * S,
@@ -23037,10 +25615,7 @@ void arm_cfft_q31(
   const arm_rfft_instance_q15 * S,
         q15_t * pSrc,
         q15_t * pDst);
-
-
-
-
+# 625 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   typedef struct
   {
           uint32_t fftLenReal;
@@ -23049,8 +25624,57 @@ void arm_cfft_q31(
           uint32_t twidCoefRModifier;
     const q31_t *pTwiddleAReal;
     const q31_t *pTwiddleBReal;
+
+
+
     const arm_cfft_instance_q31 *pCfft;
+
   } arm_rfft_instance_q31;
+# 684 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
+    arm_status arm_rfft_init_32_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_64_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_128_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_256_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_512_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_1024_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_2048_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_4096_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
+
+  arm_status arm_rfft_init_8192_q31(
+        arm_rfft_instance_q31 * S,
+        uint32_t ifftFlagR,
+        uint32_t bitReverseFlag);
 
   arm_status arm_rfft_init_q31(
         arm_rfft_instance_q31 * S,
@@ -23062,6 +25686,7 @@ void arm_cfft_q31(
   const arm_rfft_instance_q31 * S,
         q31_t * pSrc,
         q31_t * pDst);
+
 
 
 
@@ -23078,21 +25703,35 @@ void arm_cfft_q31(
           arm_cfft_radix4_instance_f32 *pCfft;
   } arm_rfft_instance_f32;
 
-  arm_status arm_rfft_init_f32(
-        arm_rfft_instance_f32 * S,
-        arm_cfft_radix4_instance_f32 * S_CFFT,
-        uint32_t fftLenReal,
-        uint32_t ifftFlagR,
-        uint32_t bitReverseFlag);
-
-  void arm_rfft_f32(
-  const arm_rfft_instance_f32 * S,
-        float32_t * pSrc,
-        float32_t * pDst);
 
 
 
+typedef struct
+  {
+          arm_cfft_instance_f64 Sint;
+          uint16_t fftLenRFFT;
+    const float64_t * pTwiddleRFFT;
+  } arm_rfft_fast_instance_f64 ;
 
+arm_status arm_rfft_fast_init_32_f64( arm_rfft_fast_instance_f64 * S );
+arm_status arm_rfft_fast_init_64_f64( arm_rfft_fast_instance_f64 * S );
+arm_status arm_rfft_fast_init_128_f64( arm_rfft_fast_instance_f64 * S );
+arm_status arm_rfft_fast_init_256_f64( arm_rfft_fast_instance_f64 * S );
+arm_status arm_rfft_fast_init_512_f64( arm_rfft_fast_instance_f64 * S );
+arm_status arm_rfft_fast_init_1024_f64( arm_rfft_fast_instance_f64 * S );
+arm_status arm_rfft_fast_init_2048_f64( arm_rfft_fast_instance_f64 * S );
+arm_status arm_rfft_fast_init_4096_f64( arm_rfft_fast_instance_f64 * S );
+
+arm_status arm_rfft_fast_init_f64 (
+         arm_rfft_fast_instance_f64 * S,
+         uint16_t fftLen);
+
+
+void arm_rfft_fast_f64(
+    arm_rfft_fast_instance_f64 * S,
+    float64_t * p, float64_t * pOut,
+    uint8_t ifftFlag);
+# 802 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
 typedef struct
   {
           arm_cfft_instance_f32 Sint;
@@ -23100,343 +25739,646 @@ typedef struct
     const float32_t * pTwiddleRFFT;
   } arm_rfft_fast_instance_f32 ;
 
+
+arm_status arm_rfft_fast_init_32_f32( arm_rfft_fast_instance_f32 * S );
+arm_status arm_rfft_fast_init_64_f32( arm_rfft_fast_instance_f32 * S );
+arm_status arm_rfft_fast_init_128_f32( arm_rfft_fast_instance_f32 * S );
+arm_status arm_rfft_fast_init_256_f32( arm_rfft_fast_instance_f32 * S );
+arm_status arm_rfft_fast_init_512_f32( arm_rfft_fast_instance_f32 * S );
+arm_status arm_rfft_fast_init_1024_f32( arm_rfft_fast_instance_f32 * S );
+arm_status arm_rfft_fast_init_2048_f32( arm_rfft_fast_instance_f32 * S );
+arm_status arm_rfft_fast_init_4096_f32( arm_rfft_fast_instance_f32 * S );
+
+
 arm_status arm_rfft_fast_init_f32 (
          arm_rfft_fast_instance_f32 * S,
          uint16_t fftLen);
-
-arm_status arm_rfft_32_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-arm_status arm_rfft_64_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-arm_status arm_rfft_128_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-arm_status arm_rfft_256_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-arm_status arm_rfft_512_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-arm_status arm_rfft_1024_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-arm_status arm_rfft_2048_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
-
-
+# 835 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
   void arm_rfft_fast_f32(
-        arm_rfft_fast_instance_f32 * S,
+        const arm_rfft_fast_instance_f32 * S,
         float32_t * p, float32_t * pOut,
         uint8_t ifftFlag);
 
 
 
 
+
+
+typedef struct
+  {
+     const float32_t *dctCoefs;
+     const float32_t *filterCoefs;
+     const float32_t *windowCoefs;
+     const uint32_t *filterPos;
+     const uint32_t *filterLengths;
+     uint32_t fftLen;
+     uint32_t nbMelFilters;
+     uint32_t nbDctOutputs;
+
+
+
+
+
+     arm_rfft_fast_instance_f32 rfft;
+
+  } arm_mfcc_instance_f32 ;
+
+arm_status arm_mfcc_init_32_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_64_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_128_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_256_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_512_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_1024_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_2048_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_4096_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_f32(
+  arm_mfcc_instance_f32 * S,
+  uint32_t fftLen,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const float32_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const float32_t *filterCoefs,
+  const float32_t *windowCoefs
+  );
+# 981 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
+  void arm_mfcc_f32(
+  const arm_mfcc_instance_f32 * S,
+  float32_t *pSrc,
+  float32_t *pDst,
+  float32_t *pTmp
+  );
+
+
+
+
+
+typedef struct
+  {
+     const q31_t *dctCoefs;
+     const q31_t *filterCoefs;
+     const q31_t *windowCoefs;
+     const uint32_t *filterPos;
+     const uint32_t *filterLengths;
+     uint32_t fftLen;
+     uint32_t nbMelFilters;
+     uint32_t nbDctOutputs;
+
+
+
+
+
+     arm_rfft_instance_q31 rfft;
+
+  } arm_mfcc_instance_q31 ;
+
+arm_status arm_mfcc_init_32_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_64_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_128_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_256_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_512_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_1024_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_2048_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_4096_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_q31(
+  arm_mfcc_instance_q31 * S,
+  uint32_t fftLen,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q31_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q31_t *filterCoefs,
+  const q31_t *windowCoefs
+  );
+# 1129 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
+  arm_status arm_mfcc_q31(
+  const arm_mfcc_instance_q31 * S,
+  q31_t *pSrc,
+  q31_t *pDst,
+  q31_t *pTmp
+  );
+
+
+
+
+
+typedef struct
+  {
+     const q15_t *dctCoefs;
+     const q15_t *filterCoefs;
+     const q15_t *windowCoefs;
+     const uint32_t *filterPos;
+     const uint32_t *filterLengths;
+     uint32_t fftLen;
+     uint32_t nbMelFilters;
+     uint32_t nbDctOutputs;
+
+
+
+
+
+     arm_rfft_instance_q15 rfft;
+
+  } arm_mfcc_instance_q15 ;
+
+arm_status arm_mfcc_init_32_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_64_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_128_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_256_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_512_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_1024_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_2048_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_4096_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+
+arm_status arm_mfcc_init_q15(
+  arm_mfcc_instance_q15 * S,
+  uint32_t fftLen,
+  uint32_t nbMelFilters,
+  uint32_t nbDctOutputs,
+  const q15_t *dctCoefs,
+  const uint32_t *filterPos,
+  const uint32_t *filterLengths,
+  const q15_t *filterCoefs,
+  const q15_t *windowCoefs
+  );
+# 1277 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/transform_functions.h"
+  arm_status arm_mfcc_q15(
+  const arm_mfcc_instance_q15 * S,
+  q15_t *pSrc,
+  q15_t *pDst,
+  q31_t *pTmp
+  );
+# 49 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+#define FILTERING_FUNCTIONS_H_ 
+
+
+
+
+
+
+
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/support_functions.h" 1
+# 37 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h" 2
+# 46 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+#define DELTA_Q31 ((q31_t)(0x100))
+#define DELTA_Q15 ((q15_t)0x5)
+# 56 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   typedef struct
   {
-          uint16_t N;
-          uint16_t Nby2;
-          float32_t normalize;
-    const float32_t *pTwiddle;
-    const float32_t *pCosFactor;
-          arm_rfft_instance_f32 *pRfft;
-          arm_cfft_radix4_instance_f32 *pCfft;
-  } arm_dct4_instance_f32;
-# 2418 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  arm_status arm_dct4_init_f32(
-        arm_dct4_instance_f32 * S,
-        arm_rfft_instance_f32 * S_RFFT,
-        arm_cfft_radix4_instance_f32 * S_CFFT,
-        uint16_t N,
-        uint16_t Nby2,
-        float32_t normalize);
-# 2433 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_dct4_f32(
-  const arm_dct4_instance_f32 * S,
-        float32_t * pState,
-        float32_t * pInlineBuffer);
-
+          uint16_t numTaps;
+          q7_t *pState;
+    const q7_t *pCoeffs;
+  } arm_fir_instance_q7;
 
 
 
 
   typedef struct
   {
-          uint16_t N;
-          uint16_t Nby2;
-          q31_t normalize;
-    const q31_t *pTwiddle;
-    const q31_t *pCosFactor;
-          arm_rfft_instance_q31 *pRfft;
-          arm_cfft_radix4_instance_q31 *pCfft;
-  } arm_dct4_instance_q31;
-# 2464 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  arm_status arm_dct4_init_q31(
-        arm_dct4_instance_q31 * S,
-        arm_rfft_instance_q31 * S_RFFT,
-        arm_cfft_radix4_instance_q31 * S_CFFT,
-        uint16_t N,
-        uint16_t Nby2,
-        q31_t normalize);
-# 2479 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_dct4_q31(
-  const arm_dct4_instance_q31 * S,
-        q31_t * pState,
-        q31_t * pInlineBuffer);
-
+          uint16_t numTaps;
+          q15_t *pState;
+    const q15_t *pCoeffs;
+  } arm_fir_instance_q15;
 
 
 
 
   typedef struct
   {
-          uint16_t N;
-          uint16_t Nby2;
-          q15_t normalize;
-    const q15_t *pTwiddle;
-    const q15_t *pCosFactor;
-          arm_rfft_instance_q15 *pRfft;
-          arm_cfft_radix4_instance_q15 *pCfft;
-  } arm_dct4_instance_q15;
-# 2510 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  arm_status arm_dct4_init_q15(
-        arm_dct4_instance_q15 * S,
-        arm_rfft_instance_q15 * S_RFFT,
-        arm_cfft_radix4_instance_q15 * S_CFFT,
-        uint16_t N,
-        uint16_t Nby2,
-        q15_t normalize);
-# 2525 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_dct4_q15(
-  const arm_dct4_instance_q15 * S,
+          uint16_t numTaps;
+          q31_t *pState;
+    const q31_t *pCoeffs;
+  } arm_fir_instance_q31;
+
+
+
+
+  typedef struct
+  {
+          uint16_t numTaps;
+          float32_t *pState;
+    const float32_t *pCoeffs;
+  } arm_fir_instance_f32;
+
+
+
+
+  typedef struct
+  {
+          uint16_t numTaps;
+          float64_t *pState;
+    const float64_t *pCoeffs;
+  } arm_fir_instance_f64;
+# 110 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_q7(
+  const arm_fir_instance_q7 * S,
+  const q7_t * pSrc,
+        q7_t * pDst,
+        uint32_t blockSize);
+# 127 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_init_q7(
+        arm_fir_instance_q7 * S,
+        uint16_t numTaps,
+  const q7_t * pCoeffs,
+        q7_t * pState,
+        uint32_t blockSize);
+# 141 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_q15(
+  const arm_fir_instance_q15 * S,
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 154 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_fast_q15(
+  const arm_fir_instance_q15 * S,
+  const q15_t * pSrc,
+        q15_t * pDst,
+        uint32_t blockSize);
+# 175 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  arm_status arm_fir_init_q15(
+        arm_fir_instance_q15 * S,
+        uint16_t numTaps,
+  const q15_t * pCoeffs,
         q15_t * pState,
-        q15_t * pInlineBuffer);
-# 2538 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_add_f32(
-  const float32_t * pSrcA,
-  const float32_t * pSrcB,
-        float32_t * pDst,
         uint32_t blockSize);
-# 2552 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_add_q7(
-  const q7_t * pSrcA,
-  const q7_t * pSrcB,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2566 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_add_q15(
-  const q15_t * pSrcA,
-  const q15_t * pSrcB,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 2580 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_add_q31(
-  const q31_t * pSrcA,
-  const q31_t * pSrcB,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 2594 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_sub_f32(
-  const float32_t * pSrcA,
-  const float32_t * pSrcB,
-        float32_t * pDst,
-        uint32_t blockSize);
-# 2608 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_sub_q7(
-  const q7_t * pSrcA,
-  const q7_t * pSrcB,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2622 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_sub_q15(
-  const q15_t * pSrcA,
-  const q15_t * pSrcB,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 2636 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_sub_q31(
-  const q31_t * pSrcA,
-  const q31_t * pSrcB,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 2650 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_scale_f32(
-  const float32_t * pSrc,
-        float32_t scale,
-        float32_t * pDst,
-        uint32_t blockSize);
-# 2665 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_scale_q7(
-  const q7_t * pSrc,
-        q7_t scaleFract,
-        int8_t shift,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2681 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_scale_q15(
-  const q15_t * pSrc,
-        q15_t scaleFract,
-        int8_t shift,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 2697 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_scale_q31(
+# 189 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_q31(
+  const arm_fir_instance_q31 * S,
   const q31_t * pSrc,
-        q31_t scaleFract,
-        int8_t shift,
         q31_t * pDst,
         uint32_t blockSize);
-# 2711 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_abs_q7(
-  const q7_t * pSrc,
-        q7_t * pDst,
+# 202 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_fast_q31(
+  const arm_fir_instance_q31 * S,
+  const q31_t * pSrc,
+        q31_t * pDst,
         uint32_t blockSize);
-# 2723 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_abs_f32(
+# 219 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_init_q31(
+        arm_fir_instance_q31 * S,
+        uint16_t numTaps,
+  const q31_t * pCoeffs,
+        q31_t * pState,
+        uint32_t blockSize);
+# 233 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_f32(
+  const arm_fir_instance_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 2735 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_abs_q15(
+# 246 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_f64(
+  const arm_fir_instance_f64 * S,
+  const float64_t * pSrc,
+        float64_t * pDst,
+        uint32_t blockSize);
+# 260 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_init_f32(
+        arm_fir_instance_f32 * S,
+        uint16_t numTaps,
+  const float32_t * pCoeffs,
+        float32_t * pState,
+        uint32_t blockSize);
+# 275 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_init_f64(
+        arm_fir_instance_f64 * S,
+        uint16_t numTaps,
+  const float64_t * pCoeffs,
+        float64_t * pState,
+        uint32_t blockSize);
+
+
+
+
+  typedef struct
+  {
+          int8_t numStages;
+          q15_t *pState;
+    const q15_t *pCoeffs;
+          int8_t postShift;
+  } arm_biquad_casd_df1_inst_q15;
+
+
+
+
+  typedef struct
+  {
+          uint32_t numStages;
+          q31_t *pState;
+    const q31_t *pCoeffs;
+          uint8_t postShift;
+  } arm_biquad_casd_df1_inst_q31;
+
+
+
+
+  typedef struct
+  {
+          uint32_t numStages;
+          float32_t *pState;
+    const float32_t *pCoeffs;
+  } arm_biquad_casd_df1_inst_f32;
+# 331 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_q15(
+  const arm_biquad_casd_df1_inst_q15 * S,
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 2747 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_abs_q31(
-  const q31_t * pSrc,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 2760 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_dot_prod_f32(
-  const float32_t * pSrcA,
-  const float32_t * pSrcB,
-        uint32_t blockSize,
-        float32_t * result);
-# 2774 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_dot_prod_q7(
-  const q7_t * pSrcA,
-  const q7_t * pSrcB,
-        uint32_t blockSize,
-        q31_t * result);
-# 2788 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_dot_prod_q15(
-  const q15_t * pSrcA,
-  const q15_t * pSrcB,
-        uint32_t blockSize,
-        q63_t * result);
-# 2802 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_dot_prod_q31(
-  const q31_t * pSrcA,
-  const q31_t * pSrcB,
-        uint32_t blockSize,
-        q63_t * result);
-# 2816 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_shift_q7(
-  const q7_t * pSrc,
-        int8_t shiftBits,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2830 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_shift_q15(
-  const q15_t * pSrc,
-        int8_t shiftBits,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 2844 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_shift_q31(
-  const q31_t * pSrc,
-        int8_t shiftBits,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 2858 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_offset_f32(
-  const float32_t * pSrc,
-        float32_t offset,
-        float32_t * pDst,
-        uint32_t blockSize);
-# 2872 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_offset_q7(
-  const q7_t * pSrc,
-        q7_t offset,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2886 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_offset_q15(
-  const q15_t * pSrc,
-        q15_t offset,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 2900 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_offset_q31(
-  const q31_t * pSrc,
-        q31_t offset,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 2913 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_negate_f32(
-  const float32_t * pSrc,
-        float32_t * pDst,
-        uint32_t blockSize);
-# 2925 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_negate_q7(
-  const q7_t * pSrc,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2937 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_negate_q15(
+# 345 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_init_q15(
+        arm_biquad_casd_df1_inst_q15 * S,
+        uint8_t numStages,
+  const q15_t * pCoeffs,
+        q15_t * pState,
+        int8_t postShift);
+# 359 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_fast_q15(
+  const arm_biquad_casd_df1_inst_q15 * S,
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 2949 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_negate_q31(
+# 372 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_q31(
+  const arm_biquad_casd_df1_inst_q31 * S,
   const q31_t * pSrc,
         q31_t * pDst,
         uint32_t blockSize);
-# 2961 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_copy_f32(
+# 385 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_fast_q31(
+  const arm_biquad_casd_df1_inst_q31 * S,
+  const q31_t * pSrc,
+        q31_t * pDst,
+        uint32_t blockSize);
+# 399 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_init_q31(
+        arm_biquad_casd_df1_inst_q31 * S,
+        uint8_t numStages,
+  const q31_t * pCoeffs,
+        q31_t * pState,
+        int8_t postShift);
+# 413 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_f32(
+  const arm_biquad_casd_df1_inst_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 2973 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_copy_q7(
-  const q7_t * pSrc,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 2985 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_copy_q15(
-  const q15_t * pSrc,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 2997 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_copy_q31(
-  const q31_t * pSrc,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 3009 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fill_f32(
-        float32_t value,
-        float32_t * pDst,
-        uint32_t blockSize);
-# 3021 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fill_q7(
-        q7_t value,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 3033 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fill_q15(
-        q15_t value,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 3045 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_fill_q31(
-        q31_t value,
-        q31_t * pDst,
-        uint32_t blockSize);
-# 3059 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 436 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_biquad_cascade_df1_init_f32(
+        arm_biquad_casd_df1_inst_f32 * S,
+        uint8_t numStages,
+  const float32_t * pCoeffs,
+        float32_t * pState);
+# 451 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_f32(
   const float32_t * pSrcA,
         uint32_t srcALen,
   const float32_t * pSrcB,
         uint32_t srcBLen,
         float32_t * pDst);
-# 3077 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 469 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_opt_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -23445,21 +26387,21 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         q15_t * pDst,
         q15_t * pScratch1,
         q15_t * pScratch2);
-# 3095 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 487 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
   const q15_t * pSrcB,
         uint32_t srcBLen,
         q15_t * pDst);
-# 3111 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 503 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_fast_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
   const q15_t * pSrcB,
         uint32_t srcBLen,
         q15_t * pDst);
-# 3129 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 521 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_fast_opt_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -23468,21 +26410,21 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         q15_t * pDst,
         q15_t * pScratch1,
         q15_t * pScratch2);
-# 3147 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 539 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_q31(
   const q31_t * pSrcA,
         uint32_t srcALen,
   const q31_t * pSrcB,
         uint32_t srcBLen,
         q31_t * pDst);
-# 3163 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 555 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_fast_q31(
   const q31_t * pSrcA,
         uint32_t srcALen,
   const q31_t * pSrcB,
         uint32_t srcBLen,
         q31_t * pDst);
-# 3181 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 573 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_opt_q7(
   const q7_t * pSrcA,
         uint32_t srcALen,
@@ -23491,14 +26433,14 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         q7_t * pDst,
         q15_t * pScratch1,
         q15_t * pScratch2);
-# 3199 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 591 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_conv_q7(
   const q7_t * pSrcA,
         uint32_t srcALen,
   const q7_t * pSrcB,
         uint32_t srcBLen,
         q7_t * pDst);
-# 3218 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 610 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_f32(
   const float32_t * pSrcA,
         uint32_t srcALen,
@@ -23507,7 +26449,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         float32_t * pDst,
         uint32_t firstIndex,
         uint32_t numPoints);
-# 3241 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 633 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_opt_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -23518,7 +26460,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         uint32_t numPoints,
         q15_t * pScratch1,
         q15_t * pScratch2);
-# 3264 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 656 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -23527,7 +26469,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         q15_t * pDst,
         uint32_t firstIndex,
         uint32_t numPoints);
-# 3285 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 677 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_fast_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -23536,7 +26478,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         q15_t * pDst,
         uint32_t firstIndex,
         uint32_t numPoints);
-# 3308 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 700 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_fast_opt_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -23547,7 +26489,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         uint32_t numPoints,
         q15_t * pScratch1,
         q15_t * pScratch2);
-# 3331 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 723 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_q31(
   const q31_t * pSrcA,
         uint32_t srcALen,
@@ -23556,7 +26498,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         q31_t * pDst,
         uint32_t firstIndex,
         uint32_t numPoints);
-# 3352 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 744 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_fast_q31(
   const q31_t * pSrcA,
         uint32_t srcALen,
@@ -23565,7 +26507,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         q31_t * pDst,
         uint32_t firstIndex,
         uint32_t numPoints);
-# 3375 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 767 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_opt_q7(
   const q7_t * pSrcA,
         uint32_t srcALen,
@@ -23576,7 +26518,7 @@ arm_status arm_rfft_4096_fast_init_f32 ( arm_rfft_fast_instance_f32 * S );
         uint32_t numPoints,
         q15_t * pScratch1,
         q15_t * pScratch2);
-# 3398 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 790 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_conv_partial_q7(
   const q7_t * pSrcA,
         uint32_t srcALen,
@@ -23619,13 +26561,38 @@ typedef struct
     const float32_t *pCoeffs;
           float32_t *pState;
   } arm_fir_decimate_instance_f32;
-# 3449 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+
+
+
+
+  typedef struct
+  {
+    uint8_t M;
+    uint16_t numTaps;
+    const float64_t *pCoeffs;
+    float64_t *pState;
+  } arm_fir_decimate_instance_f64;
+# 851 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_fir_decimate_f64(
+      const arm_fir_decimate_instance_f64 * S,
+      const float64_t * pSrc,
+      float64_t * pDst,
+      uint32_t blockSize);
+# 870 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  arm_status arm_fir_decimate_init_f64(
+      arm_fir_decimate_instance_f64 * S,
+      uint16_t numTaps,
+      uint8_t M,
+      const float64_t * pCoeffs,
+      float64_t * pState,
+      uint32_t blockSize);
+# 886 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
 void arm_fir_decimate_f32(
   const arm_fir_decimate_instance_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 3468 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 905 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
 arm_status arm_fir_decimate_init_f32(
         arm_fir_decimate_instance_f32 * S,
         uint16_t numTaps,
@@ -23633,19 +26600,19 @@ arm_status arm_fir_decimate_init_f32(
   const float32_t * pCoeffs,
         float32_t * pState,
         uint32_t blockSize);
-# 3484 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 921 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_decimate_q15(
   const arm_fir_decimate_instance_q15 * S,
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 3498 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 935 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_decimate_fast_q15(
   const arm_fir_decimate_instance_q15 * S,
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 3516 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 953 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_fir_decimate_init_q15(
         arm_fir_decimate_instance_q15 * S,
         uint16_t numTaps,
@@ -23653,19 +26620,19 @@ arm_status arm_fir_decimate_init_f32(
   const q15_t * pCoeffs,
         q15_t * pState,
         uint32_t blockSize);
-# 3532 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 969 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_decimate_q31(
   const arm_fir_decimate_instance_q31 * S,
   const q31_t * pSrc,
         q31_t * pDst,
         uint32_t blockSize);
-# 3545 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 982 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_decimate_fast_q31(
   const arm_fir_decimate_instance_q31 * S,
   const q31_t * pSrc,
         q31_t * pDst,
         uint32_t blockSize);
-# 3563 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1000 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_fir_decimate_init_q31(
         arm_fir_decimate_instance_q31 * S,
         uint16_t numTaps,
@@ -23707,13 +26674,13 @@ arm_status arm_fir_decimate_init_f32(
   const float32_t *pCoeffs;
         float32_t *pState;
   } arm_fir_interpolate_instance_f32;
-# 3613 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1050 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_interpolate_q15(
   const arm_fir_interpolate_instance_q15 * S,
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 3631 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1068 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_fir_interpolate_init_q15(
         arm_fir_interpolate_instance_q15 * S,
         uint8_t L,
@@ -23721,13 +26688,13 @@ arm_status arm_fir_decimate_init_f32(
   const q15_t * pCoeffs,
         q15_t * pState,
         uint32_t blockSize);
-# 3647 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1084 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_interpolate_q31(
   const arm_fir_interpolate_instance_q31 * S,
   const q31_t * pSrc,
         q31_t * pDst,
         uint32_t blockSize);
-# 3665 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1102 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_fir_interpolate_init_q31(
         arm_fir_interpolate_instance_q31 * S,
         uint8_t L,
@@ -23735,13 +26702,13 @@ arm_status arm_fir_decimate_init_f32(
   const q31_t * pCoeffs,
         q31_t * pState,
         uint32_t blockSize);
-# 3681 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1118 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_interpolate_f32(
   const arm_fir_interpolate_instance_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 3699 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1136 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   arm_status arm_fir_interpolate_init_f32(
         arm_fir_interpolate_instance_f32 * S,
         uint8_t L,
@@ -23761,13 +26728,13 @@ arm_status arm_fir_decimate_init_f32(
     const q31_t *pCoeffs;
           uint8_t postShift;
   } arm_biquad_cas_df1_32x64_ins_q31;
-# 3726 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1163 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cas_df1_32x64_q31(
   const arm_biquad_cas_df1_32x64_ins_q31 * S,
-        q31_t * pSrc,
+  const q31_t * pSrc,
         q31_t * pDst,
         uint32_t blockSize);
-# 3740 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1177 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cas_df1_32x64_init_q31(
         arm_biquad_cas_df1_32x64_ins_q31 * S,
         uint8_t numStages,
@@ -23803,43 +26770,43 @@ arm_status arm_fir_decimate_init_f32(
   {
           uint8_t numStages;
           float64_t *pState;
-          float64_t *pCoeffs;
+    const float64_t *pCoeffs;
   } arm_biquad_cascade_df2T_instance_f64;
-# 3786 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1223 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cascade_df2T_f32(
   const arm_biquad_cascade_df2T_instance_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 3800 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1237 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cascade_stereo_df2T_f32(
   const arm_biquad_cascade_stereo_df2T_instance_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 3814 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1251 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cascade_df2T_f64(
   const arm_biquad_cascade_df2T_instance_f64 * S,
-        float64_t * pSrc,
+  const float64_t * pSrc,
         float64_t * pDst,
         uint32_t blockSize);
-# 3834 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1277 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cascade_df2T_init_f32(
         arm_biquad_cascade_df2T_instance_f32 * S,
         uint8_t numStages,
   const float32_t * pCoeffs,
         float32_t * pState);
-# 3848 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1291 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cascade_stereo_df2T_init_f32(
         arm_biquad_cascade_stereo_df2T_instance_f32 * S,
         uint8_t numStages,
   const float32_t * pCoeffs,
         float32_t * pState);
-# 3862 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1305 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_biquad_cascade_df2T_init_f64(
         arm_biquad_cascade_df2T_instance_f64 * S,
         uint8_t numStages,
-        float64_t * pCoeffs,
+        const float64_t * pCoeffs,
         float64_t * pState);
 
 
@@ -23872,37 +26839,37 @@ arm_status arm_fir_decimate_init_f32(
           float32_t *pState;
     const float32_t *pCoeffs;
   } arm_fir_lattice_instance_f32;
-# 3907 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1350 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_lattice_init_q15(
         arm_fir_lattice_instance_q15 * S,
         uint16_t numStages,
   const q15_t * pCoeffs,
         q15_t * pState);
-# 3921 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1364 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_lattice_q15(
   const arm_fir_lattice_instance_q15 * S,
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 3935 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1378 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_lattice_init_q31(
         arm_fir_lattice_instance_q31 * S,
         uint16_t numStages,
   const q31_t * pCoeffs,
         q31_t * pState);
-# 3949 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1392 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_lattice_q31(
   const arm_fir_lattice_instance_q31 * S,
   const q31_t * pSrc,
         q31_t * pDst,
         uint32_t blockSize);
-# 3963 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1406 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_lattice_init_f32(
         arm_fir_lattice_instance_f32 * S,
         uint16_t numStages,
   const float32_t * pCoeffs,
         float32_t * pState);
-# 3977 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1420 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_lattice_f32(
   const arm_fir_lattice_instance_f32 * S,
   const float32_t * pSrc,
@@ -23942,13 +26909,13 @@ arm_status arm_fir_decimate_init_f32(
           float32_t *pkCoeffs;
           float32_t *pvCoeffs;
   } arm_iir_lattice_instance_f32;
-# 4025 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1468 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_iir_lattice_f32(
   const arm_iir_lattice_instance_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         uint32_t blockSize);
-# 4041 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1484 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_iir_lattice_init_f32(
         arm_iir_lattice_instance_f32 * S,
         uint16_t numStages,
@@ -23956,13 +26923,13 @@ arm_status arm_fir_decimate_init_f32(
         float32_t * pvCoeffs,
         float32_t * pState,
         uint32_t blockSize);
-# 4057 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1500 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_iir_lattice_q31(
   const arm_iir_lattice_instance_q31 * S,
   const q31_t * pSrc,
         q31_t * pDst,
         uint32_t blockSize);
-# 4073 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1516 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_iir_lattice_init_q31(
         arm_iir_lattice_instance_q31 * S,
         uint16_t numStages,
@@ -23970,13 +26937,13 @@ arm_status arm_fir_decimate_init_f32(
         q31_t * pvCoeffs,
         q31_t * pState,
         uint32_t blockSize);
-# 4089 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1532 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_iir_lattice_q15(
   const arm_iir_lattice_instance_q15 * S,
   const q15_t * pSrc,
         q15_t * pDst,
         uint32_t blockSize);
-# 4105 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1548 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_iir_lattice_init_q15(
         arm_iir_lattice_instance_q15 * S,
         uint16_t numStages,
@@ -23996,7 +26963,7 @@ arm_status arm_fir_decimate_init_f32(
           float32_t *pCoeffs;
           float32_t mu;
   } arm_lms_instance_f32;
-# 4135 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1578 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_f32(
   const arm_lms_instance_f32 * S,
   const float32_t * pSrc,
@@ -24004,7 +26971,7 @@ arm_status arm_fir_decimate_init_f32(
         float32_t * pOut,
         float32_t * pErr,
         uint32_t blockSize);
-# 4153 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1596 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_init_f32(
         arm_lms_instance_f32 * S,
         uint16_t numTaps,
@@ -24025,7 +26992,7 @@ arm_status arm_fir_decimate_init_f32(
           q15_t mu;
           uint32_t postShift;
   } arm_lms_instance_q15;
-# 4185 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1628 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_init_q15(
         arm_lms_instance_q15 * S,
         uint16_t numTaps,
@@ -24034,7 +27001,7 @@ arm_status arm_fir_decimate_init_f32(
         q15_t mu,
         uint32_t blockSize,
         uint32_t postShift);
-# 4204 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1647 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_q15(
   const arm_lms_instance_q15 * S,
   const q15_t * pSrc,
@@ -24055,7 +27022,7 @@ arm_status arm_fir_decimate_init_f32(
           q31_t mu;
           uint32_t postShift;
   } arm_lms_instance_q31;
-# 4235 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1678 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_q31(
   const arm_lms_instance_q31 * S,
   const q31_t * pSrc,
@@ -24063,7 +27030,7 @@ arm_status arm_fir_decimate_init_f32(
         q31_t * pOut,
         q31_t * pErr,
         uint32_t blockSize);
-# 4254 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1697 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_init_q31(
         arm_lms_instance_q31 * S,
         uint16_t numTaps,
@@ -24086,7 +27053,7 @@ arm_status arm_fir_decimate_init_f32(
           float32_t energy;
           float32_t x0;
   } arm_lms_norm_instance_f32;
-# 4287 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1730 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_norm_f32(
         arm_lms_norm_instance_f32 * S,
   const float32_t * pSrc,
@@ -24094,7 +27061,7 @@ arm_status arm_fir_decimate_init_f32(
         float32_t * pOut,
         float32_t * pErr,
         uint32_t blockSize);
-# 4305 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1748 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_norm_init_f32(
         arm_lms_norm_instance_f32 * S,
         uint16_t numTaps,
@@ -24118,7 +27085,7 @@ arm_status arm_fir_decimate_init_f32(
           q31_t energy;
           q31_t x0;
   } arm_lms_norm_instance_q31;
-# 4339 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1782 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_norm_q31(
         arm_lms_norm_instance_q31 * S,
   const q31_t * pSrc,
@@ -24126,7 +27093,7 @@ arm_status arm_fir_decimate_init_f32(
         q31_t * pOut,
         q31_t * pErr,
         uint32_t blockSize);
-# 4358 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1801 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_norm_init_q31(
         arm_lms_norm_instance_q31 * S,
         uint16_t numTaps,
@@ -24151,7 +27118,7 @@ arm_status arm_fir_decimate_init_f32(
           q15_t energy;
           q15_t x0;
   } arm_lms_norm_instance_q15;
-# 4393 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1836 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_norm_q15(
         arm_lms_norm_instance_q15 * S,
   const q15_t * pSrc,
@@ -24159,7 +27126,7 @@ arm_status arm_fir_decimate_init_f32(
         q15_t * pOut,
         q15_t * pErr,
         uint32_t blockSize);
-# 4412 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1855 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_lms_norm_init_q15(
         arm_lms_norm_instance_q15 * S,
         uint16_t numTaps,
@@ -24168,14 +27135,21 @@ arm_status arm_fir_decimate_init_f32(
         q15_t mu,
         uint32_t blockSize,
         uint8_t postShift);
-# 4430 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1873 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_correlate_f32(
   const float32_t * pSrcA,
         uint32_t srcALen,
   const float32_t * pSrcB,
         uint32_t srcBLen,
         float32_t * pDst);
-# 4447 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1889 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+  void arm_correlate_f64(
+  const float64_t * pSrcA,
+        uint32_t srcALen,
+  const float64_t * pSrcB,
+        uint32_t srcBLen,
+        float64_t * pDst);
+# 1906 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
 void arm_correlate_opt_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -24183,21 +27157,21 @@ void arm_correlate_opt_q15(
         uint32_t srcBLen,
         q15_t * pDst,
         q15_t * pScratch);
-# 4464 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1923 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_correlate_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
   const q15_t * pSrcB,
         uint32_t srcBLen,
         q15_t * pDst);
-# 4481 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1939 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
 void arm_correlate_fast_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
   const q15_t * pSrcB,
         uint32_t srcBLen,
         q15_t * pDst);
-# 4498 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1956 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
 void arm_correlate_fast_opt_q15(
   const q15_t * pSrcA,
         uint32_t srcALen,
@@ -24205,21 +27179,21 @@ void arm_correlate_fast_opt_q15(
         uint32_t srcBLen,
         q15_t * pDst,
         q15_t * pScratch);
-# 4515 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1973 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_correlate_q31(
   const q31_t * pSrcA,
         uint32_t srcALen,
   const q31_t * pSrcB,
         uint32_t srcBLen,
         q31_t * pDst);
-# 4531 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 1989 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
 void arm_correlate_fast_q31(
   const q31_t * pSrcA,
         uint32_t srcALen,
   const q31_t * pSrcB,
         uint32_t srcBLen,
         q31_t * pDst);
-# 4549 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2007 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_correlate_opt_q7(
   const q7_t * pSrcA,
         uint32_t srcALen,
@@ -24228,7 +27202,7 @@ void arm_correlate_fast_q31(
         q7_t * pDst,
         q15_t * pScratch1,
         q15_t * pScratch2);
-# 4567 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2025 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_correlate_q7(
   const q7_t * pSrcA,
         uint32_t srcALen,
@@ -24288,14 +27262,14 @@ void arm_correlate_fast_q31(
           uint16_t maxDelay;
           int32_t *pTapDelay;
   } arm_fir_sparse_instance_q7;
-# 4636 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2094 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_f32(
         arm_fir_sparse_instance_f32 * S,
   const float32_t * pSrc,
         float32_t * pDst,
         float32_t * pScratchIn,
         uint32_t blockSize);
-# 4654 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2112 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_init_f32(
         arm_fir_sparse_instance_f32 * S,
         uint16_t numTaps,
@@ -24304,14 +27278,14 @@ void arm_correlate_fast_q31(
         int32_t * pTapDelay,
         uint16_t maxDelay,
         uint32_t blockSize);
-# 4672 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2130 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_q31(
         arm_fir_sparse_instance_q31 * S,
   const q31_t * pSrc,
         q31_t * pDst,
         q31_t * pScratchIn,
         uint32_t blockSize);
-# 4690 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2148 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_init_q31(
         arm_fir_sparse_instance_q31 * S,
         uint16_t numTaps,
@@ -24320,7 +27294,7 @@ void arm_correlate_fast_q31(
         int32_t * pTapDelay,
         uint16_t maxDelay,
         uint32_t blockSize);
-# 4709 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2167 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_q15(
         arm_fir_sparse_instance_q15 * S,
   const q15_t * pSrc,
@@ -24328,7 +27302,7 @@ void arm_correlate_fast_q31(
         q15_t * pScratchIn,
         q31_t * pScratchOut,
         uint32_t blockSize);
-# 4728 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2186 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_init_q15(
         arm_fir_sparse_instance_q15 * S,
         uint16_t numTaps,
@@ -24337,7 +27311,7 @@ void arm_correlate_fast_q31(
         int32_t * pTapDelay,
         uint16_t maxDelay,
         uint32_t blockSize);
-# 4747 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2205 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_q7(
         arm_fir_sparse_instance_q7 * S,
   const q7_t * pSrc,
@@ -24345,7 +27319,7 @@ void arm_correlate_fast_q31(
         q7_t * pScratchIn,
         q31_t * pScratchOut,
         uint32_t blockSize);
-# 4766 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2224 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   void arm_fir_sparse_init_q7(
         arm_fir_sparse_instance_q7 * S,
         uint16_t numTaps,
@@ -24354,567 +27328,7 @@ void arm_correlate_fast_q31(
         int32_t * pTapDelay,
         uint16_t maxDelay,
         uint32_t blockSize);
-# 4782 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_sin_cos_f32(
-        float32_t theta,
-        float32_t * pSinVal,
-        float32_t * pCosVal);
-# 4794 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_sin_cos_q31(
-        q31_t theta,
-        q31_t * pSinVal,
-        q31_t * pCosVal);
-# 4806 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_conj_f32(
-  const float32_t * pSrc,
-        float32_t * pDst,
-        uint32_t numSamples);
-
-
-
-
-
-
-
-  void arm_cmplx_conj_q31(
-  const q31_t * pSrc,
-        q31_t * pDst,
-        uint32_t numSamples);
-# 4829 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_conj_q15(
-  const q15_t * pSrc,
-        q15_t * pDst,
-        uint32_t numSamples);
-# 4841 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mag_squared_f32(
-  const float32_t * pSrc,
-        float32_t * pDst,
-        uint32_t numSamples);
-# 4853 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mag_squared_q31(
-  const q31_t * pSrc,
-        q31_t * pDst,
-        uint32_t numSamples);
-# 4865 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mag_squared_q15(
-  const q15_t * pSrc,
-        q15_t * pDst,
-        uint32_t numSamples);
-# 4944 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline float32_t arm_pid_f32(
-  arm_pid_instance_f32 * S,
-  float32_t in)
-  {
-    float32_t out;
-
-
-    out = (S->A0 * in) +
-      (S->A1 * S->state[0]) + (S->A2 * S->state[1]) + (S->state[2]);
-
-
-    S->state[1] = S->state[0];
-    S->state[0] = in;
-    S->state[2] = out;
-
-
-    return (out);
-
-  }
-# 4977 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-__attribute__((always_inline)) static inline q31_t arm_pid_q31(
-  arm_pid_instance_q31 * S,
-  q31_t in)
-  {
-    q63_t acc;
-    q31_t out;
-
-
-    acc = (q63_t) S->A0 * in;
-
-
-    acc += (q63_t) S->A1 * S->state[0];
-
-
-    acc += (q63_t) S->A2 * S->state[1];
-
-
-    out = (q31_t) (acc >> 31U);
-
-
-    out += S->state[2];
-
-
-    S->state[1] = S->state[0];
-    S->state[0] = in;
-    S->state[2] = out;
-
-
-    return (out);
-  }
-# 5023 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-__attribute__((always_inline)) static inline q15_t arm_pid_q15(
-  arm_pid_instance_q15 * S,
-  q15_t in)
-  {
-    q63_t acc;
-    q15_t out;
-
-
-
-
-
-    acc = (q31_t) __SMUAD((uint32_t)S->A0, (uint32_t)in);
-
-
-    acc = (q63_t)__SMLALD((uint32_t)S->A1, (uint32_t)read_q15x2 (S->state), (uint64_t)acc);
-# 5048 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-    acc += (q31_t) S->state[2] << 15;
-
-
-    out = (q15_t) (__extension__ ({ int32_t __RES, __ARG1 = ((acc >> 15)); __asm ("ssat %0, %1, %2" : "=r" (__RES) : "I" (16), "r" (__ARG1) ); __RES; }));
-
-
-    S->state[1] = S->state[0];
-    S->state[0] = in;
-    S->state[2] = out;
-
-
-    return (out);
-  }
-# 5074 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  arm_status arm_mat_inverse_f32(
-  const arm_matrix_instance_f32 * src,
-  arm_matrix_instance_f32 * dst);
-# 5086 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  arm_status arm_mat_inverse_f64(
-  const arm_matrix_instance_f64 * src,
-  arm_matrix_instance_f64 * dst);
-# 5132 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline void arm_clarke_f32(
-  float32_t Ia,
-  float32_t Ib,
-  float32_t * pIalpha,
-  float32_t * pIbeta)
-  {
-
-    *pIalpha = Ia;
-
-
-    *pIbeta = ((float32_t) 0.57735026919 * Ia + (float32_t) 1.15470053838 * Ib);
-  }
-# 5159 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-__attribute__((always_inline)) static inline void arm_clarke_q31(
-  q31_t Ia,
-  q31_t Ib,
-  q31_t * pIalpha,
-  q31_t * pIbeta)
-  {
-    q31_t product1, product2;
-
-
-    *pIalpha = Ia;
-
-
-    product1 = (q31_t) (((q63_t) Ia * 0x24F34E8B) >> 30);
-
-
-    product2 = (q31_t) (((q63_t) Ib * 0x49E69D16) >> 30);
-
-
-    *pIbeta = __QADD(product1, product2);
-  }
-# 5218 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline void arm_inv_clarke_f32(
-  float32_t Ialpha,
-  float32_t Ibeta,
-  float32_t * pIa,
-  float32_t * pIb)
-  {
-
-    *pIa = Ialpha;
-
-
-    *pIb = -0.5f * Ialpha + 0.8660254039f * Ibeta;
-  }
-# 5245 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-__attribute__((always_inline)) static inline void arm_inv_clarke_q31(
-  q31_t Ialpha,
-  q31_t Ibeta,
-  q31_t * pIa,
-  q31_t * pIb)
-  {
-    q31_t product1, product2;
-
-
-    *pIa = Ialpha;
-
-
-    product1 = (q31_t) (((q63_t) (Ialpha) * (0x40000000)) >> 31);
-
-
-    product2 = (q31_t) (((q63_t) (Ibeta) * (0x6ED9EBA1)) >> 31);
-
-
-    *pIb = __QSUB(product2, product1);
-  }
-# 5318 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline void arm_park_f32(
-  float32_t Ialpha,
-  float32_t Ibeta,
-  float32_t * pId,
-  float32_t * pIq,
-  float32_t sinVal,
-  float32_t cosVal)
-  {
-
-    *pId = Ialpha * cosVal + Ibeta * sinVal;
-
-
-    *pIq = -Ialpha * sinVal + Ibeta * cosVal;
-  }
-# 5349 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-__attribute__((always_inline)) static inline void arm_park_q31(
-  q31_t Ialpha,
-  q31_t Ibeta,
-  q31_t * pId,
-  q31_t * pIq,
-  q31_t sinVal,
-  q31_t cosVal)
-  {
-    q31_t product1, product2;
-    q31_t product3, product4;
-
-
-    product1 = (q31_t) (((q63_t) (Ialpha) * (cosVal)) >> 31);
-
-
-    product2 = (q31_t) (((q63_t) (Ibeta) * (sinVal)) >> 31);
-
-
-
-    product3 = (q31_t) (((q63_t) (Ialpha) * (sinVal)) >> 31);
-
-
-    product4 = (q31_t) (((q63_t) (Ibeta) * (cosVal)) >> 31);
-
-
-    *pId = __QADD(product1, product2);
-
-
-    *pIq = __QSUB(product4, product3);
-  }
-# 5421 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline void arm_inv_park_f32(
-  float32_t Id,
-  float32_t Iq,
-  float32_t * pIalpha,
-  float32_t * pIbeta,
-  float32_t sinVal,
-  float32_t cosVal)
-  {
-
-    *pIalpha = Id * cosVal - Iq * sinVal;
-
-
-    *pIbeta = Id * sinVal + Iq * cosVal;
-  }
-# 5452 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-__attribute__((always_inline)) static inline void arm_inv_park_q31(
-  q31_t Id,
-  q31_t Iq,
-  q31_t * pIalpha,
-  q31_t * pIbeta,
-  q31_t sinVal,
-  q31_t cosVal)
-  {
-    q31_t product1, product2;
-    q31_t product3, product4;
-
-
-    product1 = (q31_t) (((q63_t) (Id) * (cosVal)) >> 31);
-
-
-    product2 = (q31_t) (((q63_t) (Iq) * (sinVal)) >> 31);
-
-
-
-    product3 = (q31_t) (((q63_t) (Id) * (sinVal)) >> 31);
-
-
-    product4 = (q31_t) (((q63_t) (Iq) * (cosVal)) >> 31);
-
-
-    *pIalpha = __QSUB(product1, product2);
-
-
-    *pIbeta = __QADD(product4, product3);
-  }
-# 5536 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline float32_t arm_linear_interp_f32(
-  arm_linear_interp_instance_f32 * S,
-  float32_t x)
-  {
-    float32_t y;
-    float32_t x0, x1;
-    float32_t y0, y1;
-    float32_t xSpacing = S->xSpacing;
-    int32_t i;
-    float32_t *pYData = S->pYData;
-
-
-    i = (int32_t) ((x - S->x1) / xSpacing);
-
-    if (i < 0)
-    {
-
-      y = pYData[0];
-    }
-    else if ((uint32_t)i >= S->nValues)
-    {
-
-      y = pYData[S->nValues - 1];
-    }
-    else
-    {
-
-      x0 = S->x1 + i * xSpacing;
-      x1 = S->x1 + (i + 1) * xSpacing;
-
-
-      y0 = pYData[i];
-      y1 = pYData[i + 1];
-
-
-      y = y0 + (x - x0) * ((y1 - y0) / (x1 - x0));
-
-    }
-
-
-    return (y);
-  }
-# 5593 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline q31_t arm_linear_interp_q31(
-  q31_t * pYData,
-  q31_t x,
-  uint32_t nValues)
-  {
-    q31_t y;
-    q31_t y0, y1;
-    q31_t fract;
-    int32_t index;
-
-
-
-
-    index = ((x & (q31_t)0xFFF00000) >> 20);
-
-    if (index >= (int32_t)(nValues - 1))
-    {
-      return (pYData[nValues - 1]);
-    }
-    else if (index < 0)
-    {
-      return (pYData[0]);
-    }
-    else
-    {
-
-
-      fract = (x & 0x000FFFFF) << 11;
-
-
-      y0 = pYData[index];
-      y1 = pYData[index + 1];
-
-
-      y = ((q31_t) ((q63_t) y0 * (0x7FFFFFFF - fract) >> 32));
-
-
-      y += ((q31_t) (((q63_t) y1 * fract) >> 32));
-
-
-      return (y << 1U);
-    }
-  }
-# 5651 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline q15_t arm_linear_interp_q15(
-  q15_t * pYData,
-  q31_t x,
-  uint32_t nValues)
-  {
-    q63_t y;
-    q15_t y0, y1;
-    q31_t fract;
-    int32_t index;
-
-
-
-
-    index = ((x & (int32_t)0xFFF00000) >> 20);
-
-    if (index >= (int32_t)(nValues - 1))
-    {
-      return (pYData[nValues - 1]);
-    }
-    else if (index < 0)
-    {
-      return (pYData[0]);
-    }
-    else
-    {
-
-
-      fract = (x & 0x000FFFFF);
-
-
-      y0 = pYData[index];
-      y1 = pYData[index + 1];
-
-
-      y = ((q63_t) y0 * (0xFFFFF - fract));
-
-
-      y += ((q63_t) y1 * (fract));
-
-
-      return (q15_t) (y >> 20);
-    }
-  }
-# 5708 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline q7_t arm_linear_interp_q7(
-  q7_t * pYData,
-  q31_t x,
-  uint32_t nValues)
-  {
-    q31_t y;
-    q7_t y0, y1;
-    q31_t fract;
-    uint32_t index;
-
-
-
-
-    if (x < 0)
-    {
-      return (pYData[0]);
-    }
-    index = (x >> 20) & 0xfff;
-
-    if (index >= (nValues - 1))
-    {
-      return (pYData[nValues - 1]);
-    }
-    else
-    {
-
-
-      fract = (x & 0x000FFFFF);
-
-
-      y0 = pYData[index];
-      y1 = pYData[index + 1];
-
-
-      y = ((y0 * (0xFFFFF - fract)));
-
-
-      y += (y1 * fract);
-
-
-      return (q7_t) (y >> 20);
-     }
-  }
-# 5761 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  float32_t arm_sin_f32(
-  float32_t x);
-
-
-
-
-
-
-
-  q31_t arm_sin_q31(
-  q31_t x);
-
-
-
-
-
-
-
-  q15_t arm_sin_q15(
-  q15_t x);
-
-
-
-
-
-
-
-  float32_t arm_cos_f32(
-  float32_t x);
-
-
-
-
-
-
-
-  q31_t arm_cos_q31(
-  q31_t x);
-
-
-
-
-
-
-
-  q15_t arm_cos_q15(
-  q15_t x);
-# 5849 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-__attribute__((always_inline)) static inline arm_status arm_sqrt_f32(
-  float32_t in,
-  float32_t * pOut)
-  {
-    if (in >= 0.0f)
-    {
-# 5870 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-      *pOut = sqrtf(in);
-
-
-      return (ARM_MATH_SUCCESS);
-    }
-    else
-    {
-      *pOut = 0.0f;
-      return (ARM_MATH_ARGUMENT_ERROR);
-    }
-  }
-# 5891 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-arm_status arm_sqrt_q31(
-  q31_t in,
-  q31_t * pOut);
-# 5904 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-arm_status arm_sqrt_q15(
-  q15_t in,
-  q15_t * pOut);
-# 5916 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_vsqrt_f32(
-  float32_t * pIn,
-  float32_t * pOut,
-  uint16_t len);
-
-  void arm_vsqrt_q31(
-  q31_t * pIn,
-  q31_t * pOut,
-  uint16_t len);
-
-  void arm_vsqrt_q15(
-  q15_t * pIn,
-  q15_t * pOut,
-  uint16_t len);
-# 5939 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
+# 2241 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
   __attribute__((always_inline)) static inline void arm_circularWrite_f32(
   int32_t * circBuffer,
   int32_t L,
@@ -25213,567 +27627,221 @@ arm_status arm_sqrt_q15(
 
     *readOffset = rOffset;
   }
-# 6245 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_power_q31(
-  const q31_t * pSrc,
-        uint32_t blockSize,
-        q63_t * pResult);
-# 6257 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_power_f32(
-  const float32_t * pSrc,
-        uint32_t blockSize,
-        float32_t * pResult);
-# 6269 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_power_q15(
-  const q15_t * pSrc,
-        uint32_t blockSize,
-        q63_t * pResult);
-# 6281 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_power_q7(
-  const q7_t * pSrc,
-        uint32_t blockSize,
-        q31_t * pResult);
-# 6293 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mean_q7(
-  const q7_t * pSrc,
-        uint32_t blockSize,
-        q7_t * pResult);
-# 6305 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mean_q15(
-  const q15_t * pSrc,
-        uint32_t blockSize,
-        q15_t * pResult);
-# 6317 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mean_q31(
-  const q31_t * pSrc,
-        uint32_t blockSize,
-        q31_t * pResult);
-# 6329 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_mean_f32(
-  const float32_t * pSrc,
-        uint32_t blockSize,
-        float32_t * pResult);
-# 6341 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_var_f32(
-  const float32_t * pSrc,
-        uint32_t blockSize,
-        float32_t * pResult);
-# 6353 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_var_q31(
-  const q31_t * pSrc,
-        uint32_t blockSize,
-        q31_t * pResult);
-# 6365 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_var_q15(
-  const q15_t * pSrc,
-        uint32_t blockSize,
-        q15_t * pResult);
-# 6377 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_rms_f32(
-  const float32_t * pSrc,
-        uint32_t blockSize,
-        float32_t * pResult);
-# 6389 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_rms_q31(
-  const q31_t * pSrc,
-        uint32_t blockSize,
-        q31_t * pResult);
-# 6401 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_rms_q15(
-  const q15_t * pSrc,
-        uint32_t blockSize,
-        q15_t * pResult);
-# 6413 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_std_f32(
-  const float32_t * pSrc,
-        uint32_t blockSize,
-        float32_t * pResult);
-# 6425 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_std_q31(
-  const q31_t * pSrc,
-        uint32_t blockSize,
-        q31_t * pResult);
-# 6437 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_std_q15(
-  const q15_t * pSrc,
-        uint32_t blockSize,
-        q15_t * pResult);
-# 6449 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mag_f32(
-  const float32_t * pSrc,
-        float32_t * pDst,
-        uint32_t numSamples);
-# 6461 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mag_q31(
-  const q31_t * pSrc,
-        q31_t * pDst,
-        uint32_t numSamples);
-# 6473 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mag_q15(
-  const q15_t * pSrc,
-        q15_t * pDst,
-        uint32_t numSamples);
-# 6487 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_dot_prod_q15(
-  const q15_t * pSrcA,
-  const q15_t * pSrcB,
-        uint32_t numSamples,
-        q31_t * realResult,
-        q31_t * imagResult);
-# 6503 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_dot_prod_q31(
-  const q31_t * pSrcA,
-  const q31_t * pSrcB,
-        uint32_t numSamples,
-        q63_t * realResult,
-        q63_t * imagResult);
-# 6519 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_dot_prod_f32(
-  const float32_t * pSrcA,
-  const float32_t * pSrcB,
-        uint32_t numSamples,
-        float32_t * realResult,
-        float32_t * imagResult);
-# 6534 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mult_real_q15(
-  const q15_t * pSrcCmplx,
-  const q15_t * pSrcReal,
-        q15_t * pCmplxDst,
-        uint32_t numSamples);
-# 6548 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mult_real_q31(
-  const q31_t * pSrcCmplx,
-  const q31_t * pSrcReal,
-        q31_t * pCmplxDst,
-        uint32_t numSamples);
-# 6562 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mult_real_f32(
-  const float32_t * pSrcCmplx,
-  const float32_t * pSrcReal,
-        float32_t * pCmplxDst,
-        uint32_t numSamples);
-# 6576 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_min_q7(
-  const q7_t * pSrc,
-        uint32_t blockSize,
-        q7_t * result,
-        uint32_t * index);
-# 6590 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_min_q15(
-  const q15_t * pSrc,
-        uint32_t blockSize,
-        q15_t * pResult,
-        uint32_t * pIndex);
-# 6604 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_min_q31(
-  const q31_t * pSrc,
-        uint32_t blockSize,
-        q31_t * pResult,
-        uint32_t * pIndex);
-# 6618 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_min_f32(
-  const float32_t * pSrc,
-        uint32_t blockSize,
-        float32_t * pResult,
-        uint32_t * pIndex);
-# 6632 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_max_q7(
-  const q7_t * pSrc,
-        uint32_t blockSize,
-        q7_t * pResult,
-        uint32_t * pIndex);
-# 6646 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_max_q15(
-  const q15_t * pSrc,
-        uint32_t blockSize,
-        q15_t * pResult,
-        uint32_t * pIndex);
-# 6660 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_max_q31(
-  const q31_t * pSrc,
-        uint32_t blockSize,
-        q31_t * pResult,
-        uint32_t * pIndex);
-# 6674 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_max_f32(
-  const float32_t * pSrc,
-        uint32_t blockSize,
-        float32_t * pResult,
-        uint32_t * pIndex);
-# 6688 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mult_cmplx_q15(
-  const q15_t * pSrcA,
-  const q15_t * pSrcB,
-        q15_t * pDst,
-        uint32_t numSamples);
-# 6702 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mult_cmplx_q31(
-  const q31_t * pSrcA,
-  const q31_t * pSrcB,
-        q31_t * pDst,
-        uint32_t numSamples);
-# 6716 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_cmplx_mult_cmplx_f32(
-  const float32_t * pSrcA,
-  const float32_t * pSrcB,
-        float32_t * pDst,
-        uint32_t numSamples);
-# 6729 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_float_to_q31(
-  const float32_t * pSrc,
-        q31_t * pDst,
+# 2548 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+void arm_levinson_durbin_f32(const float32_t *phi,
+  float32_t *a,
+  float32_t *err,
+  int nbCoefs);
+# 2561 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/filtering_functions.h"
+void arm_levinson_durbin_q31(const q31_t *phi,
+  q31_t *a,
+  q31_t *err,
+  int nbCoefs);
+# 50 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h" 1
+# 29 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+#define QUATERNION_MATH_FUNCTIONS_H_ 
+# 56 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_quaternion_norm_f32(const float32_t *pInputQuaternions,
+    float32_t *pNorms,
+    uint32_t nbQuaternions);
+# 67 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_quaternion_inverse_f32(const float32_t *pInputQuaternions,
+    float32_t *pInverseQuaternions,
+    uint32_t nbQuaternions);
+# 78 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_quaternion_conjugate_f32(const float32_t *inputQuaternions,
+    float32_t *pConjugateQuaternions,
+    uint32_t nbQuaternions);
+# 89 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_quaternion_normalize_f32(const float32_t *inputQuaternions,
+    float32_t *pNormalizedQuaternions,
+    uint32_t nbQuaternions);
+# 100 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_quaternion_product_single_f32(const float32_t *qa,
+    const float32_t *qb,
+    float32_t *r);
+# 112 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_quaternion_product_f32(const float32_t *qa,
+    const float32_t *qb,
+    float32_t *r,
+    uint32_t nbQuaternions);
+# 133 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_quaternion2rotation_f32(const float32_t *pInputQuaternions,
+    float32_t *pOutputRotations,
+    uint32_t nbQuaternions);
+# 144 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/quaternion_math_functions.h"
+void arm_rotation2quaternion_f32(const float32_t *pInputRotations,
+    float32_t *pOutputQuaternions,
+    uint32_t nbQuaternions);
+# 51 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
+# 1 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h" 1
+# 28 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+#define WINDOW_FUNCTIONS_H_ 
+# 61 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_welch_f64(
+        float64_t * pDst,
         uint32_t blockSize);
-# 6741 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_float_to_q15(
-  const float32_t * pSrc,
-        q15_t * pDst,
-        uint32_t blockSize);
-# 6753 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_float_to_q7(
-  const float32_t * pSrc,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 6765 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q31_to_float(
-  const q31_t * pSrc,
+# 81 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_welch_f32(
         float32_t * pDst,
         uint32_t blockSize);
-# 6777 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q31_to_q15(
-  const q31_t * pSrc,
-        q15_t * pDst,
+# 99 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_bartlett_f64(
+        float64_t * pDst,
         uint32_t blockSize);
-# 6789 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q31_to_q7(
-  const q31_t * pSrc,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 6801 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q15_to_float(
-  const q15_t * pSrc,
+# 119 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_bartlett_f32(
         float32_t * pDst,
         uint32_t blockSize);
-# 6813 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q15_to_q31(
-  const q15_t * pSrc,
-        q31_t * pDst,
+# 137 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hamming_f64(
+        float64_t * pDst,
         uint32_t blockSize);
-# 6825 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q15_to_q7(
-  const q15_t * pSrc,
-        q7_t * pDst,
-        uint32_t blockSize);
-# 6837 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q7_to_float(
-  const q7_t * pSrc,
+# 157 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hamming_f32(
         float32_t * pDst,
         uint32_t blockSize);
-# 6849 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q7_to_q31(
-  const q7_t * pSrc,
-        q31_t * pDst,
+# 175 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hanning_f64(
+        float64_t * pDst,
         uint32_t blockSize);
-# 6861 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  void arm_q7_to_q15(
-  const q7_t * pSrc,
-        q15_t * pDst,
+# 195 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hanning_f32(
+        float32_t * pDst,
         uint32_t blockSize);
-# 6936 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline float32_t arm_bilinear_interp_f32(
-  const arm_bilinear_interp_instance_f32 * S,
-  float32_t X,
-  float32_t Y)
-  {
-    float32_t out;
-    float32_t f00, f01, f10, f11;
-    float32_t *pData = S->pData;
-    int32_t xIndex, yIndex, index;
-    float32_t xdiff, ydiff;
-    float32_t b1, b2, b3, b4;
-
-    xIndex = (int32_t) X;
-    yIndex = (int32_t) Y;
-
-
-
-    if (xIndex < 0 || xIndex > (S->numRows - 1) || yIndex < 0 || yIndex > (S->numCols - 1))
-    {
-      return (0);
-    }
-
-
-    index = (xIndex - 1) + (yIndex - 1) * S->numCols;
-
-
-
-    f00 = pData[index];
-    f01 = pData[index + 1];
-
-
-    index = (xIndex - 1) + (yIndex) * S->numCols;
-
-
-
-    f10 = pData[index];
-    f11 = pData[index + 1];
-
-
-    b1 = f00;
-    b2 = f01 - f00;
-    b3 = f10 - f00;
-    b4 = f00 - f01 - f10 + f11;
-
-
-    xdiff = X - xIndex;
-
-
-    ydiff = Y - yIndex;
-
-
-    out = b1 + b2 * xdiff + b3 * ydiff + b4 * xdiff * ydiff;
-
-
-    return (out);
-  }
-# 7001 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline q31_t arm_bilinear_interp_q31(
-  arm_bilinear_interp_instance_q31 * S,
-  q31_t X,
-  q31_t Y)
-  {
-    q31_t out;
-    q31_t acc = 0;
-    q31_t xfract, yfract;
-    q31_t x1, x2, y1, y2;
-    int32_t rI, cI;
-    q31_t *pYData = S->pData;
-    uint32_t nCols = S->numCols;
-
-
-
-
-    rI = ((X & (q31_t)0xFFF00000) >> 20);
-
-
-
-
-    cI = ((Y & (q31_t)0xFFF00000) >> 20);
-
-
-
-    if (rI < 0 || rI > (S->numRows - 1) || cI < 0 || cI > (S->numCols - 1))
-    {
-      return (0);
-    }
-
-
-
-    xfract = (X & 0x000FFFFF) << 11U;
-
-
-    x1 = pYData[(rI) + (int32_t)nCols * (cI) ];
-    x2 = pYData[(rI) + (int32_t)nCols * (cI) + 1];
-
-
-
-    yfract = (Y & 0x000FFFFF) << 11U;
-
-
-    y1 = pYData[(rI) + (int32_t)nCols * (cI + 1) ];
-    y2 = pYData[(rI) + (int32_t)nCols * (cI + 1) + 1];
-
-
-    out = ((q31_t) (((q63_t) x1 * (0x7FFFFFFF - xfract)) >> 32));
-    acc = ((q31_t) (((q63_t) out * (0x7FFFFFFF - yfract)) >> 32));
-
-
-    out = ((q31_t) ((q63_t) x2 * (0x7FFFFFFF - yfract) >> 32));
-    acc += ((q31_t) ((q63_t) out * (xfract) >> 32));
-
-
-    out = ((q31_t) ((q63_t) y1 * (0x7FFFFFFF - xfract) >> 32));
-    acc += ((q31_t) ((q63_t) out * (yfract) >> 32));
-
-
-    out = ((q31_t) ((q63_t) y2 * (xfract) >> 32));
-    acc += ((q31_t) ((q63_t) out * (yfract) >> 32));
-
-
-    return ((q31_t)(acc << 2));
-  }
-# 7075 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline q15_t arm_bilinear_interp_q15(
-  arm_bilinear_interp_instance_q15 * S,
-  q31_t X,
-  q31_t Y)
-  {
-    q63_t acc = 0;
-    q31_t out;
-    q15_t x1, x2, y1, y2;
-    q31_t xfract, yfract;
-    int32_t rI, cI;
-    q15_t *pYData = S->pData;
-    uint32_t nCols = S->numCols;
-
-
-
-
-    rI = ((X & (q31_t)0xFFF00000) >> 20);
-
-
-
-
-    cI = ((Y & (q31_t)0xFFF00000) >> 20);
-
-
-
-    if (rI < 0 || rI > (S->numRows - 1) || cI < 0 || cI > (S->numCols - 1))
-    {
-      return (0);
-    }
-
-
-
-    xfract = (X & 0x000FFFFF);
-
-
-    x1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) ];
-    x2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) + 1];
-
-
-
-    yfract = (Y & 0x000FFFFF);
-
-
-    y1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) ];
-    y2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) + 1];
-
-
-
-
-
-    out = (q31_t) (((q63_t) x1 * (0xFFFFF - xfract)) >> 4U);
-    acc = ((q63_t) out * (0xFFFFF - yfract));
-
-
-    out = (q31_t) (((q63_t) x2 * (0xFFFFF - yfract)) >> 4U);
-    acc += ((q63_t) out * (xfract));
-
-
-    out = (q31_t) (((q63_t) y1 * (0xFFFFF - xfract)) >> 4U);
-    acc += ((q63_t) out * (yfract));
-
-
-    out = (q31_t) (((q63_t) y2 * (xfract)) >> 4U);
-    acc += ((q63_t) out * (yfract));
-
-
-
-    return ((q15_t)(acc >> 36));
-  }
-# 7153 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-  __attribute__((always_inline)) static inline q7_t arm_bilinear_interp_q7(
-  arm_bilinear_interp_instance_q7 * S,
-  q31_t X,
-  q31_t Y)
-  {
-    q63_t acc = 0;
-    q31_t out;
-    q31_t xfract, yfract;
-    q7_t x1, x2, y1, y2;
-    int32_t rI, cI;
-    q7_t *pYData = S->pData;
-    uint32_t nCols = S->numCols;
-
-
-
-
-    rI = ((X & (q31_t)0xFFF00000) >> 20);
-
-
-
-
-    cI = ((Y & (q31_t)0xFFF00000) >> 20);
-
-
-
-    if (rI < 0 || rI > (S->numRows - 1) || cI < 0 || cI > (S->numCols - 1))
-    {
-      return (0);
-    }
-
-
-
-    xfract = (X & (q31_t)0x000FFFFF);
-
-
-    x1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) ];
-    x2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) + 1];
-
-
-
-    yfract = (Y & (q31_t)0x000FFFFF);
-
-
-    y1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) ];
-    y2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) + 1];
-
-
-    out = ((x1 * (0xFFFFF - xfract)));
-    acc = (((q63_t) out * (0xFFFFF - yfract)));
-
-
-    out = ((x2 * (0xFFFFF - yfract)));
-    acc += (((q63_t) out * (xfract)));
-
-
-    out = ((y1 * (0xFFFFF - xfract)));
-    acc += (((q63_t) out * (yfract)));
-
-
-    out = ((y2 * (yfract)));
-    acc += (((q63_t) out * (xfract)));
-
-
-    return ((q7_t)(acc >> 40));
-  }
-
-
-
-
-
-
-
-#define multAcc_32x32_keep32_R(a,x,y) a = (q31_t) (((((q63_t) a) << 32) + ((q63_t) x * y) + 0x80000000LL ) >> 32)
-
-
-
-#define multSub_32x32_keep32_R(a,x,y) a = (q31_t) (((((q63_t) a) << 32) - ((q63_t) x * y) + 0x80000000LL ) >> 32)
-
-
-
-#define mult_32x32_keep32_R(a,x,y) a = (q31_t) (((q63_t) x * y + 0x80000000LL ) >> 32)
-
-
-
-#define multAcc_32x32_keep32(a,x,y) a += (q31_t) (((q63_t) x * y) >> 32)
-
-
-
-#define multSub_32x32_keep32(a,x,y) a -= (q31_t) (((q63_t) x * y) >> 32)
-
-
-
-#define mult_32x32_keep32(a,x,y) a = (q31_t) (((q63_t) x * y ) >> 32)
-# 7280 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-#define LOW_OPTIMIZATION_ENTER __attribute__(( optimize("-O1") ))
-
-#define LOW_OPTIMIZATION_EXIT 
-#define IAR_ONLY_LOW_OPTIMIZATION_ENTER 
-#define IAR_ONLY_LOW_OPTIMIZATION_EXIT 
-# 7340 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/DSP/Include/arm_math.h"
-#pragma GCC diagnostic pop
+# 213 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall3_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 233 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall3_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 251 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 271 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 289 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall3a_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 309 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall3a_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 327 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall3b_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 347 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall3b_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 365 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4a_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 385 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4a_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 403 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_blackman_harris_92db_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 423 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_blackman_harris_92db_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 441 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4b_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 461 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4b_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 479 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4c_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 499 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_nuttall4c_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 517 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft90d_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 537 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft90d_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 555 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft95_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 575 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft95_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 593 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft116d_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 613 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft116d_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 631 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft144d_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 651 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft144d_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 669 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft169d_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 689 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft169d_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 707 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft196d_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 727 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft196d_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 745 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft223d_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 765 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft223d_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 783 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft248d_f64(
+        float64_t * pDst,
+        uint32_t blockSize);
+# 803 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/dsp/window_functions.h"
+  void arm_hft248d_f32(
+        float32_t * pDst,
+        uint32_t blockSize);
+# 52 "C:/Users/Cuba/Documents/uni/STM32/CMSIS-DSP/CMSIS-DSP/Include/arm_math.h" 2
 # 13 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Inc/signals.h" 2
+
+
 
 #define SIGNAL_5HZ_LEN 301
 #define SIGNAL_F32_1KHZ_15KHZ_LEN 320
@@ -25793,57 +27861,59 @@ void f32_Plot_Input_Signal(float32_t *signal,uint32_t signal_Lenght);
 
 
 void pseudoDelay(uint32_t cycles);
+# 42 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Inc/signals.h"
+float32_t* createChirp(uint32_t fs,uint8_t deltaT);
 # 8 "../Application/Wavelet_Analysis/Src/signals.c" 2
 
 
 const float _5hz_signal[301]=
 {
- 0,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,1.2246e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.4493e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,3.6739e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-4.8986e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,6.1232e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-7.3479e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-2.6955e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-9.7972e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,1.1022e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-1.2246e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-2.2056e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-1.4696e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-1.9607e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,5.3909e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,5.3897e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-9.0649e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,5.6346e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.2044e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,5.8795e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.4493e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-9.8096e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,4.4112e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,6.3694e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.9392e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-4.911e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,3.9213e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-7.3516e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-3.429e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-1.238e-18,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-1.0779e-14
+  0,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,1.2246e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.4493e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,3.6739e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-4.8986e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,6.1232e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-7.3479e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-2.6955e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-9.7972e-16,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,1.1022e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-1.2246e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-2.2056e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-1.4696e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-1.9607e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,5.3909e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,5.3897e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-9.0649e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,5.6346e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.2044e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,5.8795e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.4493e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-9.8096e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,4.4112e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,6.3694e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-2.9392e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-4.911e-16,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,3.9213e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-7.3516e-15,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-3.429e-15,0.30902,0.58779,0.80902,0.95106,1,0.95106,0.80902,0.58779,0.30902,-1.238e-18,-0.30902,-0.58779,-0.80902,-0.95106,-1,-0.95106,-0.80902,-0.58779,-0.30902,-1.0779e-14
 
 };
 
 const float32_t inputSignal_f32_1kHz_15kHz[320] =
 {
-+0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
-+0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
-+0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
--0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
--0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
--0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
-+0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
-+0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
-+0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
-+0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
--0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
--0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
-+0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
-+0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
-+0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
-+0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
--0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
--0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
--0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
-+0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
-+0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
--0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
--0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
--0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
-+0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
-+0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
-+0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
-+0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
--0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
--0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
--0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
-+0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
-+0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
-+0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
--0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
--0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
--0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
-+0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
-+0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
-+0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
+  +0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
+  +0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
+  +0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
+  -0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
+  -0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
+  -0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
+  +0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
+  +0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
+  +0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
+  +0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
+  -0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
+  -0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
+  +0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
+  +0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
+  +0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
+  +0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
+  -0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
+  -0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
+  -0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
+  +0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
+  +0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
+  -0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
+  -0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
+  -0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
+  +0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
+  +0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
+  +0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
+  +0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
+  -0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
+  -0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
+  -0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
+  +0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
+  +0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
+  +0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
+  -0.8660254038f, -0.4619397663f, -1.3194792169f, -1.1827865776f, -0.5000000000f, -1.1827865776f, -1.3194792169f, -0.4619397663f,
+  -0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
+  -0.0000000000f, +0.5924659585f, -0.0947343455f, +0.1913417162f, +1.0000000000f, +0.4174197128f, +0.3535533906f, +1.2552931065f,
+  +0.8660254038f, +0.4619397663f, +1.3194792169f, +1.1827865776f, +0.5000000000f, +1.1827865776f, +1.3194792169f, +0.4619397663f,
+  +0.8660254038f, +1.2552931065f, +0.3535533906f, +0.4174197128f, +1.0000000000f, +0.1913417162f, -0.0947343455f, +0.5924659585f,
+  +0.0000000000f, -0.5924659585f, +0.0947343455f, -0.1913417162f, -1.0000000000f, -0.4174197128f, -0.3535533906f, -1.2552931065f,
 };
 
 
@@ -25880,4 +27950,23 @@ void f32_Plot_Input_Signal(float32_t *signal,uint32_t signal_Lenght)
 
  }
 
+}
+
+
+
+
+
+
+
+float32_t* createChirp(uint32_t fs,uint8_t deltaT){
+
+ uint32_t num_Samples= fs * deltaT;
+
+ float32_t *signal=(float32_t*)malloc(sizeof(float32_t)*num_Samples);
+
+ for (int i = 0; i < num_Samples; ++i) {
+  signal[i]=sinf(2*3.14159265358979f*(0.1f + ((2.0f * (float32_t)i)/num_Samples))*((float32_t)i/(float32_t)fs));
+
+ }
+ return signal;
 }

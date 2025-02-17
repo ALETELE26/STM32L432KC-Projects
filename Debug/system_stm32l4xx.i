@@ -479,6 +479,7 @@
 #define STM32L432xx 1
 #define __weak __attribute__((weak))
 #define ARM_MATH_CM4 1
+#define ARM_MATH_DSP 1
 # 1 "../Core/Src/system_stm32l4xx.c"
 # 91 "../Core/Src/system_stm32l4xx.c"
 # 1 "C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Core/Inc/stm32l4xx.h" 1
