@@ -1,0 +1,5 @@
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Src/cwt.c:27:6:convolve	56	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Src/cwt.c:69:6:fftbased	40	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Src/cwt.c:101:6:daughter_wavelet_multiplication	80	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Src/cwt.c:173:6:cwt	104	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/Wavelet_Analysis/Src/cwt.c:224:10:find2power	24	static

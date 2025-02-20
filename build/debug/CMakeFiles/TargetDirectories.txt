@@ -1,0 +1,3 @@
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/build/debug/CMakeFiles/STM32L432KC.dir
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/build/debug/CMakeFiles/edit_cache.dir
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/build/debug/CMakeFiles/rebuild_cache.dir

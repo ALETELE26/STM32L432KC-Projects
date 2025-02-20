@@ -1,3 +1,3 @@
-core_cm4.h:1679:20:__NVIC_EnableIRQ	2
-core_cm4.h:1809:20:__NVIC_SetPriority	2
-exti.c:13:6:exti_buttonConfig	1
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1679:20:__NVIC_EnableIRQ	2
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1809:20:__NVIC_SetPriority	2
+../Peripherals/Src/exti.c:13:6:exti_buttonConfig	1

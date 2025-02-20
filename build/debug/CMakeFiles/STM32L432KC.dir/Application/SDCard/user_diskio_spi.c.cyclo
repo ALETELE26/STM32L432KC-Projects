@@ -1,0 +1,12 @@
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:105:13:set_sd_interface_speed	2
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:117:13:spi_rw	3
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:138:13:SPI_DMA_TransmitReceive	10
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:272:13:wait_ready	3
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:287:13:send_cmd	10
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:326:9:USER_SPI_initialize	16
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:403:9:USER_SPI_status	1
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:409:16:rcvr_datablock	4
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:449:9:USER_SPI_read	10
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:482:16:xmit_datablock	4
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:518:9:USER_SPI_write	13
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Application/SDCard/user_diskio_spi.c:551:9:USER_SPI_ioctl	30

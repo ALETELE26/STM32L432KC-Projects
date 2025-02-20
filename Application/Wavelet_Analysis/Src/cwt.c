@@ -138,13 +138,13 @@ void daughter_wavelet_multiplication(complex_t *input,
 	{
 		float32_t *tmpVector2=(float32_t*)malloc(sizeof(float32_t) * isize);
 		arm_fill_f32(0.0f, tmpVector2, isize);
-		arm_cmplx_mult_real_f32((float32_t)input, tmpVector,tmpVector2, endpoint);
-		arm_cmplx_conj_f32(tmpVector2, (float32_t)output,isize);
+		arm_cmplx_mult_real_f32((float32_t*)input, tmpVector,tmpVector2, endpoint);
+		arm_cmplx_conj_f32(tmpVector2, (float32_t*)output,isize);
 		free(tmpVector2);
 	}
 	else{
 		//Multiplico la wavelet hija por la transformada de la señal
-		arm_cmplx_mult_real_f32((float32_t)input, tmpVector,(float32_t)output, endpoint);
+		arm_cmplx_mult_real_f32((float32_t*)input, tmpVector,(float32_t*)output, endpoint);
 		free(tmpVector);
 	}
 	//Si se requiere procesar la parte negativa (doublesided)
@@ -178,8 +178,7 @@ void cwt(Morlet_t *mor,
 	//Arreglos Temporales
 	complex_t *Ihat, *O1;
 	//Encuentro la potencia de dos más cercana al tamaño de la señal de entrada
-	const uint32_t nt = find2power(sigLen);
-	const uint32_t newsize = 1 << nt;
+	const uint32_t newsize = find2power(sigLen);
 	//Cannot pass the nyquist frequency
 	assert(newsize <= 4096 && "Tamaño de la transformada no soportado");
 	//Inicializo los resultados intermedios de la FFT
@@ -221,3 +220,17 @@ void cwt(Morlet_t *mor,
 }
 
 
+
+uint32_t find2power(uint32_t n)
+{
+    // Si n es 0, definimos que la función retorne 0 para evitar bucle infinito.
+    if(n == 0)
+        return 0;
+
+    uint32_t m2 = 1;
+    // Mientras m2 sea menor que n, se multiplica por 2
+    while(m2 < n) {
+        m2 <<= 1;
+    }
+    return m2;
+}

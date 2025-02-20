@@ -99,16 +99,42 @@ void f32_Plot_Input_Signal(float32_t *signal,uint32_t signal_Lenght)
  * -fs: frecuencia de muestreo de la señal (Hz)
  * -deltaT:tiempo muestreado de la señal    (sec)
  */
-float32_t* createChirp(uint32_t fs,uint8_t deltaT){
+float32_t* createChirp(uint32_t fs,float32_t deltaT,float32_t freq_Inicial,float32_t freq_Final){
 	//Number of samples is sampling rate by time
-	uint32_t num_Samples= fs * deltaT;
+	uint32_t num_Samples= (uint32_t)((float32_t)fs * deltaT);
 	//Inicialize my signal vector
 	float32_t *signal=(float32_t*)malloc(sizeof(float32_t)*num_Samples);
+	// Generar el vector de tiempo
+	float32_t *time = (float *)malloc(num_Samples * sizeof(float));
+	float32_t *time_alCuadrado = (float *)malloc(num_Samples * sizeof(float));
+	float32_t *temp1= (float *)malloc(num_Samples * sizeof(float));
+	float32_t *temp2= (float *)malloc(num_Samples * sizeof(float));
+	for (int i = 0; i < num_Samples; i++) {
+		time[i] = (float32_t)i / (float32_t)fs;
+	}
+	//Calculo la tasa de cambio de la frecuencia
+	float32_t k=(freq_Final-freq_Inicial)/time[num_Samples-1];
+
+	//Elevo al cuadrado mi vector temporal
+	arm_mult_f32(time, time, time_alCuadrado, num_Samples);
+	//temp1=(t^2)*0.5k
+	arm_scale_f32(time_alCuadrado, (0.5f*k), temp1, num_Samples);
+	//temp2=t*f0
+	arm_scale_f32(time, freq_Inicial, temp2, num_Samples);
+	//time_alcuadrado=(t*f0)+((t^2)*0.5k)
+	arm_add_f32(temp2, temp1, time_alCuadrado,num_Samples);
+	//time=((t*f0)+((t^2)*0.5k))*(2*PI)
+	arm_scale_f32(time_alCuadrado, (2.0f*PI), time, num_Samples);
 	//Generate my signal
 	for (int i = 0; i < num_Samples; ++i) {
-		signal[i]=sinf(2*PI*(0.1f + ((2.0f * (float32_t)i)/num_Samples))*((float32_t)i/(float32_t)fs));
-
+		signal[i]=arm_sin_f32(time[i]);
 	}
+	//Libero los vectores auxiliares
+	free(time);
+	free(temp1);
+	free(time_alCuadrado);
+	free(temp2);
+
 	return signal;
 }
 

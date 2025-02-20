@@ -1,2 +1,2 @@
-printf_redirect.c:12:5:__io_putchar	1
-printf_redirect.c:19:5:_write	2
+../Core/Src/printf_redirect.c:12:5:__io_putchar	1
+../Core/Src/printf_redirect.c:19:5:_write	2

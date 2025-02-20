@@ -90,21 +90,11 @@ void daughter_wavelet_multiplication(complex_t *input, complex_t *output, float3
 
 
 /*
- * @Brief funcion inline para buscar la primera pot de 2 que sea >= a n
- * @Note Se puede llamar inline porque solo se llama una vez en el codigo
+ * @Brief funcion para buscar la primera pot de 2 que sea >= a n
+ *
  */
-inline int find2power(int n)
-{
-    int m, m2;
+uint32_t find2power(uint32_t n);
 
-    m = 0;
-    m2 = 1<<m; /* 2 to the power of m */
-    while (m2-n < 0) {
-        m++;
-        m2 <<= 1; /* m2 = m2*2 */
-    }
-    return(m);
-}
 
 //___________________________________/////_______________________________________//
 

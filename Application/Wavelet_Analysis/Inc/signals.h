@@ -38,7 +38,8 @@ void pseudoDelay(uint32_t cycles);
  * @Par:
  * -fs: frecuencia de muestreo de la señal (Hz)
  * -deltaT:tiempo muestreado de la señal    (sec)
+ *
  */
-float32_t* createChirp(uint32_t fs,uint8_t deltaT);
+float32_t* createChirp(uint32_t fs,float32_t deltaT,float32_t freq_Inicial,float32_t freq_Final);
 
 #endif /* WAVELET_ANALYSIS_INC_SIGNALS_H_ */

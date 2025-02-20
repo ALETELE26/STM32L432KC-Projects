@@ -1,5 +1,5 @@
-diskio.c:25:9:disk_status	1
-diskio.c:38:9:disk_initialize	1
-diskio.c:51:9:disk_read	1
-diskio.c:72:9:disk_write	1
-diskio.c:91:9:disk_ioctl	1
+../Middleware/FatFs/diskio.c:25:9:disk_status	1
+../Middleware/FatFs/diskio.c:38:9:disk_initialize	1
+../Middleware/FatFs/diskio.c:51:9:disk_read	1
+../Middleware/FatFs/diskio.c:72:9:disk_write	1
+../Middleware/FatFs/diskio.c:91:9:disk_ioctl	1

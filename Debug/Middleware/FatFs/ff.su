@@ -58,7 +58,7 @@
 ../Middleware/FatFs/ff.c:3761:9:f_mount	40	static
 ../Middleware/FatFs/ff.c:3821:9:f_open	184	static
 ../Middleware/FatFs/ff.c:4022:9:f_read	120	static
-../Middleware/FatFs/ff.c:4122:9:f_write	80	static
+../Middleware/FatFs/ff.c:4122:9:f_write	88	static
 ../Middleware/FatFs/ff.c:4243:9:f_sync	112	static
 ../Middleware/FatFs/ff.c:4324:9:f_close	24	static
 ../Middleware/FatFs/ff.c:4541:9:f_lseek	192	static

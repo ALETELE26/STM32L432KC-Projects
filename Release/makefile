@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,8 +60,8 @@ all: main-build
 main-build: STM32L432KC.elf secondary-outputs
 
 # Tool invocations
-STM32L432KC.elf STM32L432KC.map: $(OBJS) $(USER_OBJS) C:\Users\Cuba\Documents\Escuela\STM32\STM32L432KC\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32L432KC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Cuba\Documents\Escuela\STM32\STM32L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32L432KC.elf STM32L432KC.map: $(OBJS) $(USER_OBJS) C:\Users\Cuba\Documents\uni\STM32\STM32L432KC\STM32L432KCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32L432KC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Cuba\Documents\uni\STM32\STM32L432KC\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32L432KC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

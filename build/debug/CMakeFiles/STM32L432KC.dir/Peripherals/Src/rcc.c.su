@@ -1,0 +1,11 @@
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1770:20:__NVIC_ClearPendingIRQ	16	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/CMSIS/Include/core_cm4.h:1809:20:__NVIC_SetPriority	16	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:17:6:rcc_MSI_PLL_config	24	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:91:6:rcc_USART2_for_BR_config	4	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:169:6:rcc_SysTick_config	16	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:188:6:rcc_msIncTicks	4	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:195:10:rcc_msGetTicks	4	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:202:6:rcc_msDelay	24	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:210:6:rcc_HSI_UART_config	4	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:225:6:rcc_Max_Speed_CLK_Config	4	static
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Peripherals/Src/rcc.c:277:6:SysTick_Handler	8	static

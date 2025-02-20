@@ -1,0 +1,5 @@
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/diskio.c:25:9:disk_status	1
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/diskio.c:38:9:disk_initialize	1
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/diskio.c:51:9:disk_read	1
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/diskio.c:72:9:disk_write	1
+C:/Users/Cuba/Documents/uni/STM32/STM32L432KC/Middleware/FatFs/diskio.c:91:9:disk_ioctl	1

@@ -1,3 +1,3 @@
 ../Application/Wavelet_Analysis/Src/wavelet.c:12:6:wavelet_Init	16	static
 ../Application/Wavelet_Analysis/Src/wavelet.c:23:6:morlet_Init	16	static
-../Application/Wavelet_Analysis/Src/wavelet.c:48:6:morlet_Gen_Freq	56	static,ignoring_inline_asm
+../Application/Wavelet_Analysis/Src/wavelet.c:50:6:morlet_Gen_Freq	56	static,ignoring_inline_asm
